@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THEATRON Operations Suite — Showtime & Booking Operations</title>
+  <link rel="stylesheet" href="showtimes.css">
+</head>
+<body>
+
+  <!-- MOBILE SIDEBAR BACKDROP -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <!-- Brand Header -->
+      <div class="brand-header">
+        <div class="brand-main">
+          <div class="brand-logo-box">
+            <span class="brand-logo-letter">T</span>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">THEATRON</span>
+            <span class="brand-subtitle">OPERATIONS SUITE</span>
+          </div>
+        </div>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close menu">✕</button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-badge">16</span>
+          <span>Dashboard & Analytics</span>
+        </a>
+        <a href="movies.html" class="nav-item">
+          <span class="nav-badge">17</span>
+          <span>Movie Management</span>
+        </a>
+        <a href="showtimes.html" class="nav-item active">
+          <span class="nav-badge">18</span>
+          <span>Showtimes & Bookings</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+      <button class="btn-architecture" id="btnArchMap">18–Page Architecture Map</button>
+      <button class="btn-customer-site" id="btnCustomerSite">← Customer Website</button>
+    </div>
+  </aside>
+
+  <!-- Floating info button in bottom-left -->
+  <button class="floating-info-btn" title="System Information">i</button>
+
+  <!-- MAIN APP CONTAINER -->
+  <div class="app-container">
+    <!-- TOP HEADER -->
+    <header class="top-header">
+      <div class="header-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="breadcrumb">
+          <span class="breadcrumb-root">THEATRON Admin</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Showtimes & Bookings</span>
+        </div>
+      </div>
+      <div class="director-badge">
+        <span>Director:</span>
+        <span class="director-name">E. Sterling</span>
+        <span class="status-dot" title="Online"></span>
+      </div>
+    </header>
+
+    <!-- PAGE MAIN CONTENT -->
+    <main class="page-content">
+      <!-- HEADER ROW WITH TABS -->
+      <section class="content-header">
+        <div class="header-title-area">
+          <h1 class="page-title">SHOWTIME &amp; BOOKING OPERATIONS</h1>
+          <p class="page-subtitle">Schedule auditorium screenings and manage customer ticket reservations.</p>
+        </div>
+        <div class="tab-group">
+          <button class="tab-btn active" id="tabShowtimes">Showtimes &amp; Screens (<span id="showtimeCount">14</span>)</button>
+          <button class="tab-btn" id="tabBookings">Customer Bookings (3)</button>
+        </div>
+      </section>
+
+      <!-- SHOWTIMES & SCREENS VIEW -->
+      <div id="showtimesView">
+        <!-- SCHEDULE NEW SCREENING SLOT CARD -->
+        <section class="schedule-card">
+          <h2 class="schedule-title">SCHEDULE NEW SCREENING SLOT</h2>
+          <form class="schedule-form" id="scheduleForm">
+            <div>
+              <select class="form-select-slot" id="slotMovie" required>
+                <option value="DOOMSDAY: ECLIPSE PROTOCOL" selected>DOOMSDAY: ECLIPSE PROTOC</option>
+                <option value="THE VELVET SOVEREIGN">THE VELVET SOVEREIGN</option>
+                <option value="NOCTURNE IN OBSIDIAN">NOCTURNE IN OBSIDIAN</option>
+                <option value="AETHER & ASH">AETHER &amp; ASH</option>
+                <option value="CRIMSON SOLSTICE">CRIMSON SOLSTICE</option>
+                <option value="THE NINTH MONOLITH">THE NINTH MONOLITH</option>
+              </select>
+            </div>
+            <div>
+              <select class="form-select-slot" id="slotCinema" required>
+                <option value="THEATRON Grand Flagship" selected>THEATRON Grand Flagship</option>
+                <option value="THEATRON Royal Promenade">THEATRON Royal Promenade</option>
+                <option value="THEATRON Velvet Lounge">THEATRON Velvet Lounge</option>
+              </select>
+            </div>
+            <div>
+              <input type="text" class="form-input-slot" id="slotAuditorium" value="Royal Gold Lounge 3" placeholder="Auditorium" required>
+            </div>
+            <div class="time-input-wrapper">
+              <input type="text" class="form-input-slot" id="slotTime" value="09:30 PM" placeholder="Time" required>
+              <span class="time-icon">🕒</span>
+            </div>
+            <div>
+              <button type="submit" class="btn-publish">+ Publish Showtime</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- SHOWTIMES TABLE CARD -->
+        <section class="table-card" style="margin-top: 24px;">
+          <div class="table-responsive">
+            <table class="showtimes-table">
+            <thead>
+              <tr>
+                <th>MOTION PICTURE</th>
+                <th>CINEMA LOCATION</th>
+                <th>AUDITORIUM / FORMAT</th>
+                <th>TIME</th>
+                <th>BASE PRICE</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="showtimesTableBody">
+              <!-- Row 1 -->
+              <tr>
+                <td class="movie-title-cell">DOOMSDAY : ECLIPSE PROTOCOL</td>
+                <td class="location-cell">THEATRON Grand Flagship</td>
+                <td class="auditorium-cell">Grand IMAX Laser 1 <span class="format-gold">(IMAX Laser)</span></td>
+                <td class="time-cell">14 : 30</td>
+                <td class="price-cell">$22</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr>
+                <td class="movie-title-cell">DOOMSDAY : ECLIPSE PROTOCOL</td>
+                <td class="location-cell">THEATRON Grand Flagship</td>
+                <td class="auditorium-cell">Dolby Atmos Hall 2 <span class="format-gold">(Dolby Atmos)</span></td>
+                <td class="time-cell">18 : 15</td>
+                <td class="price-cell">$20</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 3 -->
+              <tr>
+                <td class="movie-title-cell">DOOMSDAY : ECLIPSE PROTOCOL</td>
+                <td class="location-cell">THEATRON Grand Flagship</td>
+                <td class="auditorium-cell">Royal Gold Lounge 3 <span class="format-gold">(Royal VIP)</span></td>
+                <td class="time-cell">21 : 45</td>
+                <td class="price-cell">$28</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 4 -->
+              <tr>
+                <td class="movie-title-cell">DOOMSDAY : ECLIPSE PROTOCOL</td>
+                <td class="location-cell">THEATRON Royal Promenade</td>
+                <td class="auditorium-cell">IMAX 3D Auditorium 2 <span class="format-gold">(IMAX 3D)</span></td>
+                <td class="time-cell">19 : 30</td>
+                <td class="price-cell">$22</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 5 -->
+              <tr>
+                <td class="movie-title-cell">THE VELVET SOVEREIGN</td>
+                <td class="location-cell">THEATRON Grand Flagship</td>
+                <td class="auditorium-cell">Royal Gold Lounge 3 <span class="format-gold">(Royal VIP)</span></td>
+                <td class="time-cell">17 : 00</td>
+                <td class="price-cell">$26</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 6 -->
+              <tr>
+                <td class="movie-title-cell">THE VELVET SOVEREIGN</td>
+                <td class="location-cell">THEATRON Velvet Lounge</td>
+                <td class="auditorium-cell">Royal VIP Salon 1 <span class="format-gold">(Royal VIP)</span></td>
+                <td class="time-cell">20 : 30</td>
+                <td class="price-cell">$30</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 7 -->
+              <tr>
+                <td class="movie-title-cell">NOCTURNE IN OBSIDIAN</td>
+                <td class="location-cell">THEATRON Velvet Lounge</td>
+                <td class="auditorium-cell">Director's Screening Room 2 <span class="format-gold">(35mm Archival)</span></td>
+                <td class="time-cell">19 : 00</td>
+                <td class="price-cell">$24</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 8 -->
+              <tr>
+                <td class="movie-title-cell">NOCTURNE IN OBSIDIAN</td>
+                <td class="location-cell">THEATRON Grand Flagship</td>
+                <td class="auditorium-cell">Dolby Atmos Hall 2 <span class="format-gold">(Dolby Atmos)</span></td>
+                <td class="time-cell">21 : 15</td>
+                <td class="price-cell">$22</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 9 -->
+              <tr>
+                <td class="movie-title-cell">AETHER &amp; ASH</td>
+                <td class="location-cell">THEATRON Grand Flagship</td>
+                <td class="auditorium-cell">Grand IMAX Laser 1 <span class="format-gold">(IMAX Laser)</span></td>
+                <td class="time-cell">16 : 45</td>
+                <td class="price-cell">$24</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 10 -->
+              <tr>
+                <td class="movie-title-cell">AETHER &amp; ASH</td>
+                <td class="location-cell">THEATRON Royal Promenade</td>
+                <td class="auditorium-cell">IMAX 3D Auditorium 2 <span class="format-gold">(IMAX 3D)</span></td>
+                <td class="time-cell">22 : 00</td>
+                <td class="price-cell">$22</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 11 -->
+              <tr>
+                <td class="movie-title-cell">CRIMSON SOLSTICE</td>
+                <td class="location-cell">THEATRON Velvet Lounge</td>
+                <td class="auditorium-cell">Royal VIP Salon 1 <span class="format-gold">(Royal VIP)</span></td>
+                <td class="time-cell">18 : 30</td>
+                <td class="price-cell">$28</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 12 -->
+              <tr>
+                <td class="movie-title-cell">CRIMSON SOLSTICE</td>
+                <td class="location-cell">THEATRON Grand Flagship</td>
+                <td class="auditorium-cell">Royal Gold Lounge 3 <span class="format-gold">(Royal VIP)</span></td>
+                <td class="time-cell">20 : 00</td>
+                <td class="price-cell">$26</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 13 -->
+              <tr>
+                <td class="movie-title-cell">THE NINTH MONOLITH</td>
+                <td class="location-cell">THEATRON Grand Flagship</td>
+                <td class="auditorium-cell">Grand IMAX Laser 1 <span class="format-gold">(IMAX Laser)</span></td>
+                <td class="time-cell">12 : 15</td>
+                <td class="price-cell">$22</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+              <!-- Row 14 -->
+              <tr>
+                <td class="movie-title-cell">THE NINTH MONOLITH</td>
+                <td class="location-cell">THEATRON Royal Promenade</td>
+                <td class="auditorium-cell">IMAX 3D Auditorium 2 <span class="format-gold">(IMAX 3D)</span></td>
+                <td class="time-cell">17 : 30</td>
+                <td class="price-cell">$20</td>
+                <td><button class="btn-remove">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- CUSTOMER BOOKINGS TAB VIEW -->
+      <div id="bookingsView" class="bookings-view">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <h2 style="font-family:'Cinzel',serif; font-size:16px; font-weight:700; color:#fff; letter-spacing:0.8px;">CUSTOMER RESERVATIONS TELEMETRY</h2>
+          <button class="btn-gold" id="btnOpenBookingModal" style="padding:8px 18px; font-size:12.5px;">+ Create Patron Booking</button>
+        </div>
+        <section class="table-card">
+          <div class="table-responsive">
+            <table class="showtimes-table">
+              <thead>
+                <tr>
+                  <th>BOOKING ID</th>
+                  <th>PATRON</th>
+                  <th>MOTION PICTURE</th>
+                  <th>SEATS</th>
+                  <th>TOTAL</th>
+                  <th>STATUS</th>
+                  <th>ACTION</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsTableBody">
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- CREATE PATRON BOOKING MODAL -->
+  <div class="modal-overlay" id="bookingModal" style="position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:1000;">
+    <div style="width:520px;max-width:95vw;background:#1e181b;border:1px solid #3a2b31;border-radius:14px;box-shadow:0 25px 60px rgba(0,0,0,0.8);overflow:hidden;">
+      <div style="padding:18px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2d2226;background:#21191d;">
+        <h3 style="font-family:'Cinzel',serif;font-size:16px;font-weight:700;color:var(--gold-primary);letter-spacing:1px;">CREATE PATRON RESERVATION</h3>
+        <button id="btnCloseBookingModal" style="background:transparent;border:none;color:#8e827b;font-size:20px;cursor:pointer;">✕</button>
+      </div>
+      <form id="createBookingForm">
+        <div style="padding:22px 24px;display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <label style="font-size:12.5px;color:#b1a6a0;">Patron Name</label>
+            <input type="text" id="bookingPatron" class="form-input-slot" placeholder="e.g. Julian Hayes" required>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <label style="font-size:12.5px;color:#b1a6a0;">Motion Picture</label>
+            <select id="bookingMovie" class="form-select-slot" required></select>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <label style="font-size:12.5px;color:#b1a6a0;">Seats (comma separated)</label>
+              <input type="text" id="bookingSeats" class="form-input-slot" placeholder="e.g. H7, H8" required>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <label style="font-size:12.5px;color:#b1a6a0;">Total Amount ($)</label>
+              <input type="number" step="0.01" id="bookingTotal" class="form-input-slot" placeholder="56.00" required>
+            </div>
+          </div>
+        </div>
+        <div style="padding:16px 24px;background:#1a1417;border-top:1px solid #2d2226;display:flex;justify-content:flex-end;gap:12px;">
+          <button type="button" id="btnCancelBookingModal" style="padding:9px 18px;border-radius:8px;background:#281f23;border:1px solid #2d2226;color:#fff;cursor:pointer;">Cancel</button>
+          <button type="submit" class="btn-publish" style="padding:9px 22px;">Confirm Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    </main>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification">
+    <span>✓ Showtime successfully published!</span>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="showtimes.js"></script>
+</body>
+</html>

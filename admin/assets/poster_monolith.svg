@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 118" width="84" height="118">
+  <defs>
+    <radialGradient id="mg" cx="50%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#4d1d2b" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#220d15" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#140d11" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <rect width="84" height="118" rx="8" fill="#1c1316" stroke="#d5a75c" stroke-opacity="0.4" stroke-width="1.5"/>
+  <rect x="3" y="3" width="78" height="112" rx="6" fill="url(#mg)"/>
+  <!-- Monolith -->
+  <rect x="35" y="22" width="14" height="32" fill="#42131f" stroke="#d5a75c" stroke-width="1" rx="1"/>
+  <line x1="42" y1="24" x2="42" y2="52" stroke="#d5a75c" stroke-width="0.8" stroke-opacity="0.8"/>
+  <!-- Title -->
+  <text x="42" y="78" fill="#ffffff" font-family="Cinzel, serif" font-size="5.4" font-weight="bold" text-anchor="middle" letter-spacing="0.5">THE NINTH</text>
+  <text x="42" y="88" fill="#d5a75c" font-family="Cinzel, serif" font-size="5.8" font-weight="bold" text-anchor="middle" letter-spacing="0.5">MONOLITH</text>
+  <line x1="24" y1="104" x2="60" y2="104" stroke="#d5a75c" stroke-opacity="0.3" stroke-width="0.6"/>
+</svg>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THEATRON Operations Suite — Movie Catalogue Management</title>
+  <link rel="stylesheet" href="movies.css">
+</head>
+<body>
+
+  <!-- MOBILE SIDEBAR BACKDROP -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <!-- Brand Header -->
+      <div class="brand-header">
+        <div class="brand-main">
+          <div class="brand-logo-box">
+            <span class="brand-logo-letter">T</span>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">THEATRON</span>
+            <span class="brand-subtitle">OPERATIONS SUITE</span>
+          </div>
+        </div>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close menu">✕</button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <span class="nav-badge">16</span>
+          <span>Dashboard & Analytics</span>
+        </a>
+        <a href="movies.html" class="nav-item active">
+          <span class="nav-badge">17</span>
+          <span>Movie Management</span>
+        </a>
+        <a href="showtimes.html" class="nav-item">
+          <span class="nav-badge">18</span>
+          <span>Showtimes & Bookings</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+      <button class="btn-architecture" id="btnArchMap">18–Page Architecture Map</button>
+      <button class="btn-customer-site" id="btnCustomerSite">← Customer Website</button>
+    </div>
+  </aside>
+
+  <!-- Floating info button in bottom-left -->
+  <button class="floating-info-btn" title="System Information">i</button>
+
+  <!-- MAIN APP CONTAINER -->
+  <div class="app-container">
+    <!-- TOP HEADER -->
+    <header class="top-header">
+      <div class="header-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="breadcrumb">
+          <span class="breadcrumb-root">THEATRON Admin</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Movie Management</span>
+        </div>
+      </div>
+      <div class="director-badge">
+        <span>Director:</span>
+        <span class="director-name">E. Sterling</span>
+        <span class="status-dot" title="Online"></span>
+      </div>
+    </header>
+
+    <!-- PAGE MAIN CONTENT -->
+    <main class="page-content">
+      <!-- HEADER ROW -->
+      <section class="content-header">
+        <div class="header-title-area">
+          <h1 class="page-title">MOVIE CATALOGUE MANAGEMENT</h1>
+          <p class="page-subtitle">Add, edit, or retire titles. Updates synchronize immediately with the Customer Website.</p>
+        </div>
+        <div>
+          <button class="btn-gold" id="btnOpenAddModal">+ Add New Motion Picture</button>
+        </div>
+      </section>
+
+      <!-- FILTER / SEARCH BAR -->
+      <section class="filter-card">
+        <div class="search-input-box">
+          <input type="text" class="filter-input" id="searchFilter" placeholder="Filter catalogue by title or genre...">
+        </div>
+        <div>
+          <select class="filter-select" id="statusFilter">
+            <option value="ALL">All Statuses</option>
+            <option value="SHOWING">Currently Showing</option>
+            <option value="UPCOMING">Upcoming</option>
+            <option value="ARCHIVED">Archived</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- CATALOGUE TABLE -->
+      <section class="catalogue-card">
+        <div class="table-responsive">
+          <table class="catalogue-table">
+          <thead>
+            <tr>
+              <th>POSTER &amp; TITLE</th>
+              <th>GENRE &amp; LANG</th>
+              <th>DURATION</th>
+              <th>RATING</th>
+              <th>STATUS</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="movieTableBody">
+            <!-- Movie 1 -->
+            <tr data-title="DOOMSDAY: ECLIPSE PROTOCOL" data-genre="Sci-Fi Thriller • English" data-status="SHOWING">
+              <td>
+                <div class="poster-title-cell">
+                  <img src="assets/poster_doomsday.svg" alt="Doomsday Poster" class="poster-thumbnail" onerror="this.src='assets/doomsday.png'">
+                  <div class="movie-info">
+                    <span class="movie-title-text">DOOMSDAY: ECLIPSE PROTOCOL</span>
+                    <span class="movie-dir-text">Dir. Denis Vance</span>
+                  </div>
+                </div>
+              </td>
+              <td class="genre-lang-cell">Sci-Fi Thriller • English</td>
+              <td class="duration-cell">2h 28m</td>
+              <td><span class="badge-rating pg13">PG-13</span></td>
+              <td><span class="badge-status showing">SHOWING</span></td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action-edit" data-id="1">Edit</button>
+                  <button class="btn-action-delete" data-id="1">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Movie 2 -->
+            <tr data-title="THE VELVET SOVEREIGN" data-genre="Drama • English" data-status="SHOWING">
+              <td>
+                <div class="poster-title-cell">
+                  <img src="assets/poster_velvet.svg" alt="Velvet Sovereign Poster" class="poster-thumbnail" onerror="this.src='assets/velvet_sovereign.png'">
+                  <div class="movie-info">
+                    <span class="movie-title-text">THE VELVET SOVEREIGN</span>
+                    <span class="movie-dir-text">Dir. Camille Laurent</span>
+                  </div>
+                </div>
+              </td>
+              <td class="genre-lang-cell">Drama • English</td>
+              <td class="duration-cell">2h 14m</td>
+              <td><span class="badge-rating r">R</span></td>
+              <td><span class="badge-status showing">SHOWING</span></td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action-edit" data-id="2">Edit</button>
+                  <button class="btn-action-delete" data-id="2">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Movie 3 -->
+            <tr data-title="NOCTURNE IN OBSIDIAN" data-genre="Mystery • French" data-status="SHOWING">
+              <td>
+                <div class="poster-title-cell">
+                  <img src="assets/poster_nocturne.svg" alt="Nocturne Poster" class="poster-thumbnail" onerror="this.src='assets/nocturne.png'">
+                  <div class="movie-info">
+                    <span class="movie-title-text">NOCTURNE IN OBSIDIAN</span>
+                    <span class="movie-dir-text">Dir. Lucian Moreau</span>
+                  </div>
+                </div>
+              </td>
+              <td class="genre-lang-cell">Mystery • French</td>
+              <td class="duration-cell">2h 05m</td>
+              <td><span class="badge-rating r">R</span></td>
+              <td><span class="badge-status showing">SHOWING</span></td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action-edit" data-id="3">Edit</button>
+                  <button class="btn-action-delete" data-id="3">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Movie 4 -->
+            <tr data-title="AETHER & ASH" data-genre="Action • English" data-status="SHOWING">
+              <td>
+                <div class="poster-title-cell">
+                  <img src="assets/poster_aether.svg" alt="Aether Poster" class="poster-thumbnail" onerror="this.src='assets/aether_ash.png'">
+                  <div class="movie-info">
+                    <span class="movie-title-text">AETHER &amp; ASH</span>
+                    <span class="movie-dir-text">Dir. Marcus Thorne</span>
+                  </div>
+                </div>
+              </td>
+              <td class="genre-lang-cell">Action • English</td>
+              <td class="duration-cell">2h 19m</td>
+              <td><span class="badge-rating pg13">PG-13</span></td>
+              <td><span class="badge-status showing">SHOWING</span></td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action-edit" data-id="4">Edit</button>
+                  <button class="btn-action-delete" data-id="4">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Movie 5 -->
+            <tr data-title="CRIMSON SOLSTICE" data-genre="Romance • Spanish" data-status="SHOWING">
+              <td>
+                <div class="poster-title-cell">
+                  <img src="assets/poster_crimson.svg" alt="Crimson Solstice Poster" class="poster-thumbnail" onerror="this.src='assets/crimson_solstice.png'">
+                  <div class="movie-info">
+                    <span class="movie-title-text">CRIMSON SOLSTICE</span>
+                    <span class="movie-dir-text">Dir. Sofia Mendoza</span>
+                  </div>
+                </div>
+              </td>
+              <td class="genre-lang-cell">Romance • Spanish</td>
+              <td class="duration-cell">1h 58m</td>
+              <td><span class="badge-rating pg13">PG-13</span></td>
+              <td><span class="badge-status showing">SHOWING</span></td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action-edit" data-id="5">Edit</button>
+                  <button class="btn-action-delete" data-id="5">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Movie 6 -->
+            <tr data-title="THE NINTH MONOLITH" data-genre="Sci-Fi Thriller • Japanese" data-status="SHOWING">
+              <td>
+                <div class="poster-title-cell">
+                  <img src="assets/poster_monolith.svg" alt="The Ninth Monolith Poster" class="poster-thumbnail" onerror="this.src='assets/ninth_monolith.png'">
+                  <div class="movie-info">
+                    <span class="movie-title-text">THE NINTH MONOLITH</span>
+                    <span class="movie-dir-text">Dir. Hiroshi Takahashi</span>
+                  </div>
+                </div>
+              </td>
+              <td class="genre-lang-cell">Sci-Fi Thriller • Japanese</td>
+              <td class="duration-cell">2h 22m</td>
+              <td><span class="badge-rating pg13">PG-13</span></td>
+              <td><span class="badge-status showing">SHOWING</span></td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action-edit" data-id="6">Edit</button>
+                  <button class="btn-action-delete" data-id="6">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ADD / EDIT MOTION PICTURE MODAL (Exact match for Screenshot 4) -->
+  <div class="modal-overlay" id="addMovieModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalHeading">ADD NEW MOTION PICTURE</h3>
+        <button class="modal-close-btn" id="btnCloseModal">✕</button>
+      </div>
+      <form id="addMovieForm">
+        <input type="hidden" id="editMovieId" value="">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Movie Title</label>
+            <input type="text" class="form-input" id="movieTitle" placeholder="e.g., SOVEREIGN SHADOWS" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Genre</label>
+              <input type="text" class="form-input" id="movieGenre" value="Sci-Fi Thriller" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Language</label>
+              <input type="text" class="form-input" id="movieLang" value="English" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Duration</label>
+              <input type="text" class="form-input" id="movieDuration" value="2h 15m" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Rating</label>
+              <select class="form-select" id="movieRating">
+                <option value="PG-13" selected>PG-13</option>
+                <option value="R">R</option>
+                <option value="PG">PG</option>
+                <option value="G">G</option>
+                <option value="NC-17">NC-17</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Exhibition Status</label>
+              <select class="form-select" id="movieStatus">
+                <option value="Currently Showing" selected>Currently Showing</option>
+                <option value="Upcoming">Upcoming</option>
+                <option value="Archived">Archived</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Poster Artwork Theme</label>
+              <select class="form-select" id="movieArtwork">
+                <option value="DOOMSDAY" selected>DOOMSDAY</option>
+                <option value="VELVET">VELVET</option>
+                <option value="NOCTURNE">NOCTURNE</option>
+                <option value="AETHER">AETHER</option>
+                <option value="CRIMSON">CRIMSON</option>
+                <option value="MONOLITH">MONOLITH</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Director &amp; Principal Cast (comma separated)</label>
+            <input type="text" class="form-input" id="movieCredits" value="Christopher Nolan, Rebecca Ferguson, Oscar Isaac">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Synopsis</label>
+            <textarea class="form-textarea" id="movieSynopsis" rows="3">An unforgettable cinematic event mastered for THEATRON dual-laser auditoriums.</textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-modal-cancel" id="btnCancelModal">Cancel</button>
+          <button type="submit" class="btn-modal-save" id="btnSaveMovie">Save Motion Picture</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification">
+    <span>✓ Motion picture saved to catalogue!</span>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="movies.js"></script>
+</body>
+</html>
