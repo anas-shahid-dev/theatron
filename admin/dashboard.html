@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THEATRON Operations Suite — Executive Operations Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <!-- MOBILE SIDEBAR BACKDROP -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <!-- Brand Header -->
+      <div class="brand-header">
+        <div class="brand-main">
+          <div class="brand-logo-box">
+            <span class="brand-logo-letter">T</span>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">THEATRON</span>
+            <span class="brand-subtitle">OPERATIONS SUITE</span>
+          </div>
+        </div>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close menu">✕</button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item active">
+          <span class="nav-badge">16</span>
+          <span>Dashboard & Analytics</span>
+        </a>
+        <a href="movies.html" class="nav-item">
+          <span class="nav-badge">17</span>
+          <span>Movie Management</span>
+        </a>
+        <a href="showtimes.html" class="nav-item">
+          <span class="nav-badge">18</span>
+          <span>Showtimes & Bookings</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+      <button class="btn-architecture" id="btnArchMap">18–Page Architecture Map</button>
+      <button class="btn-customer-site" id="btnCustomerSite">← Customer Website</button>
+    </div>
+  </aside>
+
+  <!-- Floating info button in bottom-left -->
+  <button class="floating-info-btn" title="System Information">i</button>
+
+  <!-- MAIN APP CONTAINER -->
+  <div class="app-container">
+    <!-- TOP HEADER -->
+    <header class="top-header">
+      <div class="header-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="breadcrumb">
+          <span class="breadcrumb-root">THEATRON Admin</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Dashboard & Analytics</span>
+        </div>
+      </div>
+      <div class="director-badge">
+        <span>Director:</span>
+        <span class="director-name">E. Sterling</span>
+        <span class="status-dot" title="Online"></span>
+      </div>
+    </header>
+
+    <!-- PAGE MAIN CONTENT -->
+    <main class="page-content">
+      <!-- HEADER ROW -->
+      <section class="content-header">
+        <div class="header-title-area">
+          <h1 class="page-title">EXECUTIVE OPERATIONS DASHBOARD</h1>
+          <p class="page-subtitle">Real-time box office revenue, auditorium occupancy, and catalogue telemetry.</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn-wine" id="btnOpenAddModal">+ Add Motion Picture</button>
+          <a href="showtimes.html" class="btn-gold">Manage Showtimes</a>
+        </div>
+      </section>
+
+      <!-- STATS GRID -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">TOTAL BOOKINGS</span>
+          <span class="stat-value" id="statTotalBookings">1,423</span>
+          <span class="stat-subtext" id="statBookingsTrend">+14.2% vs last wk</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">BOX OFFICE REVENUE</span>
+          <span class="stat-value" id="statBoxOfficeRevenue">$48,921.96</span>
+          <span class="stat-subtext" id="statRevenueTrend">+18.6% vs last wk</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">CATALOGUE TITLES</span>
+          <span class="stat-value" id="statCatalogueTitles">9</span>
+          <span class="stat-subtext" id="statActiveHalls">6 Active in Halls</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">ACTIVE CINEMA LOUNGES</span>
+          <span class="stat-value" id="statActiveLounges">3</span>
+          <span class="stat-subtext" id="statTotalScreens">18 Total Screens</span>
+        </div>
+      </section>
+
+      <!-- MIDDLE CHARTS & PERFORMANCE SECTION -->
+      <section class="charts-grid">
+        <!-- Revenue Performance -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">REVENUE PERFORMANCE</h2>
+              <p class="card-subtitle">Ticket & lounge gastronomy gross volume</p>
+            </div>
+            <div class="toggle-pills">
+              <button class="toggle-btn active" id="btnToggle7d">7 Days</button>
+              <button class="toggle-btn" id="btnToggleMonth">Monthly</button>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <div class="bars-wrapper" id="barsWrapper">
+              <div class="bar-col">
+                <span class="bar-val" id="val-mon">$4.2k</span>
+                <div class="bar-pill" id="bar-mon" style="height: 35.6%;"></div>
+              </div>
+              <div class="bar-col">
+                <span class="bar-val" id="val-tue">$5.1k</span>
+                <div class="bar-pill" id="bar-tue" style="height: 43.2%;"></div>
+              </div>
+              <div class="bar-col">
+                <span class="bar-val" id="val-wed">$4.8k</span>
+                <div class="bar-pill" id="bar-wed" style="height: 40.7%;"></div>
+              </div>
+              <div class="bar-col">
+                <span class="bar-val" id="val-thu">$6.9k</span>
+                <div class="bar-pill" id="bar-thu" style="height: 58.5%;"></div>
+              </div>
+              <div class="bar-col">
+                <span class="bar-val" id="val-fri">$9.4k</span>
+                <div class="bar-pill" id="bar-fri" style="height: 79.7%;"></div>
+              </div>
+              <div class="bar-col">
+                <span class="bar-val" id="val-sat">$11.8k</span>
+                <div class="bar-pill" id="bar-sat" style="height: 100%;"></div>
+              </div>
+              <div class="bar-col">
+                <span class="bar-val" id="val-sun">$10.2k</span>
+                <div class="bar-pill" id="bar-sun" style="height: 86.4%;"></div>
+              </div>
+            </div>
+            <div class="days-row" id="daysRow">
+              <span class="day-label">Mon</span>
+              <span class="day-label">Tue</span>
+              <span class="day-label">Wed</span>
+              <span class="day-label">Thu</span>
+              <span class="day-label">Fri</span>
+              <span class="day-label">Sat</span>
+              <span class="day-label">Sun</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Performing Titles -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">TOP PERFORMING TITLES</h2>
+            </div>
+          </div>
+
+          <div class="titles-list">
+            <div class="title-item">
+              <div class="title-meta">
+                <span class="title-name">1. DOOMSDAY: ECLIPSE PROTOCOL</span>
+                <span class="title-percent">92% Occupancy</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <div class="title-item">
+              <div class="title-meta">
+                <span class="title-name">2. THE VELVET SOVEREIGN</span>
+                <span class="title-percent">78% Occupancy</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 78%;"></div>
+              </div>
+            </div>
+
+            <div class="title-item">
+              <div class="title-meta">
+                <span class="title-name">3. NOCTURNE IN OBSIDIAN</span>
+                <span class="title-percent">64% Occupancy</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 64%;"></div>
+              </div>
+            </div>
+
+            <div class="title-item">
+              <div class="title-meta">
+                <span class="title-name">4. AETHER & ASH</span>
+                <span class="title-percent">50% Occupancy</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 50%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECENT PATRON RESERVATIONS -->
+      <section class="table-card">
+        <div class="table-header-bar">
+          <h2 class="card-title">RECENT PATRON RESERVATIONS</h2>
+          <a href="showtimes.html?tab=bookings" class="link-gold">Manage All Bookings →</a>
+        </div>
+        <div class="table-responsive">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>BOOKING ID</th>
+                <th>PATRON</th>
+                <th>MOTION PICTURE</th>
+                <th>SEATS</th>
+                <th>TOTAL</th>
+                <th>STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="booking-id">THT - 849201</td>
+                <td class="patron-name">Alexander Vance</td>
+                <td class="movie-title-cell">THE VELVET SOVEREIGN</td>
+                <td class="seats-cell">G5, G6</td>
+                <td class="total-cell">$106.82</td>
+                <td><span class="status-pill confirmed">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td class="booking-id">THT - 731904</td>
+                <td class="patron-name">Alexander Vance</td>
+                <td class="movie-title-cell">NOCTURNE IN OBSIDIAN</td>
+                <td class="seats-cell">E4, E5</td>
+                <td class="total-cell">$57.23</td>
+                <td><span class="status-pill completed">Completed</span></td>
+              </tr>
+              <tr>
+                <td class="booking-id">THT - 902418</td>
+                <td class="patron-name">Sophia Chen</td>
+                <td class="movie-title-cell">DOOMSDAY: ECLIPSE PROTOCOL</td>
+                <td class="seats-cell">F6, F7, F8</td>
+                <td class="total-cell">$107.91</td>
+                <td><span class="status-pill confirmed">Confirmed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ADD MOTION PICTURE MODAL -->
+  <div class="modal-overlay" id="addMovieModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">ADD NEW MOTION PICTURE</h3>
+        <button class="modal-close-btn" id="btnCloseModal">✕</button>
+      </div>
+      <form id="addMovieForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Movie Title</label>
+            <input type="text" class="form-input" id="movieTitle" placeholder="e.g., SOVEREIGN SHADOWS" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Genre</label>
+              <input type="text" class="form-input" id="movieGenre" value="Sci-Fi Thriller" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Language</label>
+              <input type="text" class="form-input" id="movieLang" value="English" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Duration</label>
+              <input type="text" class="form-input" id="movieDuration" value="2h 15m" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Rating</label>
+              <select class="form-select" id="movieRating">
+                <option value="PG-13" selected>PG-13</option>
+                <option value="R">R</option>
+                <option value="PG">PG</option>
+                <option value="G">G</option>
+                <option value="NC-17">NC-17</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Exhibition Status</label>
+              <select class="form-select" id="movieStatus">
+                <option value="SHOWING" selected>Currently Showing</option>
+                <option value="UPCOMING">Upcoming</option>
+                <option value="ARCHIVED">Archived</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Poster Artwork Theme</label>
+              <select class="form-select" id="movieArtwork">
+                <option value="DOOMSDAY" selected>DOOMSDAY</option>
+                <option value="VELVET">VELVET</option>
+                <option value="NOCTURNE">NOCTURNE</option>
+                <option value="AETHER">AETHER</option>
+                <option value="CRIMSON">CRIMSON</option>
+                <option value="MONOLITH">MONOLITH</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Director &amp; Principal Cast (comma separated)</label>
+            <input type="text" class="form-input" id="movieCredits" value="Christopher Nolan, Rebecca Ferguson, Oscar Isaac">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Synopsis</label>
+            <textarea class="form-textarea" id="movieSynopsis" rows="3">An unforgettable cinematic event mastered for THEATRON dual-laser auditoriums.</textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-modal-cancel" id="btnCancelModal">Cancel</button>
+          <button type="submit" class="btn-modal-save">Save Motion Picture</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification">
+    <span>✓ Motion picture saved to catalogue!</span>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
