@@ -11,32 +11,54 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Top Utility Bar with Sitemap Switcher, Ticket Count, and Admin Link -->
   <div class="utility-bar">
     <div class="utility-left">
       <span>PRIVATE SCREENING & LUXURY CINEMA</span>
       <div class="sitemap">
-        <button class="sitemap-trigger" type="button">• 18-Page Sitemap Switcher ▾</button>
+        <button class="sitemap-trigger" type="button" aria-haspopup="true" aria-expanded="false">• 18-Page Sitemap Switcher ▾</button>
         <div class="sitemap-menu">
-          <a href="index.html">Home</a><a href="movies.html">Movies</a><a href="#">Seat Map</a><a href="#">Ticket Vault</a><a href="#">Admin Panel</a>
+          <a href="index.html">Home</a>
+          <a href="movies.html">Movies (Catalogue)</a>
+          <a href="index.html#coming">Coming Soon</a>
+          <a href="index.html#cinemas">Cinemas & Lounges</a>
+          <a href="index.html#showtimes">Showtimes</a>
+          <a href="#">Seat Map</a>
+          <a href="#">Ticket Vault</a>
+          <a href="#">Admin Panel</a>
         </div>
       </div>
     </div>
-    <div class="utility-right"><a href="#" id="utility-ticket-count">My Tickets (6)</a><a href="#">⚙ Admin Panel</a></div>
+    <div class="utility-right">
+      <a href="#" id="utility-ticket-count">My Tickets (6)</a>
+      <a href="#">⚙ Admin Panel</a>
+    </div>
   </div>
 
+  <!-- Sticky Navbar with Brand, Hamburger Toggle, Links, Ticket Pill, and User Pill -->
   <nav class="main-nav" aria-label="Main navigation">
     <a class="brand" href="index.html">
       <span class="brand-mark">T</span>
       <span class="brand-copy"><strong>THEATRON</strong><small>CINEMA LOUNGES</small></span>
     </a>
     <input class="mobile-menu-toggle" type="checkbox" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-    <label class="mobile-menu-button" for="mobile-menu-toggle" aria-controls="primary-navigation"><span></span><span></span><span></span></label>
+    <label class="mobile-menu-button" for="mobile-menu-toggle" aria-controls="primary-navigation">
+      <span></span><span></span><span></span>
+    </label>
     <div class="nav-links" id="primary-navigation">
-      <a href="index.html">Home</a><a class="active" href="movies.html">Movies</a><a href="index.html#coming">Coming Soon</a><a href="index.html#cinemas">Cinemas</a><a href="index.html#showtimes">Showtimes</a>
+      <a href="index.html">Home</a>
+      <a class="active" href="movies.html">Movies</a>
+      <a href="index.html#coming">Coming Soon</a>
+      <a href="index.html#cinemas">Cinemas</a>
+      <a href="index.html#showtimes">Showtimes</a>
     </div>
     <div class="nav-actions">
-      <button class="ticket-pill" type="button">🎫 <span>Tickets</span><b id="ticket-count">6</b></button>
-      <button class="user-pill" type="button"><span>A</span> Alexander</button>
+      <button class="ticket-pill" type="button" aria-label="View reserved tickets">
+        🎫 <span>Tickets</span><b id="ticket-count">6</b>
+      </button>
+      <button class="user-pill" type="button" aria-label="User profile">
+        <span>A</span> Alexander
+      </button>
     </div>
   </nav>
 
@@ -83,14 +105,50 @@
     </section>
   </main>
 
+  <!-- Luxury 4-Column Footer -->
   <footer>
     <div class="footer-grid">
-      <div class="footer-brand"><div class="brand"><span class="brand-mark">T</span><span class="brand-copy"><strong>THEATRON</strong></span></div><p>Architectural cinema palaces engineered for discerning film patrons. Featuring dual-laser IMAX projection, acoustic maroon velvet auditoriums, and in-seat culinary service.</p><div class="footer-badges"><span>DOLBY ATMOS</span><span>IMAX LASER</span></div></div>
-      <div><h3>EXPLORE CINEMA</h3><a href="index.html">Home</a><a href="movies.html">Now Showing Catalogue</a><a href="index.html#coming">Upcoming Premieres</a></div>
-      <div><h3>MEMBER SERVICES</h3><a href="#">Sovereign Gold Profile</a><a href="#">Digital Ticket Vault</a><a href="#">Member Sign In</a></div>
-      <div><h3>OPERATIONS & CONCIERGE</h3><p>24/7 Private Box Office & Auditorium Management:</p><strong class="phone">+92-xxxxxxxxxx-THEATRON</strong></div>
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-mark">T</span>
+          <span class="brand-copy"><strong>THEATRON</strong></span>
+        </div>
+        <p>Architectural cinema palaces engineered for discerning film patrons. Featuring dual-laser IMAX projection, acoustic maroon velvet auditoriums, and in-seat culinary service.</p>
+        <div class="footer-badges">
+          <span>DOLBY ATMOS</span>
+          <span>IMAX LASER</span>
+        </div>
+      </div>
+      <div>
+        <h3>EXPLORE CINEMA</h3>
+        <a href="movies.html">Now Showing Catalogue</a>
+        <a href="index.html#coming">Upcoming Premieres</a>
+        <a href="index.html#cinemas">Flagship Locations</a>
+        <a href="index.html#showtimes">Showtimes & Formats</a>
+        <a href="#">Lounge Gastronomy</a>
+      </div>
+      <div>
+        <h3>MEMBER SERVICES</h3>
+        <a href="#">Sovereign Gold Profile</a>
+        <a href="#">Digital Ticket Vault</a>
+        <a href="#">Member Sign In</a>
+        <a href="#">Apply for Membership</a>
+      </div>
+      <div>
+        <h3>OPERATIONS & CONCIERGE</h3>
+        <p>24/7 Private Box Office & Auditorium Management:</p>
+        <strong class="phone">+92-xxxxxxxxxx-THEATRON</strong>
+        <button class="btn outline admin-btn" type="button">OPEN ADMIN CONTROL PANEL →</button>
+      </div>
     </div>
-    <div class="legal"><span>© 2026 THEATRON Luxury Cinemas Group. All Rights Reserved.</span><div><a href="#">Privacy Charter</a><a href="#">Terms of Admission</a></div></div>
+    <div class="legal">
+      <span>© 2026 THEATRON Luxury Cinemas Group. All Rights Reserved.</span>
+      <div>
+        <a href="#">View 18-Page Architecture</a>
+        <a href="#">Privacy Charter</a>
+        <a href="#">Terms of Admission</a>
+      </div>
+    </div>
   </footer>
 
   <div class="detail-trailer-modal" id="detail-trailer-modal" aria-hidden="true">
@@ -102,13 +160,14 @@
     </div>
   </div>
 
+  <!-- Shared Modal Container & Toast Notification -->
   <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal-close" type="button" aria-label="Close">×</button>
+      <button class="modal-close" type="button" aria-label="Close modal">×</button>
       <div id="modal-content"></div>
     </div>
   </div>
-  <div class="toast" id="toast" role="status"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
 </body>
 </html>

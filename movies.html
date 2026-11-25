@@ -11,32 +11,54 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Top Utility Bar with Sitemap Switcher, Ticket Count, and Admin Link -->
   <div class="utility-bar">
     <div class="utility-left">
       <span>PRIVATE SCREENING & LUXURY CINEMA</span>
       <div class="sitemap">
-        <button class="sitemap-trigger" type="button">• 18-Page Sitemap Switcher ▾</button>
+        <button class="sitemap-trigger" type="button" aria-haspopup="true" aria-expanded="false">• 18-Page Sitemap Switcher ▾</button>
         <div class="sitemap-menu">
-          <a href="index.html">Home</a><a href="movies.html">Movies</a><a href="#">Seat Map</a><a href="#">Ticket Vault</a><a href="#">Admin Panel</a>
+          <a href="index.html">Home</a>
+          <a href="movies.html">Movies (Catalogue)</a>
+          <a href="index.html#coming">Coming Soon</a>
+          <a href="index.html#cinemas">Cinemas & Lounges</a>
+          <a href="index.html#showtimes">Showtimes</a>
+          <a href="#">Seat Map</a>
+          <a href="#">Ticket Vault</a>
+          <a href="#">Admin Panel</a>
         </div>
       </div>
     </div>
-    <div class="utility-right"><a href="#" id="utility-ticket-count">My Tickets (6)</a><a href="#">⚙ Admin Panel</a></div>
+    <div class="utility-right">
+      <a href="#" id="utility-ticket-count">My Tickets (6)</a>
+      <a href="#">⚙ Admin Panel</a>
+    </div>
   </div>
 
+  <!-- Sticky Navbar with Brand, Hamburger Toggle, Links, Ticket Pill, and User Pill -->
   <nav class="main-nav" aria-label="Main navigation">
     <a class="brand" href="index.html">
       <span class="brand-mark">T</span>
       <span class="brand-copy"><strong>THEATRON</strong><small>CINEMA LOUNGES</small></span>
     </a>
     <input class="mobile-menu-toggle" type="checkbox" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-    <label class="mobile-menu-button" for="mobile-menu-toggle" aria-controls="primary-navigation"><span></span><span></span><span></span></label>
+    <label class="mobile-menu-button" for="mobile-menu-toggle" aria-controls="primary-navigation">
+      <span></span><span></span><span></span>
+    </label>
     <div class="nav-links" id="primary-navigation">
-      <a href="index.html">Home</a><a class="active" href="movies.html" aria-current="page">Movies</a><a href="index.html#coming">Coming Soon</a><a href="index.html#cinemas">Cinemas</a><a href="index.html#showtimes">Showtimes</a>
+      <a href="index.html">Home</a>
+      <a class="active" href="movies.html" aria-current="page">Movies</a>
+      <a href="index.html#coming">Coming Soon</a>
+      <a href="index.html#cinemas">Cinemas</a>
+      <a href="index.html#showtimes">Showtimes</a>
     </div>
     <div class="nav-actions">
-      <button class="ticket-pill" type="button">🎫 <span>Tickets</span><b id="ticket-count">6</b></button>
-      <button class="user-pill" type="button"><span>A</span> Alexander</button>
+      <button class="ticket-pill" type="button" aria-label="View reserved tickets">
+        🎫 <span>Tickets</span><b id="ticket-count">6</b>
+      </button>
+      <button class="user-pill" type="button" aria-label="User profile">
+        <span>A</span> Alexander
+      </button>
     </div>
   </nav>
 
@@ -115,13 +137,14 @@
     <div class="legal"><span>© 2026 THEATRON Luxury Cinemas Group. All Rights Reserved.</span><div><a href="#">View 18-Page Architecture</a><a href="#">Privacy Charter</a><a href="#">Terms of Admission</a></div></div>
   </footer>
 
+  <!-- Shared Modal Container & Toast Notification -->
   <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal-close" type="button" aria-label="Close">×</button>
+      <button class="modal-close" type="button" aria-label="Close modal">×</button>
       <div id="modal-content"></div>
     </div>
   </div>
-  <div class="toast" id="toast" role="status"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
   <script>
     (function () {
