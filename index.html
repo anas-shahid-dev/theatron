@@ -1,370 +1,525 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THEATRON — Cinema Lounges</title>
-  <meta name="description" content="Luxury cinema booking at THEATRON Cinema Lounges — Dual-laser IMAX, acoustic maroon velvet sanctuaries, and curated gastronomic cinema.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THEATRON Cinema Lounges | F-7 Markaz, Islamabad</title>
+  <meta
+    name="description"
+    content="THEATRON Cinema Lounges in F-7 Markaz, Islamabad — Private luxury screening suites, 4K laser projection, Dolby Atmos, and gourmet lounge dining."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Top Utility Bar with Sitemap Switcher, Ticket Count, and Admin Link -->
-  <div class="utility-bar">
-    <div class="utility-left">
-      <span>PRIVATE SCREENING & LUXURY CINEMA</span>
-      <div class="sitemap">
-        <button class="sitemap-trigger" type="button" aria-haspopup="true" aria-expanded="false">• 18-Page Sitemap Switcher ▾</button>
-        <div class="sitemap-menu">
-          <a href="index.html">Home</a>
-          <a href="movies.html">Movies (Catalogue)</a>
-          <a href="#coming">Coming Soon</a>
-          <a href="#cinemas">Cinemas & Lounges</a>
-          <a href="#showtimes">Showtimes</a>
-          <a href="#">Seat Map</a>
-          <a href="#">Ticket Vault</a>
-          <a href="#">Admin Panel</a>
-        </div>
+  <!-- Shared Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-group">
+        <span class="utility-item"><strong>Location:</strong> F-7 Markaz, Jinnah Super, Islamabad</span>
+        <span class="utility-divider" aria-hidden="true">|</span>
+        <span class="utility-item"><strong>Hours:</strong> Daily 12:00 PM – 02:00 AM</span>
       </div>
-    </div>
-    <div class="utility-right">
-      <a href="#" id="utility-ticket-count">My Tickets (6)</a>
-      <a href="#">⚙ Admin Panel</a>
+      <div class="utility-group">
+        <a class="utility-item utility-link" href="tel:+92512654800">
+          <strong>Concierge:</strong> +92 51 265 4800
+        </a>
+        <span class="utility-divider" aria-hidden="true">|</span>
+        <a class="utility-item utility-link" href="mailto:concierge@theatron.pk">
+          concierge@theatron.pk
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- Sticky Navbar with Brand, Hamburger Toggle, Links, Ticket Pill, and User Pill -->
-  <nav class="main-nav" aria-label="Main navigation">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">T</span>
-      <span class="brand-copy"><strong>THEATRON</strong><small>CINEMA LOUNGES</small></span>
-    </a>
-    <input class="mobile-menu-toggle" type="checkbox" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-    <label class="mobile-menu-button" for="mobile-menu-toggle" aria-controls="primary-navigation">
-      <span></span><span></span><span></span>
-    </label>
-    <div class="nav-links" id="primary-navigation">
-      <a class="active" href="index.html" aria-current="page">Home</a>
-      <a href="movies.html">Movies</a>
-      <a href="#coming">Coming Soon</a>
-      <a href="#cinemas">Cinemas</a>
-      <a href="#showtimes">Showtimes</a>
-    </div>
-    <div class="nav-actions">
-      <button class="ticket-pill" type="button" aria-label="View reserved tickets">
-        🎫 <span>Tickets</span><b id="ticket-count">6</b>
+  <!-- Shared Sticky Navbar with Diamond 'T' Logo Crest -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand-link" href="index.html" aria-label="THEATRON Cinema Lounges Home">
+        <span class="brand-crest" aria-hidden="true">
+          <span class="brand-crest-letter">T</span>
+        </span>
+        <span class="brand-wordmark">
+          <span class="brand-title">THEATRON</span>
+          <span class="brand-subtitle">Cinema Lounges</span>
+        </span>
+      </a>
+
+      <button
+        id="hamburger-btn"
+        class="hamburger-btn"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-nav-menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
       </button>
-      <button class="user-pill" type="button" aria-label="User profile">
-        <span>A</span> Alexander
-      </button>
+
+      <nav id="primary-nav-menu" class="nav-menu" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a class="nav-link" href="index.html" aria-current="page">Lounges</a></li>
+          <li><a class="nav-link" href="food-snacks.html">Food &amp; Snacks</a></li>
+          <li><a class="nav-link" href="reviews.html">Reviews</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="index.html#reserve">Reserve Lounge</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <main>
-    <!-- Scroll-Driven Sticky Hero Runway (165vh) & 2.39:1 LCD Screen -->
-    <section class="hero-runway" id="showtimes">
-      <div class="hero-sticky">
-        <div class="hero-head" id="hero-head">
-          <div class="eyebrow-pill">NOW PREMIERING IN DUAL-LASER IMAX</div>
-          <h1>CINEMA ELEVATED TO<br><em>HIGH ART</em></h1>
-          <p>Experience DOOMSDAY: ECLIPSE PROTOCOL inside THEATRON's acoustic maroon velvet sanctuaries.</p>
-        </div>
-
-        <div class="lcd-frame" id="lcd-frame">
-          <div class="lcd-bezel top-bezel">
-            <span>THEATRON LCD MASTER SCREEN • 4K HDR</span>
-            <span>OFFICIAL TRAILER FEED • CH-01</span>
-          </div>
-          <div class="trailer-stage" id="trailer-placeholder-stage" data-asset-slot="hero-trailer">
-            <div class="stage-grid"></div>
-            <div class="preview-pill">OFFICIAL PREVIEW REEL • DOOMSDAY</div>
-            <div class="stage-controls">
-              <button id="trailer-play-btn" type="button" aria-label="Toggle playback">⏸ <span>Pause</span></button>
-              <button id="trailer-mute-btn" type="button" aria-label="Toggle sound">🔇 <span>Muted</span></button>
-            </div>
-            <video id="hero-trailer-video" class="lcd-video" autoplay loop muted playsinline preload="metadata">
-              <source src="trailers/doomsday.mp4" type="video/mp4" />
-            </video>
-            <div class="stage-copy">
-              <div class="eyebrow">FEATURE PRESENTATION</div>
-              <h2>DOOMSDAY: ECLIPSE PROTOCOL</h2>
-              <p>When an orbital solar array detects an artificial gravitational anomaly approaching Earth, an estranged astrophysicist and a covert diplomatic envoy must decode a century-old signal before the eclipse becomes permanent.</p>
-            </div>
-            <div class="stage-actions">
-              <button class="btn gold reserve-btn" type="button" data-movie="DOOMSDAY: ECLIPSE PROTOCOL">Reserve Seats</button>
-              <button class="btn outline details-btn" type="button" data-movie="DOOMSDAY: ECLIPSE PROTOCOL">Film Details</button>
-            </div>
-          </div>
-          <div class="lcd-bezel bottom-bezel">
-            <span>ASPECT 2.39:1 ANAMORPHIC</span><strong>THEATRON</strong><span>SCROLL TO EXPLORE ↓</span>
+    <!-- Full-Width Cinema Hero & 4 Key Specs Bar -->
+    <section class="cinema-hero">
+      <div class="container cinema-hero-inner">
+        <div class="cinema-hero-copy">
+          <span class="eyebrow">F-7 Markaz, Islamabad</span>
+          <h1>Private Screening <span class="accent-gold">Perfected</span></h1>
+          <p class="cinema-hero-lead">
+            Step inside THEATRON Cinema Lounges — an intimate obsidian-and-velvet sanctuary in Jinnah
+            Super where Dual-Laser IMAX clarity meets handcrafted tableside hospitality.
+          </p>
+          <div class="hero-actions" id="reserve">
+            <a class="btn btn-primary" href="#repertoire">Explore Repertoire</a>
+            <a class="btn btn-gold-outline" href="food-snacks.html">Lounge Dining Menu</a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Floating Quick-Search Bar -->
-    <section class="search-wrap reveal" id="search-section">
-      <div class="quick-search">
-        <label class="search-field">
-          <span>⌕</span>
-          <input id="film-search" type="search" placeholder="Search films, directors, actors, or genres..." aria-label="Search films">
-        </label>
-        <select aria-label="Cinema location">
-          <option>THEATRON Grand Flagship</option>
-          <option>THEATRON Royal Promenade</option>
-          <option>THEATRON Velvet Lounge</option>
-        </select>
-        <button class="btn crimson" id="find-showtimes" type="button">Find Showtimes</button>
+        <aside class="hero-lounge-panel" aria-label="Tonight at THEATRON">
+          <p class="hero-panel-kicker">Tonight in F-7 Markaz</p>
+          <h2 class="hero-panel-title">The Obsidian Flagship</h2>
+          <p style="color: var(--color-text-muted); font-size: 0.92rem; margin-bottom: 1.15rem;">
+            Private velvet suites and signature 28-seat recliner auditoriums curated for uninterrupted immersion.
+          </p>
+          <ul class="hero-panel-list">
+            <li><span>Doors &amp; Valet</span><strong>12:00 PM Daily</strong></li>
+            <li><span>Late Premiere</span><strong>11:45 PM Show</strong></li>
+            <li><span>VIP Concierge</span><strong>+92 51 265 4800</strong></li>
+          </ul>
+        </aside>
       </div>
-    </section>
 
-    <!-- Currently Showing 4-Card Grid -->
-    <section class="section now-showing" id="movies">
-      <div class="section-heading reveal">
-        <div>
-          <div class="eyebrow">BOX OFFICE SELECTION</div>
-          <h2>CURRENTLY SHOWING</h2>
+      <div class="specs-bar" aria-label="THEATRON Technical Specifications">
+        <div class="container specs-grid">
+          <div class="spec-item">
+            <span class="spec-icon" aria-hidden="true">4K</span>
+            <div>
+              <span class="spec-title">Dual-Laser IMAX</span>
+              <span class="spec-detail">Razor-sharp contrast &amp; HDR depth</span>
+            </div>
+          </div>
+          <div class="spec-item">
+            <span class="spec-icon" aria-hidden="true">64</span>
+            <div>
+              <span class="spec-title">64-Channel Atmos</span>
+              <span class="spec-detail">360&deg; spatial acoustic precision</span>
+            </div>
+          </div>
+          <div class="spec-item">
+            <span class="spec-icon" aria-hidden="true">VIP</span>
+            <div>
+              <span class="spec-title">Italian Recliners</span>
+              <span class="spec-detail">Full-grain heated velvet lounges</span>
+            </div>
+          </div>
+          <div class="spec-item">
+            <span class="spec-icon" aria-hidden="true">24/7</span>
+            <div>
+              <span class="spec-title">In-Seat Butler Call</span>
+              <span class="spec-detail">Silent mid-film tableside service</span>
+            </div>
+          </div>
         </div>
-        <a href="movies.html">Explore Full Catalogue (9) →</a>
-      </div>
-      <div class="movie-grid" id="movie-grid">
-        <!-- Film 1: Doomsday: Eclipse Protocol -->
-        <article class="movie-card reveal" data-movie-id="doomsday" data-search="doomsday eclipse protocol sci-fi sci fi thriller english mara voss elias ward">
-          <div class="poster poster-frame">
-            <div class="poster-badges"><span>PG-13</span><span>English</span><span>★ 9.4</span></div>
-            <img class="movie-poster-img" src="posters/doomsday.jpg" alt="Doomsday: Eclipse Protocol poster" onerror="this.style.display='none'">
-            <h3 class="movie-title">DOOMSDAY:<br>ECLIPSE PROTOCOL</h3>
-            <div class="poster-tag">SCI-FI THRILLER • 2H 28M</div>
-          </div>
-          <p>When an orbital solar array detects an artificial gravitational anomaly approaching Earth, an estranged astrophysicist...</p>
-          <button class="btn crimson book-btn" type="button" data-movie="DOOMSDAY: ECLIPSE PROTOCOL">Book Tickets</button>
-          <button class="details-link details-btn" type="button" data-movie="DOOMSDAY: ECLIPSE PROTOCOL">Details</button>
-        </article>
-
-        <!-- Film 2: The Velvet Sovereign -->
-        <article class="movie-card reveal" data-movie-id="velvet-sovereign" data-search="velvet sovereign drama english lucien moreau isla maren opera">
-          <div class="poster poster-frame">
-            <div class="poster-badges"><span>R</span><span>English</span><span>★ 9.1</span></div>
-            <img class="movie-poster-img" src="posters/velvet-sovereign.jpg" alt="The Velvet Sovereign poster" onerror="this.style.display='none'">
-            <h3 class="movie-title">THE VELVET<br>SOVEREIGN</h3>
-            <div class="poster-tag">DRAMA • 2H 14M</div>
-          </div>
-          <p>Inside a grand European opera house in 1928, a celebrated soprano uncovers a silent conspiracy woven through her final performance...</p>
-          <button class="btn crimson book-btn" type="button" data-movie="THE VELVET SOVEREIGN">Book Tickets</button>
-          <button class="details-link details-btn" type="button" data-movie="THE VELVET SOVEREIGN">Details</button>
-        </article>
-
-        <!-- Film 3: Nocturne in Obsidian -->
-        <article class="movie-card reveal" data-movie-id="nocturne-obsidian" data-search="nocturne obsidian mystery french etienne ravel camille laurent geneva horologist">
-          <div class="poster poster-frame">
-            <div class="poster-badges"><span>R</span><span>French</span><span>★ 8.9</span></div>
-            <img class="movie-poster-img" src="posters/nocturne-obsidian.jpg" alt="Nocturne in Obsidian poster" onerror="this.style.display='none'">
-            <h3 class="movie-title">NOCTURNE IN<br>OBSIDIAN</h3>
-            <div class="poster-tag">MYSTERY • 2H 05M</div>
-          </div>
-          <p>A master horologist in Geneva is commissioned to repair a timepiece that appears to count backward through the lives of its owners...</p>
-          <button class="btn crimson book-btn" type="button" data-movie="NOCTURNE IN OBSIDIAN">Book Tickets</button>
-          <button class="details-link details-btn" type="button" data-movie="NOCTURNE IN OBSIDIAN">Details</button>
-        </article>
-
-        <!-- Film 4: Aether & Ash -->
-        <article class="movie-card reveal" data-movie-id="aether-ash" data-search="aether ash action english sana okafor darius cole desert salvage">
-          <div class="poster poster-frame">
-            <div class="poster-badges"><span>PG-13</span><span>English</span><span>★ 8.8</span></div>
-            <img class="movie-poster-img" src="posters/aether-ash.jpg" alt="Aether & Ash poster" onerror="this.style.display='none'">
-            <h3 class="movie-title">AETHER &<br>ASH</h3>
-            <div class="poster-tag">ACTION • 2H 19M</div>
-          </div>
-          <p>Across high-altitude desert outposts, a salvage pilot intercepts an experimental vessel carrying an impossible passenger...</p>
-          <button class="btn crimson book-btn" type="button" data-movie="AETHER & ASH">Book Tickets</button>
-          <button class="details-link details-btn" type="button" data-movie="AETHER & ASH">Details</button>
-        </article>
       </div>
     </section>
 
-    <!-- Promo Banner for GOLD15 -->
-    <section class="section promo reveal">
-      <div>
-        <div class="eyebrow">PRIVATE LOUNGE PRIVILEGE</div>
-        <h2>COMPLIMENTARY TRUFFLE SERVICE WITH CODE <strong>GOLD15</strong></h2>
-        <p>Apply promo code GOLD15 during checkout to enjoy 15% off Royal Gold Recliner tickets and artisanal lounge concessions.</p>
-      </div>
-      <div class="promo-actions">
-        <button class="btn gold" id="copy-gold" type="button">Book With Privilege</button>
-        <button class="btn outline" type="button">Tour Our Lounges</button>
-      </div>
-    </section>
-
-    <!-- Lower 2-Column Grid: Coming Soon & Signature Cinemas -->
-    <section class="section lower-grid" id="coming">
-      <!-- Left Column: Coming Soon Grid -->
-      <div class="coming-column">
-        <div class="section-heading reveal">
+    <!-- All-Genre Curated Repertoire -->
+    <section class="section repertoire-section" id="repertoire">
+      <div class="container">
+        <div class="section-header-row">
           <div>
-            <div class="eyebrow">ADVANCE CALENDAR</div>
-            <h2>COMING SOON</h2>
+            <span class="eyebrow">Now Showing</span>
+            <h2 class="section-title">All-Genre Curated Repertoire</h2>
+            <p class="section-subtitle">
+              Filter our current F-7 Markaz slate by mood and select a preferred screening time.
+            </p>
           </div>
-          <a href="movies.html?status=coming-soon">All Premieres →</a>
         </div>
-        <div class="coming-grid">
-          <!-- Coming Soon 1: Dynasty of Glass -->
-          <article class="coming-card reveal" data-movie-id="dynasty-glass">
-            <div class="mini-poster poster-frame">
-              <div class="poster-badges"><span>R</span><span>English</span><span>★ 9.0</span></div>
-              <img class="movie-poster-img" src="posters/dynasty-glass.jpg" alt="Dynasty of Glass poster" onerror="this.style.display='none'">
-              <h3 class="movie-title">DYNASTY OF GLASS</h3>
-              <small>DRAMA • 2H 35M</small>
-            </div>
-            <div class="reminder-row">
-              <button class="reminder set" type="button">✓ Reminder Set</button>
-              <button class="details-link details-btn" type="button" data-movie="DYNASTY OF GLASS">Details</button>
-            </div>
-          </article>
 
-          <!-- Coming Soon 2: Mirage of Kings -->
-          <article class="coming-card reveal" data-movie-id="mirage-kings">
-            <div class="mini-poster poster-frame">
-              <div class="poster-badges"><span>PG-13</span><span>Arabic</span><span>★ 8.9</span></div>
-              <img class="movie-poster-img" src="posters/mirage-kings.jpg" alt="Mirage of Kings poster" onerror="this.style.display='none'">
-              <h3 class="movie-title">MIRAGE OF KINGS</h3>
-              <small>ACTION • 2H 11M</small>
-            </div>
-            <div class="reminder-row">
-              <button class="reminder" type="button">Notify Me</button>
-              <button class="details-link details-btn" type="button" data-movie="MIRAGE OF KINGS">Details</button>
-            </div>
-          </article>
+        <!-- Genre Filter Controls -->
+        <div class="genre-filters" role="group" aria-label="Filter movies by genre">
+          <button class="filter-btn is-active" type="button" data-genre="All" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-genre="Action" aria-pressed="false">Action</button>
+          <button class="filter-btn" type="button" data-genre="Love Story" aria-pressed="false">Love Story</button>
+          <button class="filter-btn" type="button" data-genre="Horror" aria-pressed="false">Horror</button>
+          <button class="filter-btn" type="button" data-genre="Documentary" aria-pressed="false">Documentary</button>
+        </div>
 
-          <!-- Coming Soon 3: Symphony for Zero -->
-          <article class="coming-card reveal" data-movie-id="symphony-zero">
-            <div class="mini-poster poster-frame">
-              <div class="poster-badges"><span>PG-13</span><span>English</span><span>★ 8.6</span></div>
-              <img class="movie-poster-img" src="posters/symphony-zero.jpg" alt="Symphony for Zero poster" onerror="this.style.display='none'">
-              <h3 class="movie-title">SYMPHONY FOR ZERO</h3>
-              <small>MYSTERY • 2H 04M</small>
+        <!-- Gold-Bordered Premiere Spotlight Card -->
+        <article class="premiere-spotlight" aria-label="Premiere Spotlight">
+          <div class="spotlight-poster">
+            <span class="spotlight-badge">Premiere Spotlight</span>
+            <img
+              src="images/movie-1.jpg"
+              alt="Hasnain — Shadow Strike: Doomsday film poster"
+              onerror="this.parentElement.classList.add('is-missing-poster')"
+            />
+            <div class="poster-fallback" aria-hidden="true">
+              <span class="poster-fallback-title">Hasnain — Shadow Strike: Doomsday</span>
+              <span class="poster-fallback-genre">Action &bull; Dual-Laser IMAX</span>
             </div>
-            <div class="reminder-row">
-              <button class="reminder" type="button">Notify Me</button>
-              <button class="details-link details-btn" type="button" data-movie="SYMPHONY FOR ZERO">Details</button>
+          </div>
+
+          <div class="spotlight-body">
+            <span class="spotlight-kicker">Gala Premiere &bull; Action Thriller</span>
+            <h3 class="spotlight-title">Hasnain — Shadow Strike: Doomsday</h3>
+            <div class="movie-meta-line">
+              <span class="meta-pill">Dual-Laser IMAX</span>
+              <span class="meta-pill">64-Channel Atmos</span>
+              <span>2h 28m &bull; Rated PG-13</span>
             </div>
+            <p class="spotlight-synopsis">
+              When an encrypted orbital defense grid falls into rogue hands across the Karakoram corridor,
+              elite operative Hasnain races a 12-hour countdown to prevent global blackouts in a pulse-pounding
+              spectacle mastered exclusively for THEATRON's Dual-Laser IMAX screen.
+            </p>
+            <div class="spotlight-footer">
+              <div>
+                <span class="showtime-label">Tonight's Lounge Showtimes</span>
+                <div class="showtime-chips">
+                  <button class="showtime-chip" type="button">03:30 PM</button>
+                  <button class="showtime-chip" type="button">07:00 PM</button>
+                  <button class="showtime-chip" type="button">10:30 PM</button>
+                  <button class="showtime-chip" type="button">11:45 PM</button>
+                </div>
+              </div>
+              <a class="btn btn-primary" href="#reserve">Book Premiere Seat</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dynamic Movies Grid Populated via JavaScript moviesData -->
+        <div id="movies-grid" class="movies-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- About THEATRON & 2x2 Stats Grid -->
+    <section class="section about-section" id="about-theatron">
+      <div class="container about-grid">
+        <div class="about-narrative">
+          <span class="eyebrow">Our Heritage &amp; Craft</span>
+          <h2 class="section-title">About THEATRON</h2>
+          <p>
+            Conceived in the heart of F-7 Markaz, Islamabad, THEATRON Cinema Lounges reimagines film
+            exhibition as private architectural hospitality. Every surface—from sound-absorbing
+            obsidian walnut paneling to hand-tufted crimson velvet—is tuned to eliminate distraction
+            and heighten emotional resonance.
+          </p>
+          <p>
+            Instead of crowded multiplex rows, our guests settle into spacious Italian motorized
+            recliners with discreet tableside service, dual-laser 4K projection, and bespoke acoustic
+            chambers calibrated to mastering-studio standards.
+          </p>
+          <div class="about-signature">
+            <span>Plot 14, Jinnah Super Market &bull; F-7 Markaz, Islamabad</span>
+          </div>
+        </div>
+
+        <div class="stats-grid" aria-label="THEATRON Key Statistics">
+          <article class="stat-card">
+            <span class="stat-value">03</span>
+            <span class="stat-label">Royal Lounges</span>
+            <span class="stat-sub">Intimate bespoke auditoriums</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value">4K</span>
+            <span class="stat-label">Dual-Laser</span>
+            <span class="stat-sub">Reference HDR projection</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value">64</span>
+            <span class="stat-label">Spatial Channels</span>
+            <span class="stat-sub">Dolby Atmos 360&deg; dome</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value">100%</span>
+            <span class="stat-label">Motorized Recliners</span>
+            <span class="stat-sub">Heated Italian leather &amp; velvet</span>
           </article>
         </div>
       </div>
+    </section>
 
-      <!-- Right Column: Signature Cinemas -->
-      <aside class="cinemas-column" id="cinemas">
-        <div class="section-heading reveal">
+    <!-- Interactive Three Imperial Auditoriums Tab Switcher -->
+    <section class="section auditoriums-section" id="imperial-auditoriums">
+      <div class="container">
+        <div class="section-header-row">
           <div>
-            <div class="eyebrow">DESTINATIONS</div>
-            <h2>SIGNATURE CINEMAS</h2>
+            <span class="eyebrow">Bespoke Screening Spaces</span>
+            <h2 class="section-title">Three Imperial Auditoriums</h2>
+            <p class="section-subtitle">
+              Inspect each hall's projection, seating architecture, and private hospitality profile.
+            </p>
           </div>
-          <a href="#">Locations Map →</a>
-        </div>
-        <div class="venue-list">
-          <article class="venue-card reveal">
-            <div class="venue-head">
-              <h3>THEATRON GRAND FLAGSHIP</h3>
-              <span>8 Halls</span>
-            </div>
-            <p>88 Sovereign Boulevard, Suite 100</p>
-            <div class="venue-features">
-              <span>IMAX Laser</span>
-              <span>Dolby Atmos</span>
-              <span>Royal Recliners</span>
-            </div>
-            <a href="#showtimes">View Showtimes →</a>
-          </article>
 
-          <article class="venue-card reveal">
-            <div class="venue-head">
-              <h3>THEATRON ROYAL PROMENADE</h3>
-              <span>6 Halls</span>
-            </div>
-            <p>410 Galleria Esplanade, West Wing</p>
-            <div class="venue-features">
-              <span>Dolby Atmos</span>
-              <span>IMAX 3D</span>
-              <span>Artisanal Gelato Lounge</span>
-            </div>
-            <a href="#showtimes">View Showtimes →</a>
-          </article>
-
-          <article class="venue-card reveal">
-            <div class="venue-head">
-              <h3>THEATRON VELVET LOUNGE</h3>
-              <span>4 Halls</span>
-            </div>
-            <p>19 Conservatory Lane</p>
-            <div class="venue-features">
-              <span>All-VIP Recliners</span>
-              <span>In-Seat Fine Dining</span>
-              <span>35mm Archival Projection</span>
-            </div>
-            <a href="#showtimes">View Showtimes →</a>
-          </article>
+          <div class="hall-tabs" role="tablist" aria-label="Select Imperial Auditorium">
+            <button
+              class="hall-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="auditorium-panel"
+              data-hall="hall-01"
+            >
+              Hall 01
+            </button>
+            <button
+              class="hall-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="auditorium-panel"
+              data-hall="hall-02"
+            >
+              Hall 02
+            </button>
+            <button
+              class="hall-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="auditorium-panel"
+              data-hall="hall-03"
+            >
+              Hall 03
+            </button>
+          </div>
         </div>
-      </aside>
+
+        <article id="auditorium-panel" class="auditorium-panel" role="tabpanel" aria-live="polite">
+          <div class="auditorium-media">
+            <span id="hall-badge" class="spotlight-badge">Hall 01 &bull; Flagship</span>
+            <img
+              id="hall-image"
+              src="images/hall-01.jpg"
+              alt="Hall 01 — The Obsidian IMAX interior"
+              onerror="this.parentElement.classList.add('is-missing-poster')"
+            />
+            <div class="poster-fallback" aria-hidden="true">
+              <span id="hall-fallback-title" class="poster-fallback-title">The Obsidian IMAX</span>
+              <span id="hall-fallback-sub" class="poster-fallback-genre">Hall 01 &bull; 28 Italian Recliners</span>
+            </div>
+          </div>
+
+          <div class="auditorium-details">
+            <span id="hall-kicker" class="spotlight-kicker">Hall 01 &bull; Dual-Laser Flagship</span>
+            <h3 id="hall-title" class="auditorium-title">The Obsidian IMAX</h3>
+            <p id="hall-desc" class="auditorium-desc">
+              Our signature 28-seat grand lounge built around an edge-to-edge silver curved screen,
+              delivering razor-sharp Dual-Laser IMAX imagery and thunderous 64-channel Atmos depth.
+            </p>
+
+            <dl id="hall-specs" class="hall-specs-grid">
+              <div class="hall-spec-cell">
+                <dt>Seating</dt>
+                <dd>28 Heated Italian Recliners</dd>
+              </div>
+              <div class="hall-spec-cell">
+                <dt>Projection</dt>
+                <dd>4K Dual-Laser IMAX</dd>
+              </div>
+              <div class="hall-spec-cell">
+                <dt>Acoustics</dt>
+                <dd>64-Channel Dolby Atmos</dd>
+              </div>
+              <div class="hall-spec-cell">
+                <dt>Hospitality</dt>
+                <dd>In-Seat Silent Butler Call</dd>
+              </div>
+            </dl>
+
+            <div class="auditorium-actions">
+              <a id="hall-book-btn" class="btn btn-primary" href="#reserve">Book Hall 01 — The Obsidian IMAX</a>
+              <span class="auditorium-note">Private group buyouts available upon request</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Filterable 6-Card Architectural Photo Gallery -->
+    <section class="section gallery-section" id="architecture-gallery">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="eyebrow">Architectural Portfolio</span>
+            <h2 class="section-title">Inside THEATRON</h2>
+            <p class="section-subtitle">
+              Explore our F-7 Markaz interiors — click any photograph to inspect it in fullscreen.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery-filters" role="group" aria-label="Filter architectural photos">
+          <button class="filter-btn is-active" type="button" data-gallery-filter="All" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-gallery-filter="Auditoriums" aria-pressed="false">Auditoriums</button>
+          <button class="filter-btn" type="button" data-gallery-filter="Foyer & Bar" aria-pressed="false">Foyer &amp; Bar</button>
+          <button class="filter-btn" type="button" data-gallery-filter="Private Suites" aria-pressed="false">Private Suites</button>
+        </div>
+
+        <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
+      </div>
     </section>
   </main>
 
-  <!-- Luxury 4-Column Footer -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="brand">
-          <span class="brand-mark">T</span>
-          <span class="brand-copy"><strong>THEATRON</strong></span>
-        </div>
-        <p>Architectural cinema palaces engineered for discerning film patrons. Featuring dual-laser IMAX projection, acoustic maroon velvet auditoriums, and in-seat culinary service.</p>
-        <div class="footer-badges">
-          <span>DOLBY ATMOS</span>
-          <span>IMAX LASER</span>
-        </div>
+  <!-- Fullscreen Gallery Lightbox Modal -->
+  <div
+    id="lightbox-modal"
+    class="lightbox-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-title"
+    hidden
+  >
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+    <div class="lightbox-dialog">
+      <div class="lightbox-topbar">
+        <span id="lightbox-counter" class="lightbox-counter">1 / 6</span>
+        <button
+          id="lightbox-close"
+          class="lightbox-close"
+          type="button"
+          aria-label="Close fullscreen gallery"
+        >
+          &times;
+        </button>
       </div>
-      <div>
-        <h3>EXPLORE CINEMA</h3>
-        <a href="movies.html">Now Showing Catalogue</a>
-        <a href="#coming">Upcoming Premieres</a>
-        <a href="#cinemas">Flagship Locations</a>
-        <a href="#showtimes">Showtimes & Formats</a>
-        <a href="#">Lounge Gastronomy</a>
-      </div>
-      <div>
-        <h3>MEMBER SERVICES</h3>
-        <a href="#">Sovereign Gold Profile</a>
-        <a href="#">Digital Ticket Vault</a>
-        <a href="#">Member Sign In</a>
-        <a href="#">Apply for Membership</a>
-      </div>
-      <div>
-        <h3>OPERATIONS & CONCIERGE</h3>
-        <p>24/7 Private Box Office & Auditorium Management:</p>
-        <strong class="phone">+92-xxxxxxxxxx-THEATRON</strong>
-        <button class="btn outline admin-btn" type="button">OPEN ADMIN CONTROL PANEL →</button>
+
+      <div class="lightbox-stage">
+        <button
+          id="lightbox-prev"
+          class="lightbox-nav lightbox-prev"
+          type="button"
+          aria-label="Previous photograph"
+        >
+          &#8249;
+        </button>
+
+        <figure class="lightbox-figure">
+          <div id="lightbox-media-wrap" class="lightbox-media-wrap">
+            <img
+              id="lightbox-image"
+              src=""
+              alt=""
+              onerror="this.parentElement.classList.add('is-missing-poster')"
+            />
+            <div class="poster-fallback" aria-hidden="true">
+              <span id="lightbox-fallback-title" class="poster-fallback-title"></span>
+              <span id="lightbox-fallback-cat" class="poster-fallback-genre"></span>
+            </div>
+          </div>
+          <figcaption class="lightbox-caption">
+            <span id="lightbox-category" class="lightbox-cat"></span>
+            <h3 id="lightbox-title"></h3>
+            <p id="lightbox-desc"></p>
+          </figcaption>
+        </figure>
+
+        <button
+          id="lightbox-next"
+          class="lightbox-nav lightbox-next"
+          type="button"
+          aria-label="Next photograph"
+        >
+          &#8250;
+        </button>
       </div>
     </div>
-    <div class="legal">
-      <span>© 2026 THEATRON Luxury Cinemas Group. All Rights Reserved.</span>
+  </div>
+
+  <!-- Shared 4-Column Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand-link" href="index.html" aria-label="THEATRON Cinema Lounges Home">
+          <span class="brand-crest" aria-hidden="true">
+            <span class="brand-crest-letter">T</span>
+          </span>
+          <span class="brand-wordmark">
+            <span class="brand-title">THEATRON</span>
+            <span class="brand-subtitle">Cinema Lounges</span>
+          </span>
+        </a>
+        <p class="footer-tagline">
+          Bespoke private screening lounges, 4K laser clarity, and gourmet hospitality in the heart
+          of F-7 Markaz, Islamabad.
+        </p>
+        <span class="footer-badge">Dolby Atmos &amp; 4K Laser</span>
+      </div>
+
       <div>
-        <a href="#">View 18-Page Architecture</a>
-        <a href="#">Privacy Charter</a>
-        <a href="#">Terms of Admission</a>
+        <h2 class="footer-heading">Explore</h2>
+        <ul class="footer-list">
+          <li><a href="index.html">Cinema Lounges</a></li>
+          <li><a href="food-snacks.html">Food &amp; Snacks Menu</a></li>
+          <li><a href="reviews.html">Guest Reviews</a></li>
+          <li><a href="index.html#reserve">Private Reservations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-heading">Visit Us</h2>
+        <ul class="footer-list">
+          <li>
+            <span class="footer-meta-label">Address</span>
+            Plot 14, Jinnah Super Market, F-7 Markaz, Islamabad
+          </li>
+          <li>
+            <span class="footer-meta-label">Showtimes</span>
+            Monday – Sunday: 12:00 PM – 02:00 AM
+          </li>
+          <li>
+            <span class="footer-meta-label">Valet Parking</span>
+            Complimentary VIP Valet at Main Entrance
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-heading">Concierge</h2>
+        <ul class="footer-list">
+          <li>
+            <span class="footer-meta-label">Box Office &amp; VIP Desk</span>
+            <a href="tel:+92512654800">+92 51 265 4800</a>
+          </li>
+          <li>
+            <span class="footer-meta-label">Private Bookings</span>
+            <a href="mailto:concierge@theatron.pk">concierge@theatron.pk</a>
+          </li>
+          <li>
+            <span class="footer-meta-label">Dress Code</span>
+            Smart Casual / Evening Attire
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 THEATRON Cinema Lounges. F-7 Markaz, Islamabad. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="index.html">Lounges</a>
+        <a href="food-snacks.html">Dining</a>
+        <a href="reviews.html">Reviews</a>
       </div>
     </div>
   </footer>
 
-  <!-- Shared Modal Container & Toast Notification -->
-  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal-close" type="button" aria-label="Close modal">×</button>
-      <div id="modal-content"></div>
-    </div>
-  </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <!-- Main JavaScript File -->
   <script src="script.js"></script>
 </body>
 </html>
