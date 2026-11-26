@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="THEATRON Cinema Lounges — Member 4 Master Gateway. Explore User Profile, Offers & Privileges, and Signature Cinemas in ultra-luxury cinematic presentation.">
+  <title>THEATRON Cinema Lounges | Member 4 Suite</title>
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="stylee.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+
+  <style>
+    .portal-hero {
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+      background: radial-gradient(circle at 50% 20%, rgba(75, 16, 30, 0.55) 0%, rgba(9, 6, 7, 0.98) 75%);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-gold-subtle);
+      margin: 2rem auto 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portal-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent);
+    }
+
+    .suite-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 5.5rem;
+    }
+
+    .suite-page-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-normal);
+      position: relative;
+    }
+
+    .suite-page-card:hover {
+      border-color: var(--gold-highlight);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .suite-card-preview {
+      height: 230px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-gold-subtle);
+      background: #14070B;
+    }
+
+    .suite-card-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .suite-page-card:hover .suite-card-preview img {
+      transform: scale(1.06);
+    }
+
+    .suite-card-body {
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .suite-card-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--champagne-gold);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .suite-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .suite-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.6rem;
+      flex-grow: 1;
+    }
+
+    .suite-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-gold-subtle);
+    }
+
+    .suite-feature-item {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .suite-feature-item::before {
+      content: '✦';
+      color: var(--champagne-gold);
+      font-size: 0.75rem;
+    }
+
+    .tech-specs-banner {
+      background: radial-gradient(circle at 50% 50%, rgba(58, 13, 24, 0.4) 0%, rgba(12, 6, 8, 0.95) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem 2.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .tech-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .tech-spec-item {
+      text-align: center;
+    }
+
+    .tech-spec-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--gold-highlight);
+      margin-bottom: 0.4rem;
+    }
+
+    .tech-spec-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Ambient Gold Particle Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- ==========================================================================
+       SHARED SITE HEADER
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="index.html" class="brand-group" aria-label="THEATRON Cinema Lounges Homepage">
+        <div class="brand-logo-sq">
+          <span class="t-letter">T</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THEATRON</span>
+          <span class="brand-subtitle">CINEMA LOUNGES</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" role="navigation" aria-label="Main Navigation">
+        <a href="profile.html" class="nav-link">User Profile</a>
+        <a href="offers.html" class="nav-link">Offers</a>
+        <a href="cinemas.html" class="nav-link">Cinemas</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-tickets" aria-label="View reserved tickets">
+          <span class="ticket-icon">🎟</span>
+          <span>Tickets</span>
+          <span class="ticket-count-badge">6</span>
+        </button>
+
+        <button class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" role="dialog" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <div class="brand-group">
+        <div class="brand-logo-sq">
+          <span class="t-letter">T</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THEATRON</span>
+          <span class="brand-subtitle">CINEMA LOUNGES</span>
+        </div>
+      </div>
+      <button class="drawer-close-btn" aria-label="Close menu">✕</button>
+    </div>
+
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="index.html" class="drawer-link active">
+          <span class="drawer-icon">✦</span> Overview Hub
+        </a>
+      </li>
+      <li>
+        <a href="profile.html" class="drawer-link">
+          <span class="drawer-icon">👤</span> User Profile
+        </a>
+      </li>
+      <li>
+        <a href="offers.html" class="drawer-link">
+          <span class="drawer-icon">🏷️</span> Exclusive Offers
+        </a>
+      </li>
+      <li>
+        <a href="cinemas.html" class="drawer-link">
+          <span class="drawer-icon">🏛️</span> Signature Cinemas
+        </a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer">
+      <div class="drawer-membership-status">
+        <div class="drawer-member-tier">Royal Gold Connoisseur</div>
+        <div class="drawer-member-name">Lord Alistair Vance</div>
+      </div>
+      <button class="btn btn-gold btn-sm" style="width: 100%;" onclick="window.location.href='cinemas.html'">
+        Explore Sanctuaries
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: MEMBER 4 LANDING & GATEWAY
+       ========================================================================== -->
+  <main class="portal-page" role="main">
+    <div class="container">
+
+      <!-- Hero Banner -->
+      <section class="portal-hero hero-animate-1" aria-labelledby="portal-title">
+        <span class="badge-luxury-pill" style="margin-bottom: 1.2rem;">THEATRON CINEMA LOUNGES • MEMBER 4</span>
+        <h1 id="portal-title" class="section-title gold-gradient-text" style="font-size: clamp(2.4rem, 5.5vw, 4rem);">
+          CINEMA ELEVATED TO HIGH ART
+        </h1>
+        <p class="section-subtitle" style="margin: 0 auto 2.5rem;">
+          Welcome to Member 4's complete luxury frontend suite for THEATRON CINEMA LOUNGES. Built strictly with Vanilla
+          HTML5, CSS3, and ES6+ JavaScript, following the exact deep burgundy and metallic champagne-gold visual
+          identity of our reference design.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;">
+          <a href="profile.html" class="btn btn-gold">Launch User Profile →</a>
+          <a href="offers.html" class="btn btn-burgundy">Explore Offers</a>
+          <a href="cinemas.html" class="btn btn-outline">Explore Cinemas</a>
+        </div>
+      </section>
+
+      <!-- Member 4 Deliverables: Three Core Pages Showcase Cards -->
+      <section class="suite-cards-grid" aria-label="Member 4 Three Core Pages">
+
+        <!-- Page 1 Card: User Profile -->
+        <article class="suite-page-card reveal-on-scroll reveal-delay-1">
+          <div class="suite-card-preview">
+            <img src="assets/images/luxury-avatar.svg" alt="User Profile Preview"
+              style="object-fit: contain; padding: 2rem;">
+          </div>
+          <div class="suite-card-body">
+            <span class="suite-card-num">PAGE 01</span>
+            <h2 class="suite-card-title">User Profile</h2>
+            <p class="suite-card-desc">
+              Luxury cinema membership dashboard featuring a 3D tilt digital membership card, animated statistics
+              counters, editable credentials, interactive bespoke preferences, and recent showtime booking activity.
+            </p>
+            <ul class="suite-features-list">
+              <li class="suite-feature-item">3D Tilt Royal Gold Card with QR code &amp; copy ID</li>
+              <li class="suite-feature-item">Animated counters (Watched, Tickets, Points, Spend)</li>
+              <li class="suite-feature-item">Editable profile with validation &amp; LocalStorage</li>
+              <li class="suite-feature-item">Bespoke preferences (Cinema, Genre Chips, Switches)</li>
+              <li class="suite-feature-item">Recent bookings with interactive Digital Pass modal</li>
+            </ul>
+            <a href="profile.html" class="btn btn-gold" style="width: 100%;">Open User Profile →</a>
+          </div>
+        </article>
+
+        <!-- Page 2 Card: Offers -->
+        <article class="suite-page-card reveal-on-scroll reveal-delay-2">
+          <div class="suite-card-preview">
+            <img src="assets/images/offer-truffle.svg" alt="Offers Preview">
+          </div>
+          <div class="suite-card-body">
+            <span class="suite-card-num">PAGE 02</span>
+            <h2 class="suite-card-title">Offers &amp; Privileges</h2>
+            <p class="suite-card-desc">
+              Exclusive promotions and privileges platform featuring a prominent truffle service showcase, dynamic
+              multi-category filtering, one-click promo code copying with clipboard integration, and detailed privilege
+              modals.
+            </p>
+            <ul class="suite-features-list">
+              <li class="suite-feature-item">Private Lounge &amp; Truffle Service featured banner</li>
+              <li class="suite-feature-item">Instant category filters without page refresh</li>
+              <li class="suite-feature-item">Copy code with Clipboard API &amp; toast notification</li>
+              <li class="suite-feature-item">Interactive Offer Details &amp; Redeem modal</li>
+              <li class="suite-feature-item">Step-by-step How to Redeem guide &amp; FAQ accordion</li>
+            </ul>
+            <a href="offers.html" class="btn btn-gold" style="width: 100%;">Open Offers Page →</a>
+          </div>
+        </article>
+
+        <!-- Page 3 Card: Cinemas -->
+        <article class="suite-page-card reveal-on-scroll reveal-delay-3">
+          <div class="suite-card-preview">
+            <img src="assets/images/flagship-cinema.svg" alt="Cinemas Preview">
+          </div>
+          <div class="suite-card-body">
+            <span class="suite-card-num">PAGE 03</span>
+            <h2 class="suite-card-title">Signature Cinemas</h2>
+            <p class="suite-card-desc">
+              Sophisticated luxury cinema directory highlighting the reference THEATRON Grand Flagship at 88 Sovereign
+              Blvd, with multi-faceted live search, facility filtering, interactive map explorer, and cinema details
+              modal.
+            </p>
+            <ul class="suite-features-list">
+              <li class="suite-feature-item">THEATRON Grand Flagship (88 Sovereign Blvd, 8 Halls)</li>
+              <li class="suite-feature-item">Live search by cinema name and city</li>
+              <li class="suite-feature-item">Filter by facilities (IMAX, Dolby Atmos, Lounges)</li>
+              <li class="suite-feature-item">Interactive Locations Map with clickable pins</li>
+              <li class="suite-feature-item">Comprehensive cinema specifications modal</li>
+            </ul>
+            <a href="cinemas.html" class="btn btn-gold" style="width: 100%;">Open Cinemas Page →</a>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Engineering & Technical Architecture Specs -->
+      <section class="tech-specs-banner reveal-on-scroll" aria-labelledby="architecture-title">
+        <div style="text-align: center;">
+          <span class="section-label">PRODUCTION STANDARDS</span>
+          <h2 id="architecture-title" class="section-title">Strict Technology Compliance</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">Engineered exclusively with pure web standards for
+            zero-dependency portability.</p>
+        </div>
+
+        <div class="tech-specs-grid">
+          <div class="tech-spec-item">
+            <div style="font-size: 2rem; color: var(--champagne-gold); margin-bottom: 0.6rem;">⚡</div>
+            <h3 class="tech-spec-title">Pure HTML5 &amp; CSS3</h3>
+            <p class="tech-spec-desc">Zero React, Angular, Vue, Bootstrap, or Tailwind. Pure handcrafted CSS variables,
+              grid, and flexbox.</p>
+          </div>
+
+          <div class="tech-spec-item">
+            <div style="font-size: 2rem; color: var(--champagne-gold); margin-bottom: 0.6rem;">⚙️</div>
+            <h3 class="tech-spec-title">Modular Vanilla ES6+</h3>
+            <p class="tech-spec-desc">Zero external JS libraries. Vanilla DOM manipulation, IntersectionObserver, and
+              Clipboard API.</p>
+          </div>
+
+          <div class="tech-spec-item">
+            <div style="font-size: 2rem; color: var(--champagne-gold); margin-bottom: 0.6rem;">💾</div>
+            <h3 class="tech-spec-title">LocalStorage Persistence</h3>
+            <p class="tech-spec-desc">User profile information, bespoke cinema preferences, and notification toggles
+              persist between refreshes.</p>
+          </div>
+
+          <div class="tech-spec-item">
+            <div style="font-size: 2rem; color: var(--champagne-gold); margin-bottom: 0.6rem;">📱</div>
+            <h3 class="tech-spec-title">Fully Responsive</h3>
+            <p class="tech-spec-desc">Pixel-perfect across 360px Android devices, iPhone 14/15/16, iPads, laptops, and
+              4K ultra-wide monitors.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Tickets Modal -->
+  <div id="tickets-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="tickets-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 id="tickets-modal-title" class="modal-title">Your Reserved Experiences (6)</h2>
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom: 1.2rem; font-size: 0.9rem;">You have <strong>6 tickets reserved</strong> for tonight's
+          gala presentation:</p>
+        <div
+          style="background: rgba(30, 10, 18, 0.6); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 1.4rem;">
+          <h3 style="font-family: var(--font-serif); color: var(--gold-highlight); font-size: 1.2rem;">DOOMSDAY: ECLIPSE
+            PROTOCOL</h3>
+          <p style="color: var(--champagne-gold); font-size: 0.85rem; margin-top: 0.2rem;">THEATRON Grand Flagship •
+            Dual-Laser IMAX 4K HDR</p>
+          <p style="color: var(--text-secondary); font-size: 0.82rem; margin-top: 0.4rem;">Showtime: Tonight @ 20:30 PM
+            • 6 Guests • Heated Recliners H-14 to H-19</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline modal-close-btn">Dismiss</button>
+        <a href="cinemas.html" class="btn btn-gold">Explore All Showtimes</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand-group">
+            <div class="brand-logo-sq">
+              <span class="t-letter">T</span>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">THEATRON</span>
+              <span class="brand-subtitle">CINEMA LOUNGES</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            Elevating cinema into the realm of high art. Experience acoustic maroon velvet sanctuaries, 4K Dual-Laser
+            IMAX, and bespoke connoisseur hospitality.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Member 4 Pages</h4>
+          <ul class="footer-links">
+            <li><a href="profile.html" class="footer-link">User Profile</a></li>
+            <li><a href="offers.html" class="footer-link">Exclusive Offers</a></li>
+            <li><a href="cinemas.html" class="footer-link">Signature Cinemas</a></li>
+            <li><a href="index.html" class="footer-link">Overview Directory</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Sanctuaries</h4>
+          <ul class="footer-links">
+            <li><a href="cinemas.html" class="footer-link">Grand Flagship (88 Sovereign)</a></li>
+            <li><a href="cinemas.html" class="footer-link">Elysium Palace (Monarch Ave)</a></li>
+            <li><a href="cinemas.html" class="footer-link">Celestial Pavilion (Aurora Crest)</a></li>
+            <li><a href="cinemas.html" class="footer-link">Astral Sanctuary (Marina Bay)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">VIP Concierge</h4>
+          <div class="footer-concierge-card">
+            <div class="concierge-title">Direct Butler Desk</div>
+            <div class="concierge-info">+1 (800) 843-2876 • concierge@theatron.com</div>
+            <button class="btn btn-outline btn-sm" style="width: 100%;"
+              onclick="window.showToast('Concierge Connected', 'A private cinema butler will attend to you shortly.', '🛎️');">
+              Request In-Seat Service
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 THEATRON CINEMA LOUNGES. All Rights Reserved.</div>
+        <div class="footer-member-badge">THEATRON PROJECT • MEMBER 4 FRONTEND SUITE</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script src="animations.js"></script>
+</body>
+
+</html>

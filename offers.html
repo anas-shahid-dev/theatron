@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="THEATRON Cinema Lounges — Exclusive Offers, Privileges & Connoisseur Promotions. Enjoy artisan lounge access, truffle pairings, and luxury cinema discounts.">
+  <title>Exclusive Offers & Privileges | THEATRON Cinema Lounges</title>
+
+  <!-- Core & Page Stylesheets -->
+  <link rel="stylesheet" href="stylee.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="offers.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+  <!-- Ambient Gold Particle Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- ==========================================================================
+       SHARED SITE HEADER
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="indexx.html" class="brand-group" aria-label="THEATRON Cinema Lounges Homepage">
+        <div class="brand-logo-sq">
+          <span class="t-letter">T</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THEATRON</span>
+          <span class="brand-subtitle">CINEMA LOUNGES</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" role="navigation" aria-label="Main Navigation">
+        <a href="profile.html" class="nav-link">User Profile</a>
+        <a href="offers.html" class="nav-link active">Offers</a>
+        <a href="cinemas.html" class="nav-link">Cinemas</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-tickets" aria-label="View reserved tickets">
+          <span class="ticket-icon">🎟</span>
+          <span>Tickets</span>
+          <span class="ticket-count-badge">6</span>
+        </button>
+
+        <button class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" role="dialog" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <div class="brand-group">
+        <div class="brand-logo-sq">
+          <span class="t-letter">T</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THEATRON</span>
+          <span class="brand-subtitle">CINEMA LOUNGES</span>
+        </div>
+      </div>
+      <button class="drawer-close-btn" aria-label="Close menu">✕</button>
+    </div>
+
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="indexx.html" class="drawer-link">
+          <span class="drawer-icon">✦</span> Overview Hub
+        </a>
+      </li>
+      <li>
+        <a href="profile.html" class="drawer-link">
+          <span class="drawer-icon">👤</span> User Profile
+        </a>
+      </li>
+      <li>
+        <a href="offers.html" class="drawer-link active">
+          <span class="drawer-icon">🏷️</span> Exclusive Offers
+        </a>
+      </li>
+      <li>
+        <a href="cinemas.html" class="drawer-link">
+          <span class="drawer-icon">🏛️</span> Signature Cinemas
+        </a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer">
+      <div class="drawer-membership-status">
+        <div class="drawer-member-tier">Royal Gold Connoisseur</div>
+        <div class="drawer-member-name">Lord Alistair Vance</div>
+      </div>
+      <button class="btn btn-gold btn-sm" style="width: 100%;" onclick="window.location.href='cinemas.html'">
+        Explore Sanctuaries
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: OFFERS PAGE
+       ========================================================================== -->
+  <main class="offers-page" role="main">
+    <div class="container">
+
+      <!-- 1. Offers Hero Section -->
+      <section class="offers-hero hero-animate-1" aria-labelledby="offers-hero-title">
+        <span class="badge-luxury-pill" style="margin-bottom: 1.2rem;">THEATRON PRIVILEGE SUITE</span>
+        <h1 id="offers-hero-title" class="offers-hero-title gold-gradient-text">EXCLUSIVE PRIVILEGES</h1>
+        <p class="offers-hero-sub">Extraordinary Experiences. Exceptional Rewards.</p>
+        <div class="hero-actions" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="#catalogue" class="btn btn-gold btn-sm">Browse Privileges ↓</a>
+          <a href="#how-to-redeem" class="btn btn-outline btn-sm">How to Redeem</a>
+        </div>
+      </section>
+
+      <!-- 2. Featured Offer Section (Inspired by Reference Design) -->
+      <section class="featured-offer-wrapper reveal-on-scroll" aria-labelledby="featured-title">
+        <div class="featured-offer-card">
+          <div class="featured-offer-visual img-zoom-container">
+            <img src="assets/images/offer-truffle.svg" alt="Private Lounge Privilege with Truffle Service"
+              class="featured-offer-img img-zoom-target">
+            <span class="featured-badge-pill">★ FEATURED CONNOISSEUR PRIVILEGE</span>
+          </div>
+
+          <div class="featured-offer-body">
+            <span class="featured-offer-tag">CULINARY &amp; SEATING EXCELLENCE</span>
+            <h2 id="featured-title" class="featured-offer-title">PRIVATE LOUNGE PRIVILEGE</h2>
+            <div class="featured-offer-highlight">
+              <span>COMPLIMENTARY TRUFFLE SERVICE</span>
+              <span class="badge-luxury-pill" style="border-color: var(--champagne-gold);">CODE: GOLD15</span>
+            </div>
+            <p class="featured-offer-desc">
+              Apply promo code <strong>GOLD15</strong> during checkout to enjoy 15% off Royal Gold Recliner tickets and
+              artisan lounge concessions. Includes priority sommelier champagne service and reserved velvet salon
+              seating.
+            </p>
+
+            <div class="featured-actions">
+              <button class="btn btn-gold btn-redeem-offer" data-title="Private Lounge Privilege" data-code="GOLD15"
+                data-discount="15% Off Royal Recliners + Free Truffle Service"
+                data-desc="Apply promo code GOLD15 during checkout to enjoy 15% off Royal Gold Recliner tickets and artisan lounge concessions."
+                data-validity="Valid until 31 Dec 2026"
+                data-terms="Valid for all Royal Gold Recliners across all flagship locations. Cannot be combined with other offers.">
+                Book With Privilege
+              </button>
+
+              <button class="btn btn-outline btn-offer-details" data-title="Private Lounge Privilege" data-code="GOLD15"
+                data-discount="15% Off Royal Recliners"
+                data-desc="Enjoy 15% off premium tickets with complimentary artisan truffle service in the private lounge."
+                data-validity="Valid through December 2026"
+                data-terms="Applicable on online bookings and at concierge desk. Valid 7 days a week.">
+                Explore Benefits
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Category Filter Tabs -->
+      <section id="catalogue" class="reveal-on-scroll" aria-label="Offer Category Filter">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <span class="section-label">CURATED PRIVILEGES</span>
+          <h2 class="section-title">The Privilege Catalogue</h2>
+        </div>
+
+        <div class="filter-tabs-wrapper" role="tablist">
+          <button class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true">All Offers</button>
+          <button class="filter-tab-btn" data-filter="exclusive" role="tab" aria-selected="false">Exclusive</button>
+          <button class="filter-tab-btn" data-filter="food" role="tab" aria-selected="false">Food &amp;
+            Beverages</button>
+          <button class="filter-tab-btn" data-filter="membership" role="tab" aria-selected="false">Membership</button>
+          <button class="filter-tab-btn" data-filter="tickets" role="tab" aria-selected="false">Ticket
+            Discounts</button>
+          <button class="filter-tab-btn" data-filter="events" role="tab" aria-selected="false">Special Events</button>
+        </div>
+      </section>
+
+      <!-- 4. Offers Catalogue Grid -->
+      <section class="offers-grid" aria-label="Offers Grid">
+
+        <!-- Offer 1: GOLD15 -->
+        <article class="offer-card offer-card-item reveal-on-scroll reveal-delay-1" data-category="exclusive">
+          <div class="offer-img-box img-zoom-container">
+            <img src="assets/images/offer-truffle.svg" alt="Royal Gold Recliner Offer"
+              class="offer-img img-zoom-target">
+            <span class="offer-discount-badge">15% OFF</span>
+          </div>
+          <div class="offer-card-body">
+            <div class="offer-meta-top">
+              <span class="offer-category-tag">EXCLUSIVE</span>
+              <span class="offer-expiry">Expires 31 Dec 2026</span>
+            </div>
+            <h3 class="offer-card-title">GOLD15 — Royal Gold Recliners</h3>
+            <p class="offer-card-desc">
+              Enjoy 15% off motorized Royal Gold Recliner tickets with complimentary sommelier champagne greeting.
+            </p>
+            <div class="promo-code-box">
+              <span class="promo-code-text">GOLD15</span>
+              <button class="btn-copy-code" data-code="GOLD15" aria-label="Copy promo code GOLD15">Copy Code</button>
+            </div>
+            <div class="offer-card-actions">
+              <button class="btn btn-outline btn-sm btn-offer-details" data-title="GOLD15 — Royal Gold Recliners"
+                data-code="GOLD15" data-discount="15% Off Tickets"
+                data-desc="15% discount on all Royal Gold Italian leather recliners with complimentary lounge entrance."
+                data-validity="Valid until 31 Dec 2026"
+                data-terms="Subject to auditorium availability. Max 6 tickets per booking.">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-redeem-offer" data-title="GOLD15 — Royal Gold Recliners"
+                data-code="GOLD15" data-discount="15% Off Tickets">
+                Redeem Now
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Offer 2: WEEKDAY20 -->
+        <article class="offer-card offer-card-item reveal-on-scroll reveal-delay-2" data-category="tickets">
+          <div class="offer-img-box img-zoom-container">
+            <img src="assets/images/offer-weekday.svg" alt="Weekday Matinee Royale" class="offer-img img-zoom-target">
+            <span class="offer-discount-badge">20% OFF</span>
+          </div>
+          <div class="offer-card-body">
+            <div class="offer-meta-top">
+              <span class="offer-category-tag">TICKET DISCOUNTS</span>
+              <span class="offer-expiry">Mon — Thu Only</span>
+            </div>
+            <h3 class="offer-card-title">WEEKDAY20 — Matinee Royale</h3>
+            <p class="offer-card-desc">
+              Enjoy 20% off selected weekday screenings before 18:00 PM across all Dual-Laser IMAX auditoriums.
+            </p>
+            <div class="promo-code-box">
+              <span class="promo-code-text">WEEKDAY20</span>
+              <button class="btn-copy-code" data-code="WEEKDAY20" aria-label="Copy promo code WEEKDAY20">Copy
+                Code</button>
+            </div>
+            <div class="offer-card-actions">
+              <button class="btn btn-outline btn-sm btn-offer-details" data-title="WEEKDAY20 — Matinee Royale"
+                data-code="WEEKDAY20" data-discount="20% Off Weekday Matinees"
+                data-desc="Escape midday for cinematic perfection with 20% off all weekday afternoon sessions."
+                data-validity="Valid Mon — Thu until 18:00 PM"
+                data-terms="Excludes public holidays and special premier galas.">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-redeem-offer" data-title="WEEKDAY20 — Matinee Royale"
+                data-code="WEEKDAY20">
+                Redeem Now
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Offer 3: DUO25 -->
+        <article class="offer-card offer-card-item reveal-on-scroll reveal-delay-3" data-category="membership">
+          <div class="offer-img-box img-zoom-container">
+            <img src="assets/images/offer-duo.svg" alt="The Sovereign Pair" class="offer-img img-zoom-target">
+            <span class="offer-discount-badge">25% OFF</span>
+          </div>
+          <div class="offer-card-body">
+            <div class="offer-meta-top">
+              <span class="offer-category-tag">MEMBERSHIP</span>
+              <span class="offer-expiry">Valid for 2 Guests</span>
+            </div>
+            <h3 class="offer-card-title">DUO25 — The Sovereign Pair</h3>
+            <p class="offer-card-desc">
+              Special 25% discount on couple and duo bookings inside our acoustic private velvet suites and pods.
+            </p>
+            <div class="promo-code-box">
+              <span class="promo-code-text">DUO25</span>
+              <button class="btn-copy-code" data-code="DUO25" aria-label="Copy promo code DUO25">Copy Code</button>
+            </div>
+            <div class="offer-card-actions">
+              <button class="btn btn-outline btn-sm btn-offer-details" data-title="DUO25 — The Sovereign Pair"
+                data-code="DUO25" data-discount="25% Off Duo Bookings"
+                data-desc="Intimate cinema luxury designed for pairs, including acoustic partition and blanket service."
+                data-validity="Valid for 2-guest reservations"
+                data-terms="Requires minimum reservation of 2 adjoining seats.">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-redeem-offer" data-title="DUO25 — The Sovereign Pair"
+                data-code="DUO25">
+                Redeem Now
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Offer 4: LOUNGEVIP -->
+        <article class="offer-card offer-card-item reveal-on-scroll reveal-delay-1" data-category="exclusive">
+          <div class="offer-img-box img-zoom-container">
+            <img src="assets/images/offer-lounge.svg" alt="Royal Velvet Lounge Access"
+              class="offer-img img-zoom-target">
+            <span class="offer-discount-badge">VIP LOUNGE</span>
+          </div>
+          <div class="offer-card-body">
+            <div class="offer-meta-top">
+              <span class="offer-category-tag">EXCLUSIVE</span>
+              <span class="offer-expiry">Connoisseur Only</span>
+            </div>
+            <h3 class="offer-card-title">LOUNGEVIP — Velvet Sanctuary</h3>
+            <p class="offer-card-desc">
+              Complimentary access to the exclusive maroon velvet private lounge with welcome champagne service.
+            </p>
+            <div class="promo-code-box">
+              <span class="promo-code-text">LOUNGEVIP</span>
+              <button class="btn-copy-code" data-code="LOUNGEVIP" aria-label="Copy promo code LOUNGEVIP">Copy
+                Code</button>
+            </div>
+            <div class="offer-card-actions">
+              <button class="btn btn-outline btn-sm btn-offer-details" data-title="LOUNGEVIP — Velvet Sanctuary"
+                data-code="LOUNGEVIP" data-discount="Complimentary Lounge Access"
+                data-desc="Access to the acoustically isolated velvet sanctuary prior to and following the screening."
+                data-validity="Active throughout 2026" data-terms="Present digital membership card at lounge entrance.">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-redeem-offer" data-title="LOUNGEVIP — Velvet Sanctuary"
+                data-code="LOUNGEVIP">
+                Redeem Now
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Offer 5: PREMIERE10 -->
+        <article class="offer-card offer-card-item reveal-on-scroll reveal-delay-2" data-category="events">
+          <div class="offer-img-box img-zoom-container">
+            <img src="assets/images/offer-premiere.svg" alt="Red Carpet Premiere Discount"
+              class="offer-img img-zoom-target">
+            <span class="offer-discount-badge">PREMIERE</span>
+          </div>
+          <div class="offer-card-body">
+            <div class="offer-meta-top">
+              <span class="offer-category-tag">SPECIAL EVENTS</span>
+              <span class="offer-expiry">Festival Season</span>
+            </div>
+            <h3 class="offer-card-title">PREMIERE10 — Red Carpet Gala</h3>
+            <p class="offer-card-desc">
+              Special premiere booking privilege offering 10% off red-carpet gala presentations and 70mm film previews.
+            </p>
+            <div class="promo-code-box">
+              <span class="promo-code-text">PREMIERE10</span>
+              <button class="btn-copy-code" data-code="PREMIERE10" aria-label="Copy promo code PREMIERE10">Copy
+                Code</button>
+            </div>
+            <div class="offer-card-actions">
+              <button class="btn btn-outline btn-sm btn-offer-details" data-title="PREMIERE10 — Red Carpet Gala"
+                data-code="PREMIERE10" data-discount="10% Off Gala Screenings"
+                data-desc="Exclusive 10% discount on first-night red carpet releases and director Q&A sessions."
+                data-validity="Valid for all 2026 Premiere galas" data-terms="Must book at least 24 hours in advance.">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-redeem-offer" data-title="PREMIERE10 — Red Carpet Gala"
+                data-code="PREMIERE10">
+                Redeem Now
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Offer 6: SNACKCOMBO -->
+        <article class="offer-card offer-card-item reveal-on-scroll reveal-delay-3" data-category="food">
+          <div class="offer-img-box img-zoom-container">
+            <img src="assets/images/offer-snack.svg" alt="Artisan Concessions Combo" class="offer-img img-zoom-target">
+            <span class="offer-discount-badge">GASTRONOMY</span>
+          </div>
+          <div class="offer-card-body">
+            <div class="offer-meta-top">
+              <span class="offer-category-tag">FOOD &amp; BEVERAGES</span>
+              <span class="offer-expiry">Available Daily</span>
+            </div>
+            <h3 class="offer-card-title">SNACKCOMBO — Artisan Concessions</h3>
+            <p class="offer-card-desc">
+              Curated gastronomy pairing: organic truffle butter popcorn served alongside two signature craft mocktails.
+            </p>
+            <div class="promo-code-box">
+              <span class="promo-code-text">SNACKCOMBO</span>
+              <button class="btn-copy-code" data-code="SNACKCOMBO" aria-label="Copy promo code SNACKCOMBO">Copy
+                Code</button>
+            </div>
+            <div class="offer-card-actions">
+              <button class="btn btn-outline btn-sm btn-offer-details" data-title="SNACKCOMBO — Artisan Concessions"
+                data-code="SNACKCOMBO" data-discount="30% Off Culinary Pairing"
+                data-desc="Delivered directly to your recliner by your private theater butler during trailers."
+                data-validity="Valid at all four signature lounges"
+                data-terms="Available for pre-order via profile or at seat console.">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-redeem-offer" data-title="SNACKCOMBO — Artisan Concessions"
+                data-code="SNACKCOMBO">
+                Redeem Now
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- 5. How To Redeem Section -->
+      <section id="how-to-redeem" class="how-to-redeem reveal-on-scroll" aria-labelledby="redeem-title">
+        <div style="text-align: center;">
+          <span class="section-label">SEAMLESS CONCIERGE</span>
+          <h2 id="redeem-title" class="section-title">How To Redeem Privileges</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">Enjoying your exclusive benefits is effortless in three
+            simple steps.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Select Sanctuary &amp; Film</h3>
+            <p class="step-desc">
+              Choose your preferred destination and screening from our signature cinema listings or box office
+              selection.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3 class="step-title">Apply Promo Code</h3>
+            <p class="step-desc">
+              Copy your code above and enter it into the checkout voucher box or provide it to your private concierge
+              butler.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3 class="step-title">Enjoy High Art Hospitality</h3>
+            <p class="step-desc">
+              Savor Italian leather recliners, acoustic maroon velvet sanctuaries, and bespoke culinary pairings.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Frequently Asked Questions (Accordion) -->
+      <section class="faq-section reveal-on-scroll" aria-labelledby="faq-title">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="section-label">INQUIRIES</span>
+          <h2 id="faq-title" class="section-title">Privilege FAQs</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>How do I apply promotional codes to existing bookings?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-content">
+              <p class="faq-text">
+                Promotional privileges must be applied during initial checkout. However, Royal Gold Connoisseurs can
+                contact the concierge butler desk up to 2 hours prior to showtime to apply eligible concessions
+                upgrades.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Can I combine multiple promo codes on a single screening?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-content">
+              <p class="faq-text">
+                Only one ticket discount code may be applied per transaction. However, food and beverage privileges
+                (such as SNACKCOMBO) can be added alongside ticket codes at the concession desk.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Do demonstration promo codes really work online?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-content">
+              <p class="faq-text">
+                These privileges are demonstrative frontend features designed for THEATRON Member 4 testing. Clicking
+                'Copy Code' copies the exact string to your system clipboard with real-time UI feedback.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>What is the cancellation policy for privilege bookings?</span>
+              <span class="faq-icon">▾</span>
+            </button>
+            <div class="faq-content">
+              <p class="faq-text">
+                Royal Gold members enjoy complimentary cancellation and reschedule privileges up to 60 minutes prior to
+                feature presentation commencement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Terms & Conditions Card -->
+      <section class="theatron-card reveal-on-scroll" style="margin-bottom: 2rem;" aria-labelledby="terms-title">
+        <span class="section-label">REGULATIONS</span>
+        <h2 id="terms-title" class="card-header-title" style="margin-bottom: 0.8rem;">Privilege Terms &amp; Conditions
+        </h2>
+        <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.8;">
+          All promotional codes and privileges shown on this platform are demonstration assets developed for the
+          THEATRON Cinema Lounges academic project. Offers are subject to auditorium seating capacity, local cinema
+          licensing, and age restrictions (e.g., PG-13 / R-rated features). In-seat champagne service is strictly
+          reserved for guests aged 21 and older with valid identification.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       OFFER DETAILS & REDEEM MODAL
+       ========================================================================== -->
+  <div id="offer-details-modal" class="modal-backdrop" role="dialog" aria-modal="true"
+    aria-labelledby="modal-offer-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 id="modal-offer-title" class="modal-title modal-offer-title">Private Lounge Privilege</h2>
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div
+          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 0.8rem;">
+          <span class="modal-offer-discount badge-luxury-pill">15% OFF PRIVILEGE</span>
+          <span class="modal-offer-validity" style="font-size: 0.8rem; color: var(--champagne-gold);">Valid until 31 Dec
+            2026</span>
+        </div>
+
+        <p class="modal-offer-desc" style="margin-bottom: 1.4rem;">
+          Enjoy bespoke savings across our flagship velvet recliners and artisan concessions.
+        </p>
+
+        <div class="promo-code-box" style="margin-bottom: 1.5rem;">
+          <div>
+            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase;">PROMO VOUCHER CODE
+            </div>
+            <span class="modal-offer-code promo-code-text">GOLD15</span>
+          </div>
+          <button class="btn btn-outline btn-sm btn-copy-code" data-code="GOLD15">Copy Code</button>
+        </div>
+
+        <div
+          style="background: rgba(18, 9, 12, 0.7); border: 1px solid var(--border-gold-subtle); border-radius: var(--radius-md); padding: 1.2rem;">
+          <h4
+            style="font-family: var(--font-serif); font-size: 0.95rem; color: var(--gold-highlight); margin-bottom: 0.4rem;">
+            Terms &amp; Eligibility</h4>
+          <p class="modal-offer-terms" style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
+            Valid for all Royal Gold Recliners across all flagship locations. Cannot be combined with other promotional
+            offers.
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline modal-close-btn">Dismiss</button>
+        <button id="btn-modal-redeem" class="btn btn-gold">Apply Privilege Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tickets Modal -->
+  <div id="tickets-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="tickets-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 id="tickets-modal-title" class="modal-title">Your Reserved Experiences (6)</h2>
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom: 1.2rem; font-size: 0.9rem;">You have <strong>6 tickets reserved</strong> for tonight's
+          gala presentation:</p>
+        <div
+          style="background: rgba(30, 10, 18, 0.6); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 1.4rem;">
+          <h3 style="font-family: var(--font-serif); color: var(--gold-highlight); font-size: 1.2rem;">DOOMSDAY: ECLIPSE
+            PROTOCOL</h3>
+          <p style="color: var(--champagne-gold); font-size: 0.85rem; margin-top: 0.2rem;">THEATRON Grand Flagship •
+            Dual-Laser IMAX 4K HDR</p>
+          <p style="color: var(--text-secondary); font-size: 0.82rem; margin-top: 0.4rem;">Showtime: Tonight @ 20:30 PM
+            • 6 Guests • Heated Recliners H-14 to H-19</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline modal-close-btn">Dismiss</button>
+        <a href="cinemas.html" class="btn btn-gold">Explore All Showtimes</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SHARED SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand-group">
+            <div class="brand-logo-sq">
+              <span class="t-letter">T</span>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">THEATRON</span>
+              <span class="brand-subtitle">CINEMA LOUNGES</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            Elevating cinema into the realm of high art. Experience acoustic maroon velvet sanctuaries, 4K Dual-Laser
+            IMAX, and bespoke connoisseur hospitality.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Member 4 Pages</h4>
+          <ul class="footer-links">
+            <li><a href="profile.html" class="footer-link">User Profile</a></li>
+            <li><a href="offers.html" class="footer-link">Exclusive Offers</a></li>
+            <li><a href="cinemas.html" class="footer-link">Signature Cinemas</a></li>
+            <li><a href="indexx.html" class="footer-link">Overview Directory</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Sanctuaries</h4>
+          <ul class="footer-links">
+            <li><a href="cinemas.html" class="footer-link">Grand Flagship (88 Sovereign)</a></li>
+            <li><a href="cinemas.html" class="footer-link">Elysium Palace (Monarch Ave)</a></li>
+            <li><a href="cinemas.html" class="footer-link">Celestial Pavilion (Aurora Crest)</a></li>
+            <li><a href="cinemas.html" class="footer-link">Astral Sanctuary (Marina Bay)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">VIP Concierge</h4>
+          <div class="footer-concierge-card">
+            <div class="concierge-title">Direct Butler Desk</div>
+            <div class="concierge-info">+1 (800) 843-2876 • concierge@theatron.com</div>
+            <button class="btn btn-outline btn-sm" style="width: 100%;"
+              onclick="window.showToast('Concierge Connected', 'A private cinema butler will attend to you shortly.', '🛎️');">
+              Request In-Seat Service
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 THEATRON CINEMA LOUNGES. All Rights Reserved.</div>
+        <div class="footer-member-badge">THEATRON PROJECT • MEMBER 4 FRONTEND SUITE</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script src="animations.js"></script>
+  <script src="offers.js"></script>
+</body>
+
+</html>
