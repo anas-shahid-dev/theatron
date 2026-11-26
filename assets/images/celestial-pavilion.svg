@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2A0B13"/>
+      <stop offset="40%" stop-color="#14060A"/>
+      <stop offset="100%" stop-color="#080305"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#36101B" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1BD72"/>
+      <stop offset="100%" stop-color="#C5A059"/>
+    </linearGradient>
+    <pattern id="luxPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M20 0 L40 20 L20 40 L0 20 Z" fill="none" stroke="#E6B96F" stroke-width="0.4" stroke-opacity="0.12"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect width="800" height="500" fill="url(#luxPattern)"/>
+  <rect width="800" height="500" fill="url(#glow)"/>
+  <!-- Architectural silhouette / Screen perspective -->
+  <g transform="translate(100, 60)">
+    <!-- Cinema Screen Curve -->
+    <path d="M 50 40 Q 300 15 550 40 L 580 230 Q 300 250 20 230 Z" fill="#0D0609" stroke="#E6B96F" stroke-width="1.8" opacity="0.95"/>
+    <path d="M 70 55 Q 300 35 530 55 L 555 215 Q 300 230 45 215 Z" fill="#36101B" fill-opacity="0.25"/>
+    <text x="300" y="145" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="28" font-weight="700" fill="#F1BD72" letter-spacing="4">THEATRON CELESTIAL PAVILION</text>
+    <text x="300" y="175" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="13" font-weight="500" fill="#E6B96F" letter-spacing="6">EXCLUSIVE DESTINATION</text>
+    <!-- Screen Beam Projection -->
+    <polygon points="300, -20 70, 55 530, 55" fill="#E6B96F" opacity="0.08"/>
+  </g>
+  <!-- Recliner Seating Rows in Foreground -->
+  <g fill="#1F080F" stroke="#E6B96F" stroke-width="0.8" opacity="0.9">
+    <rect x="120" y="320" width="100" height="40" rx="8"/>
+    <rect x="250" y="320" width="100" height="40" rx="8"/>
+    <rect x="450" y="320" width="100" height="40" rx="8"/>
+    <rect x="580" y="320" width="100" height="40" rx="8"/>
+    <rect x="80" y="380" width="120" height="50" rx="10"/>
+    <rect x="230" y="380" width="120" height="50" rx="10"/>
+    <rect x="450" y="380" width="120" height="50" rx="10"/>
+    <rect x="600" y="380" width="120" height="50" rx="10"/>
+  </g>
+  <!-- Subtle aisle lighting -->
+  <line x1="380" y1="310" x2="420" y2="480" stroke="#F1BD72" stroke-width="2" opacity="0.4" stroke-dasharray="4 6"/>
+  <!-- Overlay vignette and frame -->
+  <rect x="12" y="12" width="776" height="476" rx="12" fill="none" stroke="#E6B96F" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="40" y="460" font-family="'Montserrat', sans-serif" font-size="14" font-weight="600" fill="#F5EFE8" letter-spacing="2">15 AURORA CREST DRIVE • 10 GRAND AUDITORIUMS</text>
+  <text x="760" y="460" text-anchor="end" font-family="'Montserrat', sans-serif" font-size="12" font-weight="500" fill="#E6B96F" letter-spacing="1.5">THEATRON SIGNATURE SANCTUARY</text>
+</svg>

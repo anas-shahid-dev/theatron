@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="avGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4B101E"/>
+      <stop offset="60%" stop-color="#22080F"/>
+      <stop offset="100%" stop-color="#0C0508"/>
+    </linearGradient>
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1BD72"/>
+      <stop offset="50%" stop-color="#E6B96F"/>
+      <stop offset="100%" stop-color="#8C6326"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#avGrad)" stroke="url(#goldRing)" stroke-width="3"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="url(#goldRing)" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+  <!-- Stylized VIP Connoisseur Silhouette -->
+  <circle cx="100" cy="74" r="32" fill="#E6B96F" opacity="0.95"/>
+  <path d="M46 166 C52 118, 76 114, 100 114 C124 114, 148 118, 154 166 Z" fill="#E6B96F" opacity="0.9"/>
+  <!-- Gold bowtie / lapel accent -->
+  <polygon points="100,122 88,114 112,114" fill="#F1BD72"/>
+  <circle cx="100" cy="116" r="3" fill="#3A0D18"/>
+</svg>
