@@ -1,0 +1,229 @@
+/* ==========================================================================
+   THEATRON CINEMA LOUNGES — ANIMATIONS & CINEMATIC MOTION
+   ========================================================================== */
+
+/* 1. Keyframes: Subtle Gold Glow & Pulse */
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(230, 185, 111, 0.2), inset 0 0 15px rgba(230, 185, 111, 0.1);
+    border-color: rgba(218, 174, 112, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(241, 189, 114, 0.45), inset 0 0 25px rgba(241, 189, 114, 0.2);
+    border-color: rgba(241, 189, 114, 0.7);
+  }
+}
+
+.gold-pulse {
+  animation: goldPulse 4s infinite ease-in-out;
+}
+
+/* 2. Keyframes: Shimmering Gold Gradient Motion */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg, 
+    #F1BD72 0%, 
+    #FFFFFF 25%, 
+    #F1BD72 50%, 
+    #C99746 75%, 
+    #F1BD72 100%
+  );
+  background-size: 200% auto;
+  color: #000;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 6s linear infinite;
+}
+
+/* 3. Floating Light Beam / Ambient Motion */
+@keyframes ambientDrift {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.ambient-floating {
+  animation: ambientDrift 8s ease-in-out infinite;
+}
+
+/* 4. Scroll Reveal Animations (IntersectionObserver) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* 5. Hero Entrance Cinematic Sequence */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate-1 {
+  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-animate-2 {
+  opacity: 0;
+  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.hero-animate-3 {
+  opacity: 0;
+  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.hero-animate-4 {
+  opacity: 0;
+  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+/* 6. 3D Card Interactive Tilt Perspective */
+.tilt-card-container {
+  perspective: 1200px;
+}
+
+.tilt-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+/* 7. Metallic Sheen Glare Reflection */
+.card-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(255, 255, 255, 0.18) 0%, 
+    rgba(230, 185, 111, 0.08) 40%, 
+    transparent 80%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tilt-card:hover .card-glare {
+  opacity: 1;
+}
+
+/* 8. Badge Pulse */
+@keyframes badgePing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.ping-badge {
+  animation: badgePing 3s ease-in-out infinite;
+}
+
+/* 9. Image Zoom Hover */
+.img-zoom-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.img-zoom-target {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom-container:hover .img-zoom-target {
+  transform: scale(1.06);
+}
+
+/* 10. Filter Tabs Transition */
+.offer-card-item, .cinema-card-item {
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.offer-card-item.filtering-out, .cinema-card-item.filtering-out {
+  opacity: 0;
+  transform: scale(0.95) translateY(15px);
+  pointer-events: none;
+}
+
+.offer-card-item.filtering-in, .cinema-card-item.filtering-in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* 11. Subtle Scanner / Projector Beam */
+@keyframes beamSweep {
+  0% {
+    opacity: 0.2;
+    transform: rotate(-15deg) translateY(-20px);
+  }
+  50% {
+    opacity: 0.4;
+    transform: rotate(-10deg) translateY(0px);
+  }
+  100% {
+    opacity: 0.2;
+    transform: rotate(-15deg) translateY(-20px);
+  }
+}
+
+.beam-effect {
+  animation: beamSweep 10s ease-in-out infinite;
+}
+
+/* 12. Accessibility: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  #ambient-canvas {
+    display: none !important;
+  }
+}

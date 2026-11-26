@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="THEATRON Cinema Lounges — Signature Cinema Destinations. Explore our flagship acoustic velvet sanctuaries, Dual-Laser IMAX, and private screening salons.">
+  <title>Signature Cinemas | THEATRON Cinema Lounges</title>
+
+  <!-- Core & Page Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="cinemas.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+  <!-- Ambient Gold Particle Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- ==========================================================================
+       SHARED SITE HEADER
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="indexx.html" class="brand-group" aria-label="THEATRON Cinema Lounges Homepage">
+        <div class="brand-logo-sq">
+          <span class="t-letter">T</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THEATRON</span>
+          <span class="brand-subtitle">CINEMA LOUNGES</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" role="navigation" aria-label="Main Navigation">
+        <a href="profile.html" class="nav-link">User Profile</a>
+        <a href="offers.html" class="nav-link">Offers</a>
+        <a href="cinemas.html" class="nav-link active">Cinemas</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-tickets" aria-label="View reserved tickets">
+          <span class="ticket-icon">🎟</span>
+          <span>Tickets</span>
+          <span class="ticket-count-badge">6</span>
+        </button>
+
+        <button class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" role="dialog" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <div class="brand-group">
+        <div class="brand-logo-sq">
+          <span class="t-letter">T</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THEATRON</span>
+          <span class="brand-subtitle">CINEMA LOUNGES</span>
+        </div>
+      </div>
+      <button class="drawer-close-btn" aria-label="Close menu">✕</button>
+    </div>
+
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="indexx.html" class="drawer-link">
+          <span class="drawer-icon">✦</span> Overview Hub
+        </a>
+      </li>
+      <li>
+        <a href="profile.html" class="drawer-link">
+          <span class="drawer-icon">👤</span> User Profile
+        </a>
+      </li>
+      <li>
+        <a href="offers.html" class="drawer-link">
+          <span class="drawer-icon">🏷️</span> Exclusive Offers
+        </a>
+      </li>
+      <li>
+        <a href="cinemas.html" class="drawer-link active">
+          <span class="drawer-icon">🏛️</span> Signature Cinemas
+        </a>
+      </li>
+    </ul>
+
+    <div class="drawer-footer">
+      <div class="drawer-membership-status">
+        <div class="drawer-member-tier">Royal Gold Connoisseur</div>
+        <div class="drawer-member-name">Lord Alistair Vance</div>
+      </div>
+      <button class="btn btn-gold btn-sm" style="width: 100%;" onclick="window.location.href='cinemas.html'">
+        Explore Sanctuaries
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: CINEMAS PAGE
+       ========================================================================== -->
+  <main class="cinemas-page" role="main">
+    <div class="container">
+
+      <!-- 1. Cinemas Hero Section -->
+      <section class="cinemas-hero hero-animate-1" aria-labelledby="cinemas-hero-title">
+        <span class="badge-luxury-pill" style="margin-bottom: 1.2rem;">DESTINATIONS OF DISTINCTION</span>
+        <h1 id="cinemas-hero-title" class="cinemas-hero-title gold-gradient-text">SIGNATURE CINEMAS</h1>
+        <p class="cinemas-hero-sub">Discover Extraordinary Cinema Destinations.</p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="#destinations" class="btn btn-gold btn-sm">Explore Locations ↓</a>
+          <a href="#interactive-map" class="btn btn-outline btn-sm">View Locations Map →</a>
+        </div>
+      </section>
+
+      <!-- 2. Search & Filter Bar Section -->
+      <section class="search-filter-section reveal-on-scroll" aria-label="Search and Filter Cinemas">
+        <div class="search-filter-card">
+          <!-- Primary Controls Row -->
+          <div class="search-primary-row">
+            <div class="search-input-box">
+              <span class="search-input-icon">🔍</span>
+              <input type="text" id="search-cinema-input" class="form-control"
+                placeholder="Search cinema name or boulevard...">
+            </div>
+
+            <div>
+              <select id="filter-city-select" class="form-control" aria-label="Filter by City">
+                <option value="">All Metropolises / Cities</option>
+                <option value="Sovereign City">Sovereign City</option>
+                <option value="Metropolis">Metropolis Royal Heights</option>
+                <option value="Crown District">Crown District</option>
+                <option value="Marina Bay">Marina Bay Pier</option>
+              </select>
+            </div>
+
+            <div>
+              <select id="sort-cinema-select" class="form-control" aria-label="Sort Cinemas">
+                <option value="default">Sort by: Distinction</option>
+                <option value="halls-desc">Halls: High to Low</option>
+                <option value="halls-asc">Halls: Low to High</option>
+                <option value="name-asc">Cinema Name (A—Z)</option>
+              </select>
+            </div>
+
+            <button type="button" id="btn-clear-cinema-filters" class="btn-clear-filters">
+              Reset Filters
+            </button>
+          </div>
+
+          <!-- Facility Filter Chips -->
+          <div class="facilities-filter-row">
+            <span class="filter-chips-label">Filter by Technology &amp; Lounges:</span>
+            <div class="facility-chip-group">
+              <button type="button" class="chip facility-filter-chip" data-facility="imax">Dual-Laser IMAX</button>
+              <button type="button" class="chip facility-filter-chip" data-facility="dolby">Dolby Atmos</button>
+              <button type="button" class="chip facility-filter-chip" data-facility="lounge">Royal Gold Lounge</button>
+              <button type="button" class="chip facility-filter-chip" data-facility="butler">In-Seat Butler
+                Dining</button>
+              <button type="button" class="chip facility-filter-chip" data-facility="screenx">ScreenX 270°</button>
+              <button type="button" class="chip facility-filter-chip" data-facility="70mm">70mm Film</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Cinema Cards Grid -->
+      <section id="destinations" class="cinemas-grid" aria-label="Cinema Locations List">
+
+        <!-- Card 1: THEATRON GRAND FLAGSHIP (Direct from Reference Design) -->
+        <article class="cinema-card cinema-card-item reveal-on-scroll reveal-delay-1" data-cinema-key="flagship"
+          data-name="THEATRON Grand Flagship" data-city="Sovereign City" data-halls="8"
+          data-facilities="imax dolby lounge butler">
+          <div class="cinema-img-box img-zoom-container">
+            <img src="assets/images/flagship-cinema.svg" alt="THEATRON Grand Flagship Architecture"
+              class="cinema-img img-zoom-target">
+            <span class="cinema-halls-badge">8 Halls</span>
+          </div>
+          <div class="cinema-card-body">
+            <h3 class="cinema-name">THEATRON GRAND FLAGSHIP</h3>
+            <div class="cinema-address-row">
+              <span class="cinema-address-icon">📍</span>
+              <span>88 Sovereign Boulevard, Suite 100</span>
+            </div>
+
+            <div class="cinema-facilities-list">
+              <span class="facility-tag">Dual-Laser IMAX</span>
+              <span class="facility-tag">Dolby Atmos</span>
+              <span class="facility-tag">Royal Gold Lounge</span>
+              <span class="facility-tag">Luxury Concessions</span>
+              <span class="facility-tag">Valet Parking</span>
+            </div>
+
+            <div class="cinema-hours-row">
+              <span>🕒 Open Today: 10:00 AM — 02:00 AM</span>
+            </div>
+
+            <div class="cinema-card-actions">
+              <button class="btn btn-outline btn-sm btn-view-cinema" data-cinema-key="flagship">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-explore-cinema" data-cinema-key="flagship">
+                Explore Cinema
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: THEATRON ELYSIUM PALACE -->
+        <article class="cinema-card cinema-card-item reveal-on-scroll reveal-delay-2" data-cinema-key="elysium"
+          data-name="THEATRON Elysium Palace" data-city="Metropolis" data-halls="6"
+          data-facilities="dolby lounge butler">
+          <div class="cinema-img-box img-zoom-container">
+            <img src="assets/images/elysium-palace.svg" alt="THEATRON Elysium Palace Architecture"
+              class="cinema-img img-zoom-target">
+            <span class="cinema-halls-badge">6 Halls</span>
+          </div>
+          <div class="cinema-card-body">
+            <h3 class="cinema-name">THEATRON ELYSIUM PALACE</h3>
+            <div class="cinema-address-row">
+              <span class="cinema-address-icon">📍</span>
+              <span>420 Monarch Avenue, Royal Heights</span>
+            </div>
+
+            <div class="cinema-facilities-list">
+              <span class="facility-tag">Dolby Cinema</span>
+              <span class="facility-tag">Velvet Suites</span>
+              <span class="facility-tag">Sommelier Lounge</span>
+              <span class="facility-tag">In-Seat Butler Dining</span>
+            </div>
+
+            <div class="cinema-hours-row">
+              <span>🕒 Open Today: 11:00 AM — 01:30 AM</span>
+            </div>
+
+            <div class="cinema-card-actions">
+              <button class="btn btn-outline btn-sm btn-view-cinema" data-cinema-key="elysium">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-explore-cinema" data-cinema-key="elysium">
+                Explore Cinema
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: THEATRON CELESTIAL PAVILION -->
+        <article class="cinema-card cinema-card-item reveal-on-scroll reveal-delay-3" data-cinema-key="celestial"
+          data-name="THEATRON Celestial Pavilion" data-city="Crown District" data-halls="10"
+          data-facilities="imax dolby lounge 70mm">
+          <div class="cinema-img-box img-zoom-container">
+            <img src="assets/images/celestial-pavilion.svg" alt="THEATRON Celestial Pavilion Architecture"
+              class="cinema-img img-zoom-target">
+            <span class="cinema-halls-badge">10 Halls</span>
+          </div>
+          <div class="cinema-card-body">
+            <h3 class="cinema-name">THEATRON CELESTIAL PAVILION</h3>
+            <div class="cinema-address-row">
+              <span class="cinema-address-icon">📍</span>
+              <span>15 Aurora Crest Drive, Skyline Plaza</span>
+            </div>
+
+            <div class="cinema-facilities-list">
+              <span class="facility-tag">70mm Film Projector</span>
+              <span class="facility-tag">Dual-Laser IMAX</span>
+              <span class="facility-tag">Mezzanine Lounge</span>
+              <span class="facility-tag">Zero-Gravity Pods</span>
+            </div>
+
+            <div class="cinema-hours-row">
+              <span>🕒 Open Today: 09:30 AM — 02:00 AM</span>
+            </div>
+
+            <div class="cinema-card-actions">
+              <button class="btn btn-outline btn-sm btn-view-cinema" data-cinema-key="celestial">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-explore-cinema" data-cinema-key="celestial">
+                Explore Cinema
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: THEATRON ASTRAL SANCTUARY -->
+        <article class="cinema-card cinema-card-item reveal-on-scroll reveal-delay-4" data-cinema-key="astral"
+          data-name="THEATRON Astral Sanctuary" data-city="Marina Bay" data-halls="5"
+          data-facilities="screenx dolby lounge butler">
+          <div class="cinema-img-box img-zoom-container">
+            <img src="assets/images/astral-sanctuary.svg" alt="THEATRON Astral Sanctuary Architecture"
+              class="cinema-img img-zoom-target">
+            <span class="cinema-halls-badge">5 Halls</span>
+          </div>
+          <div class="cinema-card-body">
+            <h3 class="cinema-name">THEATRON ASTRAL SANCTUARY</h3>
+            <div class="cinema-address-row">
+              <span class="cinema-address-icon">📍</span>
+              <span>77 Marina Promenade, Pier 4</span>
+            </div>
+
+            <div class="cinema-facilities-list">
+              <span class="facility-tag">ScreenX 270° Panoramic</span>
+              <span class="facility-tag">Dolby Atmos</span>
+              <span class="facility-tag">Waterfront Terrace</span>
+              <span class="facility-tag">Artisan Tapas Service</span>
+            </div>
+
+            <div class="cinema-hours-row">
+              <span>🕒 Open Today: 12:00 PM — 02:00 AM</span>
+            </div>
+
+            <div class="cinema-card-actions">
+              <button class="btn btn-outline btn-sm btn-view-cinema" data-cinema-key="astral">
+                View Details
+              </button>
+              <button class="btn btn-gold btn-sm btn-explore-cinema" data-cinema-key="astral">
+                Explore Cinema
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- 4. Interactive Visual Cinema Map Section -->
+      <section id="interactive-map" class="cinema-map-section reveal-on-scroll" aria-labelledby="map-section-title">
+        <div style="margin-bottom: 2rem;">
+          <span class="section-label">INTERACTIVE DIRECTORY</span>
+          <h2 id="map-section-title" class="section-title">Locations Map</h2>
+          <p class="section-subtitle">Select any golden sanctuary hotspot to inspect facility specifications.</p>
+        </div>
+
+        <div class="map-card-container">
+          <div class="map-layout-grid">
+            <!-- Visual Map Canvas Pane with Interactive Pins -->
+            <div class="map-visual-pane" role="region" aria-label="Visual Cinema Location Hotspots">
+              <!-- Stylized Architectural Grid & Coordinates -->
+              <div
+                style="position: absolute; top: 1.5rem; left: 1.5rem; font-family: monospace; font-size: 0.72rem; color: var(--champagne-gold); opacity: 0.6;">
+                THEATRON METROPOLITAN GRID // COORD: 40.7128° N, 74.0060° W
+              </div>
+
+              <!-- Hotspot 1: Flagship -->
+              <div class="map-hotspot active" style="top: 35%; left: 38%;" data-cinema-key="flagship"
+                title="THEATRON Grand Flagship">
+                <div class="hotspot-pulse-ring"></div>
+                <div class="hotspot-pin">
+                  <div class="hotspot-inner-dot"></div>
+                </div>
+              </div>
+
+              <!-- Hotspot 2: Elysium -->
+              <div class="map-hotspot" style="top: 25%; left: 68%;" data-cinema-key="elysium"
+                title="THEATRON Elysium Palace">
+                <div class="hotspot-pulse-ring"></div>
+                <div class="hotspot-pin">
+                  <div class="hotspot-inner-dot"></div>
+                </div>
+              </div>
+
+              <!-- Hotspot 3: Celestial -->
+              <div class="map-hotspot" style="top: 72%; left: 28%;" data-cinema-key="celestial"
+                title="THEATRON Celestial Pavilion">
+                <div class="hotspot-pulse-ring"></div>
+                <div class="hotspot-pin">
+                  <div class="hotspot-inner-dot"></div>
+                </div>
+              </div>
+
+              <!-- Hotspot 4: Astral -->
+              <div class="map-hotspot" style="top: 65%; left: 78%;" data-cinema-key="astral"
+                title="THEATRON Astral Sanctuary">
+                <div class="hotspot-pulse-ring"></div>
+                <div class="hotspot-pin">
+                  <div class="hotspot-inner-dot"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sidebar Selected Location Details Pane -->
+            <div class="map-sidebar-pane">
+              <span class="section-label">SELECTED DESTINATION</span>
+              <h3 class="map-dest-title">THEATRON Grand Flagship</h3>
+              <p class="map-dest-address">88 Sovereign Boulevard, Suite 100 • Sovereign City</p>
+
+              <div class="map-dest-stats">
+                <div>
+                  <div class="map-stat-label">Capacity</div>
+                  <div class="map-dest-halls map-stat-val">8 Halls</div>
+                </div>
+                <div>
+                  <div class="map-stat-label">Acoustics</div>
+                  <div class="map-dest-sound map-stat-val">Dual-Laser IMAX</div>
+                </div>
+              </div>
+
+              <button class="btn btn-gold btn-sm btn-view-cinema" data-cinema-key="flagship" style="width: 100%;">
+                Inspect Sanctuary Specifications
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Cinema Experience Showcase Section -->
+      <section class="experiences-section reveal-on-scroll" aria-labelledby="experience-title">
+        <div style="text-align: center;">
+          <span class="section-label">ACOUSTIC &amp; VISUAL ENGINEERING</span>
+          <h2 id="experience-title" class="section-title">The THEATRON Experience</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">Pioneering the benchmark for ultra-luxury theatrical
+            presentation.</p>
+        </div>
+
+        <div class="experiences-grid">
+          <div class="experience-card">
+            <div class="experience-icon-box">⚡</div>
+            <h3 class="experience-card-title">Dual-Laser IMAX 4K</h3>
+            <p class="experience-card-desc">
+              Custom-built dual 4K laser projection engines providing unmatched brightness, razor-sharp contrast, and
+              vibrant color gamut.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-icon-box">🛋</div>
+            <h3 class="experience-card-title">Royal Gold Recliners</h3>
+            <p class="experience-card-desc">
+              Custom-stitched Italian leather recliners featuring quiet motorized lumbar support, heated seating, and
+              personal dining console tables.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-icon-box">🔊</div>
+            <h3 class="experience-card-title">Dolby Atmos Soundscape</h3>
+            <p class="experience-card-desc">
+              Multi-dimensional overhead surround arrays placing sound objects in three-dimensional space with
+              breathtaking clarity and depth.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-icon-box">🍷</div>
+            <h3 class="experience-card-title">Acoustic Maroon Velvet</h3>
+            <p class="experience-card-desc">
+              Sound-absorbing deep burgundy wall drapery engineered specifically to eliminate auditory flutter while
+              creating an intimate lounge cocoon.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-icon-box">🍴</div>
+            <h3 class="experience-card-title">Artisan Lounge Concessions</h3>
+            <p class="experience-card-desc">
+              Michelin-inspired theater cuisine featuring organic truffle butter popcorn, caviar pairings, and curated
+              sommelier wine selections.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       CINEMA DETAILS MODAL
+       ========================================================================== -->
+  <div id="cinema-details-modal" class="modal-backdrop" role="dialog" aria-modal="true"
+    aria-labelledby="modal-cinema-title">
+    <div class="modal-container" style="max-width: 780px;">
+      <div class="modal-header">
+        <h2 id="modal-cinema-title" class="modal-title modal-cinema-title">THEATRON Grand Flagship</h2>
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.5rem; max-height: 280px;">
+          <img src="assets/images/flagship-cinema.svg" alt="Cinema Interior" class="modal-cinema-img"
+            style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+        <div
+          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 0.6rem;">
+          <span class="modal-cinema-address"
+            style="color: var(--champagne-gold); font-size: 0.95rem; font-weight: 600;">88 Sovereign Boulevard, Suite
+            100</span>
+          <span class="modal-cinema-halls badge-luxury-pill">8 Exclusive Auditoriums</span>
+        </div>
+
+        <div
+          style="display: grid; grid-template-columns: 1fr; gap: 1rem; background: rgba(18, 9, 12, 0.75); border: 1px solid var(--border-gold-subtle); border-radius: var(--radius-md); padding: 1.4rem;">
+          <div>
+            <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Projection &amp;
+              Sound Technologies</span>
+            <p class="modal-cinema-tech"
+              style="font-size: 0.9rem; color: var(--gold-highlight); font-weight: 600; margin-top: 0.2rem;">
+              Dual-Laser IMAX • Dolby Atmos 128-Channel • 4K Christie RGB Laser
+            </p>
+          </div>
+
+          <div>
+            <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Seating
+              Configuration</span>
+            <p class="modal-cinema-seating"
+              style="font-size: 0.86rem; color: var(--text-secondary); margin-top: 0.2rem;">
+              Motorized Royal Gold Italian Leather Recliners with heated seat technology.
+            </p>
+          </div>
+
+          <div>
+            <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Velvet Lounge
+              Facilities</span>
+            <p class="modal-cinema-lounge"
+              style="font-size: 0.86rem; color: var(--text-secondary); margin-top: 0.2rem;">
+              Maroon Velvet Champagne Sanctuary &amp; Concierge Bar.
+            </p>
+          </div>
+
+          <div>
+            <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Gastronomy &amp;
+              In-Seat Dining</span>
+            <p class="modal-cinema-dining"
+              style="font-size: 0.86rem; color: var(--text-secondary); margin-top: 0.2rem;">
+              Artisan Concessions, Truffle Pommes Frites, Caviar Service.
+            </p>
+          </div>
+
+          <div>
+            <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Concierge Operating
+              Hours</span>
+            <p class="modal-cinema-hours" style="font-size: 0.86rem; color: var(--text-primary); margin-top: 0.2rem;">
+              Open Daily: 10:00 AM — 02:00 AM
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline modal-close-btn">Dismiss</button>
+        <button id="btn-modal-book-showtimes" class="btn btn-gold">Select Feature Showtimes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tickets Modal -->
+  <div id="tickets-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="tickets-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 id="tickets-modal-title" class="modal-title">Your Reserved Experiences (6)</h2>
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom: 1.2rem; font-size: 0.9rem;">You have <strong>6 tickets reserved</strong> for tonight's
+          gala presentation:</p>
+        <div
+          style="background: rgba(30, 10, 18, 0.6); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 1.4rem;">
+          <h3 style="font-family: var(--font-serif); color: var(--gold-highlight); font-size: 1.2rem;">DOOMSDAY: ECLIPSE
+            PROTOCOL</h3>
+          <p style="color: var(--champagne-gold); font-size: 0.85rem; margin-top: 0.2rem;">THEATRON Grand Flagship •
+            Dual-Laser IMAX 4K HDR</p>
+          <p style="color: var(--text-secondary); font-size: 0.82rem; margin-top: 0.4rem;">Showtime: Tonight @ 20:30 PM
+            • 6 Guests • Heated Recliners H-14 to H-19</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline modal-close-btn">Dismiss</button>
+        <a href="cinemas.html" class="btn btn-gold">Explore All Showtimes</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SHARED SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand-group">
+            <div class="brand-logo-sq">
+              <span class="t-letter">T</span>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">THEATRON</span>
+              <span class="brand-subtitle">CINEMA LOUNGES</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            Elevating cinema into the realm of high art. Experience acoustic maroon velvet sanctuaries, 4K Dual-Laser
+            IMAX, and bespoke connoisseur hospitality.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Member 4 Pages</h4>
+          <ul class="footer-links">
+            <li><a href="profile.html" class="footer-link">User Profile</a></li>
+            <li><a href="offers.html" class="footer-link">Exclusive Offers</a></li>
+            <li><a href="cinemas.html" class="footer-link">Signature Cinemas</a></li>
+            <li><a href="indexx.html" class="footer-link">Overview Directory</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Sanctuaries</h4>
+          <ul class="footer-links">
+            <li><a href="cinemas.html" class="footer-link">Grand Flagship (88 Sovereign)</a></li>
+            <li><a href="cinemas.html" class="footer-link">Elysium Palace (Monarch Ave)</a></li>
+            <li><a href="cinemas.html" class="footer-link">Celestial Pavilion (Aurora Crest)</a></li>
+            <li><a href="cinemas.html" class="footer-link">Astral Sanctuary (Marina Bay)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">VIP Concierge</h4>
+          <div class="footer-concierge-card">
+            <div class="concierge-title">Direct Butler Desk</div>
+            <div class="concierge-info">+1 (800) 843-2876 • concierge@theatron.com</div>
+            <button class="btn btn-outline btn-sm" style="width: 100%;"
+              onclick="window.showToast('Concierge Connected', 'A private cinema butler will attend to you shortly.', '🛎️');">
+              Request In-Seat Service
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 THEATRON CINEMA LOUNGES. All Rights Reserved.</div>
+        <div class="footer-member-badge">THEATRON PROJECT • MEMBER 4 FRONTEND SUITE</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script src="animations.js"></script>
+  <script src="cinemas.js"></script>
+</body>
+
+</html>
