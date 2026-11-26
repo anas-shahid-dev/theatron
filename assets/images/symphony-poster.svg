@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <linearGradient id="posterBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E070F"/>
+      <stop offset="50%" stop-color="#1A2535"/>
+      <stop offset="100%" stop-color="#080305"/>
+    </linearGradient>
+    <radialGradient id="celestialLight" cx="50%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#F1BD72" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#1A2535" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#posterBg)"/>
+  <circle cx="300" cy="280" r="220" fill="url(#celestialLight)"/>
+  <!-- Decorative cinematic geometry -->
+  <circle cx="300" cy="280" r="160" fill="none" stroke="#E6B96F" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="300" cy="280" r="200" fill="none" stroke="#E6B96F" stroke-width="0.5" stroke-dasharray="6 6" stroke-opacity="0.4"/>
+  <polygon points="300,120 440,360 160,360" fill="none" stroke="#E6B96F" stroke-width="1" stroke-opacity="0.25"/>
+  <circle cx="300" cy="280" r="40" fill="#F1BD72" opacity="0.8"/>
+  
+  <!-- Subtle dark vignette at bottom -->
+  <rect y="400" width="600" height="400" fill="black" opacity="0.6"/>
+
+  <!-- Badges at top -->
+  <g transform="translate(30, 30)">
+    <rect width="70" height="28" rx="14" fill="rgba(18,9,12,0.8)" stroke="#E6B96F" stroke-width="0.8"/>
+    <text x="35" y="19" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="12" font-weight="700" fill="#F5EFE8">PG-13</text>
+  </g>
+  <g transform="translate(110, 30)">
+    <rect width="80" height="28" rx="14" fill="rgba(18,9,12,0.8)" stroke="#E6B96F" stroke-width="0.8"/>
+    <text x="40" y="19" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="12" font-weight="600" fill="#F5EFE8">English</text>
+  </g>
+  <g transform="translate(490, 30)">
+    <rect width="80" height="28" rx="14" fill="rgba(18,9,12,0.9)" stroke="#E6B96F" stroke-width="0.8"/>
+    <text x="40" y="19" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="12" font-weight="700" fill="#F1BD72">★ 8.6</text>
+  </g>
+
+  <!-- Title & Info -->
+  <text x="300" y="660" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="32" font-weight="700" fill="#F5EFE8" letter-spacing="2">SYMPHONY FOR ZERO</text>
+  <text x="300" y="700" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="14" font-weight="600" fill="#E6B96F" letter-spacing="4">MYSTERY • 2H 04M</text>
+  <text x="300" y="740" text-anchor="middle" font-family="'Cinzel', serif" font-size="12" fill="#B9A9A8" letter-spacing="6">THEATRON EXCLUSIVE 4K HDR</text>
+</svg>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Bookings | THEATRON Cinema Lounges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="theatron-shared.css" />
+  <link rel="stylesheet" href="my-bookings.css" />
+</head>
+<body>
+  <!-- Shared Top Navigation Bar -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="THEATRON Cinema Lounges Home">
+        <span class="brand-emblem" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="28" height="28" rx="6" stroke="#E2B45A" stroke-width="1.5" />
+            <path d="M9 10H23M16 10V23" stroke="#E2B45A" stroke-width="1.75" stroke-linecap="round" />
+            <circle cx="16" cy="23" r="1.5" fill="#E2B45A" />
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">THEATRON</span>
+          <span class="brand-subtitle">CINEMA LOUNGES</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="movies.html" class="nav-link">Movies</a>
+        <a href="coming-soon.html" class="nav-link">Coming Soon</a>
+        <a href="cinemas.html" class="nav-link">Cinemas</a>
+        <a href="showtimes.html" class="nav-link">Showtimes</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="my-bookings.html" class="tickets-badge is-active" aria-current="page" aria-label="My tickets">
+          <svg class="badge-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path
+              d="M3 6.5A1.5 1.5 0 0 1 4.5 5h11A1.5 1.5 0 0 1 17 6.5v1.75a1.75 1.75 0 0 0 0 3.5v1.75a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 3 13.5v-1.75a1.75 1.75 0 0 0 0-3.5V6.5Z"
+              stroke="currentColor"
+              stroke-width="1.4"
+            />
+            <path d="M12.5 5.25v9.5" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2" />
+          </svg>
+          <span>Tickets</span>
+          <span class="tickets-count" id="nav-tickets-count">0</span>
+        </a>
+
+        <a href="my-bookings.html" class="profile-pill" aria-label="Patron profile">
+          <span class="profile-avatar" id="nav-patron-initials">AV</span>
+          <span class="profile-name" id="nav-patron-name">Alexander Vance</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Digital Ticket Vault Content -->
+  <main class="vault-page">
+    <!-- 1. Page Header & Tab Switcher -->
+    <section class="vault-header" aria-labelledby="vault-heading">
+      <div class="vault-title-group">
+        <p class="vault-eyebrow">DIGITAL TICKET VAULT</p>
+        <h1 class="vault-heading" id="vault-heading">MY BOOKINGS</h1>
+      </div>
+
+      <div class="tab-toggle-group" role="tablist" aria-label="Filter reservations">
+        <button
+          type="button"
+          class="tab-pill is-active"
+          id="tab-upcoming"
+          role="tab"
+          aria-selected="true"
+          data-tab="upcoming"
+        >
+          Upcoming (<span id="count-upcoming">0</span>)
+        </button>
+        <button
+          type="button"
+          class="tab-pill"
+          id="tab-history"
+          role="tab"
+          aria-selected="false"
+          data-tab="history"
+        >
+          History (<span id="count-history">0</span>)
+        </button>
+      </div>
+    </section>
+
+    <hr class="vault-divider" />
+
+    <!-- 2. Booking Cards List -->
+    <section class="bookings-section" aria-live="polite">
+      <div class="bookings-list" id="bookings-list"></div>
+
+      <!-- 3. Empty State Design -->
+      <div class="empty-state-card" id="empty-state" hidden>
+        <div class="empty-icon-ring" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5 10.5A2.5 2.5 0 0 1 7.5 8h17A2.5 2.5 0 0 1 27 10.5v2.75a2.75 2.75 0 0 0 0 5.5v2.75a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 5 21.5v-2.75a2.75 2.75 0 0 0 0-5.5V10.5Z"
+              stroke="#E2B45A"
+              stroke-width="1.6"
+            />
+            <path d="M19.5 8.5v15" stroke="#E2B45A" stroke-width="1.3" stroke-dasharray="2.5 2.5" />
+          </svg>
+        </div>
+        <h2 class="empty-heading">No Reservations Found</h2>
+        <p class="empty-description" id="empty-description">
+          Your upcoming private screenings will appear here once reserved.
+        </p>
+        <a href="movies.html" class="btn-primary">Explore Now Showing</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Digital Ticket & QR Modal -->
+  <div
+    class="modal-backdrop"
+    id="ticket-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-ticket-title"
+    hidden
+  >
+    <div class="modal-shell modal-ticket-shell">
+      <div class="modal-toolbar">
+        <span class="modal-eyebrow" id="modal-ticket-title">OFFICIAL DIGITAL ADMISSION PASS</span>
+        <div class="modal-toolbar-actions">
+          <button type="button" class="btn-secondary btn-compact" id="modal-print-btn">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path
+                d="M5.5 7V3.75h9V7M5.5 14H4a1.5 1.5 0 0 1-1.5-1.5v-4A1.5 1.5 0 0 1 4 7h12a1.5 1.5 0 0 1 1.5 1.5v4A1.5 1.5 0 0 1 16 14h-1.5m-9-2.5h9v4.75h-9V11.5Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>Print Pass</span>
+          </button>
+          <button type="button" class="modal-close-btn" id="ticket-modal-close" aria-label="Close digital ticket">
+            &times;
+          </button>
+        </div>
+      </div>
+
+      <article class="ticket-card" id="modal-ticket-card">
+        <div class="ticket-top-bar">
+          <div class="ticket-top-left">
+            <span class="ticket-dot" aria-hidden="true"></span>
+            <span>THEATRON &bull; OFFICIAL DIGITAL ADMISSION</span>
+          </div>
+          <div class="ticket-id-badge" data-ticket-field="headerId">ID: THT-000000</div>
+        </div>
+
+        <div class="ticket-body">
+          <div class="ticket-left-stub">
+            <div class="ticket-feature-header">
+              <p class="ticket-eyebrow">FEATURE PRESENTATION</p>
+              <h2 class="ticket-movie-title" data-ticket-field="movieTitle">THE VELVET SOVEREIGN</h2>
+            </div>
+
+            <dl class="ticket-meta-grid">
+              <div class="meta-item">
+                <dt>Cinema Lounge</dt>
+                <dd data-ticket-field="cinema">THEATRON Grand Flagship</dd>
+              </div>
+              <div class="meta-item">
+                <dt>Auditorium</dt>
+                <dd data-ticket-field="hall">Royal Gold Lounge 3</dd>
+              </div>
+              <div class="meta-item">
+                <dt>Date &amp; Time</dt>
+                <dd class="meta-gold" data-ticket-field="datetime">Tue, Nov 24, 2026 &bull; 20:30</dd>
+              </div>
+              <div class="meta-item">
+                <dt>Reserved Seats</dt>
+                <dd class="meta-gold-bold" data-ticket-field="seats">G5, G6</dd>
+              </div>
+              <div class="meta-item">
+                <dt>Settlement</dt>
+                <dd data-ticket-field="settlement">$106.82 (Confirmed)</dd>
+              </div>
+              <div class="meta-item">
+                <dt>Patron</dt>
+                <dd data-ticket-field="patron">Alexander Vance</dd>
+              </div>
+            </dl>
+
+            <div class="ticket-addon-row" data-ticket-addon-row>
+              <span class="addon-label">In-Seat Dining Included:</span>
+              <span class="addon-value" data-ticket-field="dining">1x The Sovereign Couple's Duet</span>
+            </div>
+          </div>
+
+          <div class="ticket-perforation" aria-hidden="true">
+            <span class="notch notch-top"></span>
+            <span class="perforation-line"></span>
+            <span class="notch notch-bottom"></span>
+          </div>
+
+          <div class="ticket-right-stub">
+            <div class="qr-frame" data-ticket-qr aria-label="Scannable Admission QR Code"></div>
+            <div class="stub-caption">
+              <p class="stub-booking-id" data-ticket-field="stubId">THT-000000</p>
+              <p class="stub-scan-hint">Scan at Auditorium Entry</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Cancellation Confirmation Modal -->
+  <div
+    class="modal-backdrop"
+    id="cancel-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cancel-modal-title"
+    hidden
+  >
+    <div class="modal-shell modal-confirm-shell">
+      <p class="modal-eyebrow">CONCIERGE RESERVATION CHANGE</p>
+      <h2 class="confirm-title" id="cancel-modal-title">Cancel Reservation?</h2>
+      <p class="confirm-copy" id="cancel-modal-copy">
+        Are you sure you want to cancel this private screening? This pass will be voided and moved to your booking history.
+      </p>
+      <div class="confirm-actions">
+        <button type="button" class="btn-secondary" id="cancel-keep-btn">Keep Reservation</button>
+        <button type="button" class="btn-danger" id="cancel-confirm-btn">Confirm Cancellation</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 THEATRON Cinema Lounges. Velvet Concierge Assistance available 24/7.</p>
+  </footer>
+
+  <script src="theatron-shared.js" defer></script>
+  <script src="my-bookings.js" defer></script>
+</body>
+</html>

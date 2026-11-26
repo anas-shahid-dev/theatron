@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400">
+  <defs>
+    <linearGradient id="oBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D0C17"/>
+      <stop offset="50%" stop-color="#1A070B"/>
+      <stop offset="100%" stop-color="#0A0406"/>
+    </linearGradient>
+    <radialGradient id="oGlow" cx="70%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#E6B96F" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="700" height="400" fill="url(#oBg)"/>
+  <rect width="700" height="400" fill="url(#oGlow)"/>
+  <rect x="15" y="15" width="670" height="370" rx="16" fill="none" stroke="#E6B96F" stroke-width="1" stroke-opacity="0.35"/>
+  <!-- Decorative Luxury Art -->
+  <circle cx="530" cy="200" r="130" fill="none" stroke="#E6B96F" stroke-width="1" stroke-opacity="0.25"/>
+  <circle cx="530" cy="200" r="90" fill="none" stroke="#E6B96F" stroke-width="0.5" stroke-dasharray="4 4" stroke-opacity="0.4"/>
+  <polygon points="530,110 610,240 450,240" fill="none" stroke="#F1BD72" stroke-width="1.2" stroke-opacity="0.3"/>
+  <circle cx="530" cy="200" r="24" fill="#F1BD72" opacity="0.85"/>
+  
+  <text x="60" y="110" font-family="'Montserrat', sans-serif" font-size="13" font-weight="700" fill="#E6B96F" letter-spacing="4">GASTRONOMY PAIRINGS</text>
+  <text x="60" y="170" font-family="'Cinzel', 'Playfair Display', serif" font-size="34" font-weight="700" fill="#F5EFE8">ARTISAN CONCESSIONS</text>
+  <text x="60" y="215" font-family="'Montserrat', sans-serif" font-size="15" font-weight="400" fill="#B9A9A8">Complimentary service &amp; tailored VIP hospitality.</text>
+  <text x="60" y="320" font-family="'Cinzel', serif" font-size="14" font-weight="600" fill="#E6B96F" letter-spacing="2">THEATRON CONNOISSEUR PRIVILEGE</text>
+</svg>

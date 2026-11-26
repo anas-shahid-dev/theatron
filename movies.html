@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion Picture Catalogue — THEATRON</title>
+  <meta name="description" content="Explore the curated THEATRON cinema programme.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Utility Bar with Sitemap Switcher, Ticket Count, and Admin Link -->
+  <div class="utility-bar">
+    <div class="utility-left">
+      <span>PRIVATE SCREENING & LUXURY CINEMA</span>
+      <div class="sitemap">
+        <button class="sitemap-trigger" type="button" aria-haspopup="true" aria-expanded="false">• 18-Page Sitemap Switcher ▾</button>
+        <div class="sitemap-menu">
+          <a href="index.html">Home</a>
+          <a href="movies.html">Movies (Catalogue)</a>
+          <a href="index.html#coming">Coming Soon</a>
+          <a href="index.html#cinemas">Cinemas & Lounges</a>
+          <a href="index.html#showtimes">Showtimes</a>
+          <a href="#">Seat Map</a>
+          <a href="#">Ticket Vault</a>
+          <a href="#">Admin Panel</a>
+        </div>
+      </div>
+    </div>
+    <div class="utility-right">
+      <a href="#" id="utility-ticket-count">My Tickets (6)</a>
+      <a href="#">⚙ Admin Panel</a>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar with Brand, Hamburger Toggle, Links, Ticket Pill, and User Pill -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">T</span>
+      <span class="brand-copy"><strong>THEATRON</strong><small>CINEMA LOUNGES</small></span>
+    </a>
+    <input class="mobile-menu-toggle" type="checkbox" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+    <label class="mobile-menu-button" for="mobile-menu-toggle" aria-controls="primary-navigation">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links" id="primary-navigation">
+      <a href="index.html">Home</a>
+      <a class="active" href="movies.html" aria-current="page">Movies</a>
+      <a href="index.html#coming">Coming Soon</a>
+      <a href="index.html#cinemas">Cinemas</a>
+      <a href="index.html#showtimes">Showtimes</a>
+    </div>
+    <div class="nav-actions">
+      <button class="ticket-pill" type="button" aria-label="View reserved tickets">
+        🎫 <span>Tickets</span><b id="ticket-count">6</b>
+      </button>
+      <button class="user-pill" type="button" aria-label="User profile">
+        <span>A</span> Alexander
+      </button>
+    </div>
+  </nav>
+
+  <main class="catalog-page">
+    <header class="catalog-header">
+      <div class="eyebrow">CURATED PROGRAMME</div>
+      <h1>MOTION PICTURE CATALOGUE</h1>
+      <p>Filter by genre, language, classification, or exhibition status.</p>
+    </header>
+
+    <section class="catalog-filters" aria-label="Filter films">
+      <div class="catalog-filter-top">
+        <label class="catalog-search">
+          <span class="visually-hidden">Search title, director, or cast</span>
+          <input id="catalogue-search" type="search" placeholder="Search title, director, or cast...">
+        </label>
+        <label>
+          <span class="visually-hidden">Genre</span>
+          <select id="filter-genre">
+            <option value="all">Genre: All</option>
+            <option value="sci-fi thriller">Sci-Fi Thriller</option>
+            <option value="drama">Drama</option>
+            <option value="mystery">Mystery</option>
+            <option value="action">Action</option>
+            <option value="romance">Romance</option>
+          </select>
+        </label>
+        <label>
+          <span class="visually-hidden">Language</span>
+          <select id="filter-lang">
+            <option value="all">Lang: All</option>
+            <option value="english">English</option>
+            <option value="french">French</option>
+            <option value="spanish">Spanish</option>
+            <option value="japanese">Japanese</option>
+            <option value="arabic">Arabic</option>
+          </select>
+        </label>
+        <label>
+          <span class="visually-hidden">Rating</span>
+          <select id="filter-rating">
+            <option value="all">Rating: All</option>
+            <option value="pg-13">PG-13</option>
+            <option value="r">R</option>
+          </select>
+        </label>
+        <button class="btn outline catalog-reset" id="reset-filters-btn" type="button">Reset</button>
+      </div>
+      <div class="catalog-filter-bottom">
+        <div class="catalog-status-tabs" role="group" aria-label="Exhibition status">
+          <button class="status-pill active" type="button" data-status="all" aria-pressed="true">All Films</button>
+          <button class="status-pill" type="button" data-status="currently-showing" aria-pressed="false">Currently Showing</button>
+          <button class="status-pill" type="button" data-status="coming-soon" aria-pressed="false">Coming Soon</button>
+        </div>
+        <p class="catalog-counter" id="catalogue-count" aria-live="polite">Showing <strong>9</strong> titles</p>
+      </div>
+    </section>
+
+    <section class="catalog-results" aria-label="Motion picture catalogue">
+      <div class="catalog-grid" id="catalogue-grid"></div>
+      <div class="catalog-empty" id="catalog-empty" hidden>
+        <h2>No films match those filters</h2>
+        <p>Try changing a filter or clearing your search.</p>
+        <button class="btn gold" id="reset-all-filters" type="button">Reset All Filters</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="brand"><span class="brand-mark">T</span><span class="brand-copy"><strong>THEATRON</strong></span></div><p>Architectural cinema palaces engineered for discerning film patrons. Featuring dual-laser IMAX projection, acoustic maroon velvet auditoriums, and in-seat culinary service.</p><div class="footer-badges"><span>DOLBY ATMOS</span><span>IMAX LASER</span></div></div>
+      <div><h3>EXPLORE CINEMA</h3><a href="movies.html">Now Showing Catalogue</a><a href="index.html#coming">Upcoming Premieres</a><a href="index.html#cinemas">Flagship Locations</a><a href="index.html#showtimes">Showtimes & Formats</a><a href="#">Lounge Gastronomy</a></div>
+      <div><h3>MEMBER SERVICES</h3><a href="#">Sovereign Gold Profile</a><a href="#">Digital Ticket Vault</a><a href="#">Member Sign In</a><a href="#">Apply for Membership</a></div>
+      <div><h3>OPERATIONS & CONCIERGE</h3><p>24/7 Private Box Office & Auditorium Management:</p><strong class="phone">+92-xxxxxxxxxx-THEATRON</strong><button class="btn outline admin-btn" type="button">OPEN ADMIN CONTROL PANEL →</button></div>
+    </div>
+    <div class="legal"><span>© 2026 THEATRON Luxury Cinemas Group. All Rights Reserved.</span><div><a href="#">View 18-Page Architecture</a><a href="#">Privacy Charter</a><a href="#">Terms of Admission</a></div></div>
+  </footer>
+
+  <!-- Shared Modal Container & Toast Notification -->
+  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" aria-label="Close modal">×</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      function initializeCatalogueFilters() {
+        const searchInput = document.querySelector('#catalogue-search, input[placeholder*="Search title"]');
+        const selects = document.querySelectorAll('.filter-bar select, select');
+        const genreSelect = document.getElementById('filter-genre') || selects[0];
+        const langSelect = document.getElementById('filter-lang') || selects[1];
+        const ratingSelect = document.getElementById('filter-rating') || selects[2];
+        const statusBtns = document.querySelectorAll('.status-pill, [data-status-filter]');
+        const resetBtn = document.getElementById('reset-filters-btn') || Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim().toLowerCase() === 'reset');
+        const emptyResetBtn = document.getElementById('reset-all-filters');
+        const countEl = document.getElementById('catalogue-count');
+        const emptyState = document.getElementById('catalog-empty');
+        const cards = Array.from(document.querySelectorAll('#catalogue-grid .movie-card'));
+
+        function normalize(value) {
+          return (value || '').toLowerCase().trim();
+        }
+
+        function statusFromButton(button) {
+          const label = normalize(button.dataset.statusFilter || button.dataset.status || button.textContent);
+          if (label.includes('currently')) return 'currently-showing';
+          if (label.includes('coming')) return 'coming-soon';
+          return 'all';
+        }
+
+        const initialStatusBtn = Array.from(statusBtns).find(button => button.classList.contains('active'));
+        let activeStatus = initialStatusBtn ? statusFromButton(initialStatusBtn) : 'all';
+
+        function filterCards() {
+          const query = normalize(searchInput ? searchInput.value : '');
+          const genre = normalize(genreSelect ? genreSelect.value : 'all');
+          const lang = normalize(langSelect ? langSelect.value : 'all');
+          const rating = normalize(ratingSelect ? ratingSelect.value : 'all');
+          let visibleCount = 0;
+
+          cards.forEach(card => {
+            const cardText = normalize(card.textContent);
+            const cTitle = normalize(card.dataset.title) || cardText;
+            const cGenre = normalize(card.dataset.genre);
+            const cLang = normalize(card.dataset.lang);
+            const cRating = normalize(card.dataset.rating);
+            const cStatus = normalize(card.dataset.status);
+            const cMeta = normalize(card.dataset.meta);
+            const matchesSearch = !query || cTitle.includes(query) || cMeta.includes(query) || cardText.includes(query);
+            const matchesGenre = genre === 'all' || genre === '' || (cGenre ? cGenre === genre : cardText.includes(genre));
+            const matchesLang = lang === 'all' || lang === '' || (cLang ? cLang === lang : cardText.includes(lang));
+            const matchesRating = rating === 'all' || rating === '' || (cRating ? cRating === rating : cardText.includes(rating));
+            const matchesStatus = activeStatus === 'all' || (cStatus ? cStatus === activeStatus : cardText.includes(activeStatus.replace('-', ' ')));
+            const isMatch = matchesSearch && matchesGenre && matchesLang && matchesRating && matchesStatus;
+
+            card.classList.toggle('is-hidden', !isMatch);
+            card.style.display = isMatch ? '' : 'none';
+            card.hidden = !isMatch;
+            if (isMatch) visibleCount++;
+          });
+
+          if (countEl) {
+            countEl.innerHTML = `Showing <strong>${visibleCount}</strong> ${visibleCount === 1 ? 'title' : 'titles'}`;
+          }
+          if (emptyState) emptyState.hidden = visibleCount > 0;
+        }
+
+        function resetFilters() {
+          if (searchInput) searchInput.value = '';
+          [genreSelect, langSelect, ratingSelect].forEach(select => {
+            if (select) select.selectedIndex = 0;
+          });
+          activeStatus = 'all';
+          statusBtns.forEach((button, index) => {
+            const isActive = index === 0;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+          });
+          filterCards();
+        }
+
+        if (searchInput) {
+          searchInput.addEventListener('input', filterCards);
+          searchInput.addEventListener('keyup', filterCards);
+        }
+        [genreSelect, langSelect, ratingSelect].forEach(select => {
+          if (select) select.addEventListener('change', filterCards);
+        });
+        statusBtns.forEach(button => {
+          button.addEventListener('click', () => {
+            statusBtns.forEach(pill => {
+              const isActive = pill === button;
+              pill.classList.toggle('active', isActive);
+              pill.setAttribute('aria-pressed', String(isActive));
+            });
+            activeStatus = statusFromButton(button);
+            filterCards();
+          });
+        });
+        [resetBtn, emptyResetBtn].forEach(button => {
+          if (button) button.addEventListener('click', resetFilters);
+        });
+
+        filterCards();
+      }
+
+      document.addEventListener('click', event => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (!target || target.closest('.book-btn, .reminder')) return;
+        const card = target.closest('.movie-card[data-movie-id]');
+        if (card && card.dataset.movieId) {
+          window.location.href = `movie-details.html?id=${card.dataset.movieId}`;
+        }
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCatalogueFilters, { once: true });
+      } else {
+        initializeCatalogueFilters();
+      }
+    })();
+  </script>
+</body>
+</html>
