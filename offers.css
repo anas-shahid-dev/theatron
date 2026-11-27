@@ -1,0 +1,458 @@
+/* ==========================================================================
+   THEATRON CINEMA LOUNGES — OFFERS & PRIVILEGES STYLES
+   ========================================================================== */
+
+.offers-page {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+/* 1. Offers Hero Section */
+.offers-hero {
+  text-align: center;
+  padding: 4.5rem 2rem 3.5rem;
+  background: radial-gradient(circle at 50% 20%, rgba(75, 16, 30, 0.45) 0%, rgba(9, 6, 7, 0.98) 75%);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-gold-subtle);
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.offers-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent);
+}
+
+.offers-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+}
+
+.offers-hero-sub {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto 2rem;
+}
+
+/* 2. Featured Offer Banner */
+.featured-offer-wrapper {
+  margin-bottom: 4rem;
+}
+
+.featured-offer-card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background: radial-gradient(circle at 10% 30%, #3D0D19 0%, #15060A 60%, #0A0406 100%);
+  border: 1.5px solid var(--champagne-gold);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(230, 185, 111, 0.2);
+  position: relative;
+}
+
+.featured-offer-visual {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.featured-offer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-badge-pill {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: rgba(18, 9, 12, 0.85);
+  border: 1px solid var(--champagne-gold);
+  color: var(--gold-highlight);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+}
+
+.featured-offer-body {
+  padding: 3rem 2.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.featured-offer-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--champagne-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.featured-offer-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+
+.featured-offer-highlight {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gold-highlight);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.featured-offer-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.featured-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+/* 3. Category Filter Tabs */
+.filter-tabs-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.filter-tab-btn {
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-gold-subtle);
+  background: rgba(18, 9, 12, 0.7);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.filter-tab-btn:hover {
+  border-color: var(--champagne-gold);
+  color: var(--text-primary);
+  background: rgba(58, 13, 24, 0.4);
+}
+
+.filter-tab-btn.active {
+  background: linear-gradient(135deg, #4B101E 0%, #3A0D18 100%);
+  border-color: var(--champagne-gold);
+  color: var(--gold-highlight);
+  box-shadow: 0 0 15px rgba(230, 185, 111, 0.25);
+}
+
+/* 4. Offers Catalogue Grid */
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.offer-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.offer-card:hover {
+  border-color: var(--gold-highlight);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.offer-img-box {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-gold-subtle);
+}
+
+.offer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.offer-card:hover .offer-img {
+  transform: scale(1.05);
+}
+
+.offer-discount-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #F1BD72 0%, #E6B96F 100%);
+  color: #12090C;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.offer-card-body {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.offer-meta-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.offer-category-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--champagne-gold);
+  text-transform: uppercase;
+}
+
+.offer-expiry {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.offer-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+  line-height: 1.25;
+}
+
+.offer-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+  flex-grow: 1;
+}
+
+/* Promo Code Box */
+.promo-code-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.9rem;
+  background: rgba(18, 9, 12, 0.85);
+  border: 1px dashed var(--border-gold);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.2rem;
+}
+
+.promo-code-text {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold-highlight);
+}
+
+.btn-copy-code {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-xs);
+  background: rgba(230, 185, 111, 0.15);
+  border: 1px solid var(--champagne-gold);
+  color: var(--gold-highlight);
+  transition: all var(--transition-fast);
+}
+
+.btn-copy-code:hover, .btn-copy-code.copied {
+  background: var(--champagne-gold);
+  color: #12090C;
+}
+
+.offer-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.offer-card-actions .btn {
+  flex: 1;
+}
+
+/* 5. How To Redeem Steps */
+.how-to-redeem {
+  margin-bottom: 5rem;
+  padding: 4rem 2rem;
+  background: radial-gradient(circle at 50% 50%, rgba(58, 13, 24, 0.3) 0%, rgba(9, 6, 7, 0.9) 80%);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-gold-subtle);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.step-card:hover {
+  border-color: var(--champagne-gold);
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--champagne-gold);
+  background: radial-gradient(circle, #3A0D18 0%, #12090C 100%);
+  color: var(--gold-highlight);
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  box-shadow: 0 0 15px rgba(230, 185, 111, 0.25);
+}
+
+.step-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 6. FAQ Accordion */
+.faq-section {
+  max-width: 900px;
+  margin: 0 auto 5rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.faq-item.active {
+  border-color: var(--champagne-gold);
+}
+
+.faq-trigger {
+  width: 100%;
+  padding: 1.3rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  background: none;
+}
+
+.faq-trigger:hover {
+  color: var(--gold-highlight);
+}
+
+.faq-icon {
+  font-size: 1.2rem;
+  color: var(--champagne-gold);
+  transition: transform var(--transition-normal);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+  padding: 0 1.6rem;
+}
+
+.faq-item.active .faq-content {
+  max-height: 250px;
+  padding-bottom: 1.4rem;
+}
+
+.faq-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
