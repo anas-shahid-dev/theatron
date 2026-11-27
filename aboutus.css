@@ -1,0 +1,234 @@
+/* ==========================================================================
+   THEATRON CINEMA LOUNGES — About Us Page Stylesheet
+   Tokens:
+     Primary Bg:       #121011 (Deep Obsidian Charcoal)
+     Surface Card:     #181516 (Elevated Dark Espresso)
+     Border Accent:    rgba(212, 175, 106, 0.16)
+     Gold Primary:     #D4AF6A / #C5A059
+     Velvet Burgundy:  #5A1E28 (fill) | #8A2B3B (border) | #3D141B (badge)
+   ========================================================================== */
+
+:root {
+  --bg-obsidian: #121011;
+  --bg-espresso: #181516;
+  --gold-primary: #d4af6a;
+  --gold-brushed: #c5a059;
+  --gold-border: rgba(212, 175, 106, 0.16);
+  --burgundy-fill: #5a1e28;
+  --burgundy-border: #8a2b3b;
+  --burgundy-badge: #3d141b;
+  --text-ivory: #f5f2eb;
+  --text-taupe: #9e9895;
+  --nav-pill-active: #2a1f18;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg-obsidian);
+  color: var(--text-taupe);
+}
+
+.ambient-backdrop {
+  background:
+    radial-gradient(62rem 34rem at 12% -6%, rgba(90, 30, 40, 0.24), transparent 65%),
+    radial-gradient(46rem 28rem at 88% 12%, rgba(212, 175, 106, 0.08), transparent 62%);
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--gold-primary);
+}
+
+.luxury-card {
+  background-color: var(--bg-espresso);
+  border: 1px solid var(--gold-border);
+  border-radius: 16px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.luxury-card:hover {
+  border-color: rgba(212, 175, 106, 0.28);
+}
+
+/* Navigation Pills */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-taupe);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-ivory);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.nav-link-active,
+.nav-link-active:hover {
+  background-color: var(--nav-pill-active);
+  color: var(--gold-primary);
+  border-color: rgba(212, 175, 106, 0.28);
+}
+
+/* Pillar & City Switcher Tabs */
+.pillar-tab,
+.city-tab {
+  padding: 0.55rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-taupe);
+  background-color: var(--bg-espresso);
+  border: 1px solid rgba(212, 175, 106, 0.18);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.city-tab {
+  background-color: var(--bg-obsidian);
+}
+
+.pillar-tab:hover,
+.city-tab:hover {
+  color: var(--text-ivory);
+  border-color: rgba(212, 175, 106, 0.45);
+}
+
+.pillar-tab-active,
+.city-tab-active {
+  background-color: var(--gold-primary);
+  color: var(--bg-obsidian);
+  border-color: var(--gold-primary);
+  font-weight: 600;
+}
+
+/* Heritage Timeline Glowing Nodes */
+.timeline-node {
+  position: absolute;
+  left: -2.18rem;
+  top: 0.2rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: var(--gold-primary);
+  border: 2px solid var(--bg-obsidian);
+  box-shadow: 0 0 14px rgba(212, 175, 106, 0.75);
+}
+
+/* Leadership Bespoke Monogram Crest */
+.monogram-crest {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #3d141b, #121011);
+  border: 1px solid rgba(212, 175, 106, 0.36);
+  box-shadow: inset 0 0 18px rgba(212, 175, 106, 0.08);
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--gold-primary);
+}
+
+/* Sovereign Gold Callout Banner */
+.sovereign-banner {
+  background:
+    radial-gradient(40rem 20rem at 85% 20%, rgba(212, 175, 106, 0.14), transparent 60%),
+    linear-gradient(125deg, #3d141b 0%, #241215 48%, #141112 100%);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Inputs */
+.luxury-input {
+  width: 100%;
+  border-radius: 12px;
+  background-color: var(--bg-obsidian);
+  border: 1px solid rgba(212, 175, 106, 0.22);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.875rem;
+  color: var(--text-ivory);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.luxury-input:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 106, 0.16);
+}
+
+/* Footer Links */
+.footer-link {
+  color: var(--text-taupe);
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--gold-primary);
+}
+
+/* Subtle content reveal animation when switching tabs */
+@keyframes panelFade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel-reveal {
+  animation: panelFade 0.25s ease forwards;
+}
+
+/* Toast Entrance Animation */
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-item {
+  animation: toastSlideIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Custom Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121011;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d2628;
+  border-radius: 9999px;
+  border: 2px solid #121011;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a1e28;
+}

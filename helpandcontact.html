@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help &amp; Contact — THEATRON Cinema Lounges</title>
+
+  <!-- Google Fonts: Cinzel (Display Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#121011',
+            espresso: '#181516',
+            gold: {
+              DEFAULT: '#D4AF6A',
+              brushed: '#C5A059',
+              muted: 'rgba(212, 175, 106, 0.16)',
+            },
+            burgundy: {
+              DEFAULT: '#5A1E28',
+              border: '#8A2B3B',
+              badge: '#3D141B',
+            },
+            ivory: '#F5F2EB',
+            taupe: '#9E9895',
+            navpill: '#2A1F18',
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'Playfair Display', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="helpandcontact.css" />
+</head>
+<body class="bg-[#121011] text-[#9E9895] font-sans antialiased selection:bg-[#D4AF6A]/25 selection:text-[#F5F2EB]">
+  <!-- Ambient Architectural Vignette -->
+  <div class="ambient-backdrop pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
+
+  <!-- Persistent Top Navigation Bar -->
+  <header class="sticky top-0 z-40 border-b border-[rgba(212,175,106,0.14)] bg-[#121011]/90 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
+      <!-- Left: Brand Emblem & Wordmark -->
+      <a href="#top" class="group flex items-center gap-3.5 focus:outline-none">
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-xl border border-[#8A2B3B] bg-[#5A1E28] shadow-[0_0_24px_rgba(90,30,40,0.45)] transition-transform duration-300 group-hover:scale-105"
+        >
+          <span class="font-serif text-xl font-semibold tracking-wider text-[#D4AF6A]">T</span>
+        </div>
+        <div class="flex flex-col leading-none">
+          <span class="font-serif text-base font-semibold tracking-[0.26em] text-[#F5F2EB] sm:text-lg">
+            THEATRON
+          </span>
+          <span class="mt-1 text-[9.5px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">
+            CINEMA LOUNGES
+          </span>
+        </div>
+      </a>
+
+      <!-- Center: Desktop Navigation Links -->
+      <nav aria-label="Primary Navigation" class="hidden items-center gap-1 lg:flex">
+        <a href="#home" data-nav="Home" class="nav-link">Home</a>
+        <a href="#movies" data-nav="Movies" class="nav-link">Movies</a>
+        <a href="comingsoon.html" data-nav="Coming Soon" class="nav-link">Coming Soon</a>
+        <a href="#cinemas" data-nav="Cinemas" class="nav-link">Cinemas</a>
+        <a href="#showtimes" data-nav="Showtimes" class="nav-link">Showtimes</a>
+        <a href="aboutus.html" data-nav="About Us" class="nav-link">About Us</a>
+        <a
+          href="#help-contact"
+          data-nav="Help & Contact"
+          aria-current="page"
+          class="nav-link nav-link-active"
+        >
+          Help &amp; Contact
+        </a>
+      </nav>
+
+      <!-- Right: User Controls -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Tickets Pill Button -->
+        <button
+          id="ticketsBtn"
+          type="button"
+          class="group flex items-center gap-2 rounded-full border border-[rgba(212,175,106,0.22)] bg-[#181516] px-3.5 py-2 text-xs font-medium text-[#F5F2EB] transition-all duration-200 hover:border-[#D4AF6A]/60 hover:bg-[#211C1D]"
+          aria-label="Open My Tickets"
+        >
+          <svg class="h-4 w-4 text-[#D4AF6A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+            <path d="M13 5v2" />
+            <path d="M13 17v2" />
+            <path d="M13 11v2" />
+          </svg>
+          <span class="hidden sm:inline">Tickets</span>
+          <span
+            class="inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[#D4AF6A] px-1.5 text-[11px] font-bold text-[#121011]"
+          >
+            2
+          </span>
+        </button>
+
+        <!-- Profile Pill Button -->
+        <button
+          id="profileBtn"
+          type="button"
+          class="flex items-center gap-2.5 rounded-full border border-[rgba(212,175,106,0.22)] bg-[#181516] py-1.5 pl-1.5 pr-3.5 text-xs font-medium text-[#F5F2EB] transition-all duration-200 hover:border-[#D4AF6A]/60 hover:bg-[#211C1D]"
+          aria-label="Open Alexander's VIP Gold Membership Profile"
+        >
+          <span
+            class="flex h-7 w-7 items-center justify-center rounded-full border border-[#D4AF6A]/50 bg-[#3D141B] font-serif text-xs font-semibold text-[#D4AF6A]"
+          >
+            A
+          </span>
+          <span class="hidden sm:inline">Alexander</span>
+          <svg class="hidden h-3.5 w-3.5 text-[#9E9895] sm:inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[rgba(212,175,106,0.2)] bg-[#181516] text-[#F5F2EB] transition hover:border-[#D4AF6A]/60 lg:hidden"
+          aria-expanded="false"
+          aria-controls="mobileNavDrawer"
+          aria-label="Toggle Navigation Menu"
+        >
+          <svg id="mobileMenuIconOpen" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <svg id="mobileMenuIconClose" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNavDrawer" class="hidden border-t border-[rgba(212,175,106,0.14)] bg-[#141112] px-4 py-4 lg:hidden">
+      <nav aria-label="Mobile Navigation" class="grid grid-cols-2 gap-2">
+        <a href="#home" data-nav="Home" class="nav-link justify-center">Home</a>
+        <a href="#movies" data-nav="Movies" class="nav-link justify-center">Movies</a>
+        <a href="comingsoon.html" data-nav="Coming Soon" class="nav-link justify-center">Coming Soon</a>
+        <a href="#cinemas" data-nav="Cinemas" class="nav-link justify-center">Cinemas</a>
+        <a href="#showtimes" data-nav="Showtimes" class="nav-link justify-center">Showtimes</a>
+        <a href="aboutus.html" data-nav="About Us" class="nav-link justify-center">About Us</a>
+        <a href="#help-contact" data-nav="Help & Contact" class="nav-link nav-link-active col-span-2 justify-center">
+          Help &amp; Contact
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="relative z-10 mx-auto max-w-7xl px-4 pb-20 pt-10 sm:px-6 sm:pt-14 lg:px-8">
+    <!-- 3. Hero Section -->
+    <section id="help-contact" class="border-b border-white/10 pb-10">
+      <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <div class="max-w-2xl">
+          <p class="eyebrow">CUSTOMER SUPPORT &amp; BOX OFFICE</p>
+          <h1 class="mt-3 font-serif text-3xl font-semibold uppercase tracking-[0.14em] text-[#F5F2EB] sm:text-5xl">
+            HELP &amp; CONTACT
+          </h1>
+          <p class="mt-4 text-sm leading-relaxed text-[#9E9895] sm:text-base">
+            24/7 friendly support for VIP Gold Membership perks, seat reservations, and private event questions.
+          </p>
+        </div>
+
+        <!-- Right Status Pill -->
+        <div class="flex shrink-0 items-start lg:items-end">
+          <div
+            class="inline-flex items-center gap-3 rounded-full border border-[#8A2B3B] bg-[#3D141B]/85 px-4 py-2.5 shadow-[0_8px_28px_rgba(61,20,27,0.45)]"
+          >
+            <span class="relative flex h-2.5 w-2.5" aria-hidden="true">
+              <span class="status-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-[#D4AF6A]/40"></span>
+            </span>
+            <span class="text-xs font-medium tracking-wide text-[#F5F2EB]">
+              Support Online <span class="mx-1 text-[#D4AF6A]">•</span> Avg. Reply &lt; 4 Mins
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Three-Column Direct Support Channels -->
+    <section aria-label="Direct Support Channels" class="mt-10">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <!-- Channel Card 1 -->
+        <article class="luxury-card flex flex-col justify-between p-6 sm:p-7">
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="icon-badge">
+                <svg class="h-5 w-5 text-[#D4AF6A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <span class="rounded-full border border-[#8A2B3B]/80 bg-[#3D141B] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#D4AF6A]">
+                Direct Line
+              </span>
+            </div>
+
+            <h2 class="mt-5 font-serif text-base font-semibold uppercase tracking-[0.12em] text-[#F5F2EB]">
+              24/7 Box Office Support
+            </h2>
+            <p class="mt-2.5 text-sm leading-relaxed text-[#9E9895]">
+              Call anytime for Luxury Recliner Seat changes, ticket holds, or help if you are running late to your movie.
+            </p>
+          </div>
+
+          <div class="mt-6 border-t border-[rgba(212,175,106,0.14)] pt-5">
+            <p class="font-mono text-sm font-medium tracking-wider text-[#F5F2EB]">
+              +1 (800) 555-THEATRON
+            </p>
+            <button
+              type="button"
+              data-copy="+1 (800) 555-THEATRON"
+              data-label="Box Office Support number"
+              class="copy-btn mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[rgba(212,175,106,0.28)] bg-[#121011] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#D4AF6A] transition hover:border-[#D4AF6A] hover:bg-[#D4AF6A] hover:text-[#121011]"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+              </svg>
+              <span>Copy Number</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Channel Card 2 -->
+        <article class="luxury-card flex flex-col justify-between p-6 sm:p-7">
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="icon-badge">
+                <svg class="h-5 w-5 text-[#D4AF6A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M8 22h8" />
+                  <path d="M12 15v7" />
+                  <path d="M7 2h10l1 7a6 6 0 0 1-12 0Z" />
+                </svg>
+              </div>
+              <span class="rounded-full border border-[#8A2B3B]/80 bg-[#3D141B] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#D4AF6A]">
+                Food &amp; Drinks
+              </span>
+            </div>
+
+            <h2 class="mt-5 font-serif text-base font-semibold uppercase tracking-[0.12em] text-[#F5F2EB]">
+              In-Seat Food &amp; Drinks
+            </h2>
+            <p class="mt-2.5 text-sm leading-relaxed text-[#9E9895]">
+              Customize your pre-movie meal, share food allergy requests, or ask about our drink and wine menu.
+            </p>
+          </div>
+
+          <div class="mt-6 border-t border-[rgba(212,175,106,0.14)] pt-5">
+            <p class="truncate text-sm font-medium tracking-wide text-[#F5F2EB]">
+              culinary@theatronlounges.com
+            </p>
+            <button
+              type="button"
+              data-copy="culinary@theatronlounges.com"
+              data-label="In-Seat Food &amp; Drinks email"
+              class="copy-btn mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[rgba(212,175,106,0.28)] bg-[#121011] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#D4AF6A] transition hover:border-[#D4AF6A] hover:bg-[#D4AF6A] hover:text-[#121011]"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+              </svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Channel Card 3 -->
+        <article class="luxury-card flex flex-col justify-between p-6 sm:p-7">
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="icon-badge">
+                <svg class="h-5 w-5 text-[#D4AF6A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m12 3 1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3Z" />
+                </svg>
+              </div>
+              <span class="rounded-full border border-[#8A2B3B]/80 bg-[#3D141B] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#D4AF6A]">
+                Private Events
+              </span>
+            </div>
+
+            <h2 class="mt-5 font-serif text-base font-semibold uppercase tracking-[0.12em] text-[#F5F2EB]">
+              Private Theater Rentals &amp; Events
+            </h2>
+            <p class="mt-2.5 text-sm leading-relaxed text-[#9E9895]">
+              Book an entire IMAX Laser theater for private screenings, birthday celebrations, or corporate events.
+            </p>
+          </div>
+
+          <div class="mt-6 border-t border-[rgba(212,175,106,0.14)] pt-5">
+            <p class="truncate text-sm font-medium tracking-wide text-[#F5F2EB]">
+              premieres@theatronlounges.com
+            </p>
+            <button
+              type="button"
+              data-copy="premieres@theatronlounges.com"
+              data-label="Private Events email"
+              class="copy-btn mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[rgba(212,175,106,0.28)] bg-[#121011] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#D4AF6A] transition hover:border-[#D4AF6A] hover:bg-[#D4AF6A] hover:text-[#121011]"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+              </svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. Main Split Section (7 cols / 5 cols) -->
+    <section aria-label="Send Us a Message and My Tickets" class="mt-10 grid grid-cols-1 gap-7 lg:grid-cols-12">
+      <!-- Left Column (7 cols): Send Us a Message Form -->
+      <div class="lg:col-span-7">
+        <div class="luxury-card h-full p-4 sm:p-6">
+          <div class="inner-framed-panel h-full rounded-xl border border-[rgba(212,175,106,0.14)] bg-[#141112]/70 p-5 sm:p-7">
+            <div class="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-5">
+              <div>
+                <p class="eyebrow">DIRECT SUPPORT</p>
+                <h2 class="mt-2 font-serif text-xl font-semibold uppercase tracking-[0.12em] text-[#F5F2EB] sm:text-2xl">
+                  SEND US A MESSAGE
+                </h2>
+              </div>
+              <span class="rounded-full border border-[rgba(212,175,106,0.25)] bg-[#181516] px-3 py-1 text-[11px] font-medium text-[#D4AF6A]">
+                Fast Direct Reply
+              </span>
+            </div>
+
+            <!-- Interactive Form State -->
+            <form id="conciergeForm" class="mt-6 space-y-6" novalidate>
+              <!-- Category Selector Pills -->
+              <div>
+                <label class="block text-[11px] font-semibold uppercase tracking-[0.2em] text-[#D4AF6A]">
+                  How Can We Help?
+                </label>
+                <div id="categoryPills" class="mt-3 flex flex-wrap gap-2" role="radiogroup" aria-label="How Can We Help?">
+                  <button type="button" data-category="Ticket & Seat Changes" class="category-pill category-pill-active" aria-checked="true" role="radio">
+                    Ticket &amp; Seat Changes
+                  </button>
+                  <button type="button" data-category="In-Seat Food & Drinks" class="category-pill" aria-checked="false" role="radio">
+                    In-Seat Food &amp; Drinks
+                  </button>
+                  <button type="button" data-category="VIP Gold Membership" class="category-pill" aria-checked="false" role="radio">
+                    VIP Gold Membership
+                  </button>
+                  <button type="button" data-category="Private Theater Rentals" class="category-pill" aria-checked="false" role="radio">
+                    Private Theater Rentals
+                  </button>
+                  <button type="button" data-category="Technical / Accessibility" class="category-pill" aria-checked="false" role="radio">
+                    Technical / Accessibility
+                  </button>
+                </div>
+              </div>
+
+              <!-- Grid Inputs -->
+              <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="patronName" class="field-label">Full Name</label>
+                  <input
+                    id="patronName"
+                    name="patronName"
+                    type="text"
+                    required
+                    value="Alexander Vance"
+                    placeholder="Alexander Vance"
+                    class="luxury-input"
+                  />
+                </div>
+                <div>
+                  <label for="patronEmail" class="field-label">Email Address</label>
+                  <input
+                    id="patronEmail"
+                    name="patronEmail"
+                    type="email"
+                    required
+                    value="a.vance@sovereignvault.com"
+                    placeholder="you@example.com"
+                    class="luxury-input"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="flagshipLocation" class="field-label">Cinema Location</label>
+                  <div class="relative">
+                    <select id="flagshipLocation" name="flagshipLocation" class="luxury-input appearance-none pr-10">
+                      <option value="Manhattan — Fifth Avenue Flagship">Manhattan — Fifth Avenue Flagship</option>
+                      <option value="Beverly Hills — Rodeo Vault">Beverly Hills — Rodeo Vault</option>
+                      <option value="London — Mayfair House">London — Mayfair House</option>
+                      <option value="Dubai — DIFC Pavilion">Dubai — DIFC Pavilion</option>
+                    </select>
+                    <svg class="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#D4AF6A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <label for="reservationCode" class="field-label">
+                    Booking ID <span class="text-[#9E9895]/70">(Optional)</span>
+                  </label>
+                  <input
+                    id="reservationCode"
+                    name="reservationCode"
+                    type="text"
+                    placeholder="e.g. THT-2026-89"
+                    class="luxury-input uppercase placeholder:normal-case"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="conciergeMessage" class="field-label">Your Message</label>
+                <textarea
+                  id="conciergeMessage"
+                  name="conciergeMessage"
+                  rows="4"
+                  required
+                  placeholder="Tell us about your seat changes, food & drink requests, valet arrival time, or private theater event..."
+                  class="luxury-input resize-none"
+                ></textarea>
+              </div>
+
+              <p id="formErrorMsg" class="hidden rounded-xl border border-[#8A2B3B] bg-[#3D141B]/70 px-4 py-2.5 text-xs text-[#F5F2EB]"></p>
+
+              <div class="flex flex-col items-stretch justify-between gap-4 pt-1 sm:flex-row sm:items-center">
+                <p class="text-xs text-[#9E9895]">
+                  Sent directly to our cinema support team.
+                </p>
+                <button
+                  type="submit"
+                  class="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#D4AF6A] px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#121011] shadow-[0_10px_30px_rgba(212,175,106,0.22)] transition hover:bg-[#e0be7c] active:scale-[0.99]"
+                >
+                  <span>Send Message</span>
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+
+            <!-- Confirmation Card State (Hidden until submit) -->
+            <div id="conciergeConfirmation" class="hidden mt-6 space-y-6 py-4">
+              <div class="rounded-2xl border border-[#D4AF6A]/40 bg-[#121011] p-6 sm:p-7">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                  <span class="inline-flex items-center gap-2 rounded-full border border-[#8A2B3B] bg-[#3D141B] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#D4AF6A]">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    Message Sent
+                  </span>
+                  <span class="text-xs text-[#9E9895]">
+                    Support Request ID:
+                    <span id="dossierRefId" class="font-mono text-sm font-semibold tracking-widest text-[#D4AF6A]">
+                      #THT-CON-9042
+                    </span>
+                  </span>
+                </div>
+
+                <h3 class="mt-5 font-serif text-xl font-semibold uppercase tracking-[0.12em] text-[#F5F2EB]">
+                  WE RECEIVED YOUR MESSAGE
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-[#9E9895]">
+                  Your request has been sent with priority to our team at
+                  <span id="confirmLocation" class="font-medium text-[#F5F2EB]">Manhattan — Fifth Avenue Flagship</span>.
+                  Someone will reach out to you within 4 minutes.
+                </p>
+
+                <dl class="mt-6 grid grid-cols-1 gap-4 border-t border-white/10 pt-5 text-xs sm:grid-cols-2">
+                  <div>
+                    <dt class="uppercase tracking-[0.18em] text-[#9E9895]">Name</dt>
+                    <dd id="confirmPatron" class="mt-1 font-medium text-[#F5F2EB]">Alexander Vance</dd>
+                  </div>
+                  <div>
+                    <dt class="uppercase tracking-[0.18em] text-[#9E9895]">Topic</dt>
+                    <dd id="confirmCategory" class="mt-1 font-medium text-[#D4AF6A]">Ticket &amp; Seat Changes</dd>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <dt class="uppercase tracking-[0.18em] text-[#9E9895]">Your Message</dt>
+                    <dd id="confirmSnippet" class="mt-1 italic text-[#9E9895]"></dd>
+                  </div>
+                </dl>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <button
+                    id="resetConciergeFormBtn"
+                    type="button"
+                    class="inline-flex items-center justify-center gap-2 rounded-xl border border-[#D4AF6A]/40 bg-[#181516] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#D4AF6A] transition hover:bg-[#D4AF6A] hover:text-[#121011]"
+                  >
+                    Send Another Message
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column (5 cols): My Tickets Lookup & Cinema Hours -->
+      <div class="flex flex-col gap-7 lg:col-span-5">
+        <!-- Card 1: Instant Reservation Lookup -->
+        <section class="luxury-card p-6 sm:p-7" aria-labelledby="ticketLookupHeading">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="eyebrow">MY TICKETS</p>
+              <h2 id="ticketLookupHeading" class="mt-2 font-serif text-lg font-semibold uppercase tracking-[0.12em] text-[#F5F2EB]">
+                CHECK YOUR BOOKING
+              </h2>
+            </div>
+            <div class="icon-badge shrink-0">
+              <svg class="h-4 w-4 text-[#D4AF6A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </div>
+          </div>
+
+          <form id="ticketLookupForm" class="mt-5 flex gap-2.5">
+            <label for="bookingIdInput" class="sr-only">Booking ID</label>
+            <input
+              id="bookingIdInput"
+              type="text"
+              value="THT-2026-89"
+              placeholder="Enter Booking ID (e.g. THT-2026-89)"
+              class="luxury-input flex-1 uppercase placeholder:normal-case"
+            />
+            <button
+              type="submit"
+              class="shrink-0 rounded-xl bg-[#D4AF6A] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#121011] transition hover:bg-[#e0be7c]"
+            >
+              Look Up
+            </button>
+          </form>
+
+          <!-- Quick-test clickable chips -->
+          <div class="mt-3.5 flex flex-wrap items-center gap-2">
+            <span class="text-[11px] uppercase tracking-[0.16em] text-[#9E9895]">Sample IDs:</span>
+            <button type="button" data-booking-chip="THT-2026-89" class="vault-chip vault-chip-active">
+              THT-2026-89
+            </button>
+            <button type="button" data-booking-chip="THT-2026-14" class="vault-chip">
+              THT-2026-14
+            </button>
+          </div>
+
+          <!-- Lookup Result Panel -->
+          <div id="ticketLookupResult" class="mt-5 rounded-xl border border-[rgba(212,175,106,0.2)] bg-[#121011] p-4 sm:p-5">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </section>
+
+        <!-- Card 2: Cinema Hours + Lounge Visual Placeholder -->
+        <section class="luxury-card flex-1 p-6 sm:p-7" aria-labelledby="flagshipHoursHeading">
+          <p class="eyebrow">OPENING HOURS</p>
+          <h2 id="flagshipHoursHeading" class="mt-2 font-serif text-lg font-semibold uppercase tracking-[0.12em] text-[#F5F2EB]">
+            CINEMA &amp; LOUNGE HOURS
+          </h2>
+
+          <!-- Architectural Lounge Image Slot (Current SVG Luxury Placeholder) -->
+          <figure class="mt-4 overflow-hidden rounded-xl border border-[rgba(212,175,106,0.18)] bg-[#121011]">
+            <div class="relative aspect-[16/7] w-full overflow-hidden">
+              <img
+                src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 350'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23181516'/%3E%3Cstop offset='55%25' stop-color='%23281217'/%3E%3Cstop offset='100%25' stop-color='%23121011'/%3E%3C/linearGradient%3E%3CradialGradient id='glow' cx='50%25' cy='40%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%23D4AF6A' stop-opacity='0.22'/%3E%3Cstop offset='100%25' stop-color='%23121011' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='350' fill='url(%23bg)'/%3E%3Crect width='800' height='350' fill='url(%23glow)'/%3E%3Cpath d='M90 290 V135 C90 75 180 45 400 45 C620 45 710 75 710 135 V290' fill='none' stroke='%23D4AF6A' stroke-opacity='0.35' stroke-width='1.5'/%3E%3Cpath d='M145 290 V155 C145 105 220 82 400 82 C580 82 655 105 655 155 V290' fill='none' stroke='%238A2B3B' stroke-opacity='0.75' stroke-width='1.5'/%3E%3Crect x='230' y='125' width='340' height='115' rx='6' fill='%23121011' stroke='%23D4AF6A' stroke-opacity='0.45' stroke-width='1.2'/%3E%3Ctext x='400' y='175' text-anchor='middle' fill='%23D4AF6A' font-family='Georgia, serif' font-size='16' letter-spacing='7'%3ETHEATRON LOUNGE%3C/text%3E%3Ctext x='400' y='204' text-anchor='middle' fill='%239E9895' font-family='sans-serif' font-size='10' letter-spacing='4'%3ECINEMA LOUNGE PREVIEW PLACEHOLDER%3C/text%3E%3Cline x1='60' y1='290' x2='740' y2='290' stroke='%23D4AF6A' stroke-opacity='0.25' stroke-width='1'/%3E%3C/svg%3E"
+                alt="THEATRON Fifth Avenue Cinema Lounge Placeholder"
+                class="h-full w-full object-cover"
+              />
+              <span class="absolute bottom-2.5 right-2.5 rounded-md border border-[rgba(212,175,106,0.3)] bg-[#121011]/85 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.16em] text-[#D4AF6A]">
+                Fifth Ave Lounge • Preview
+              </span>
+            </div>
+          </figure>
+
+          <!-- Clean Key-Value Hours Table -->
+          <dl class="mt-5 divide-y divide-white/10 text-sm">
+            <div class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-[#9E9895]">Box Office Hours</dt>
+              <dd class="text-right font-medium text-[#F5F2EB]">10:00 AM – 2:30 AM Daily</dd>
+            </div>
+            <div class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-[#9E9895]">Food &amp; Drink Last Order</dt>
+              <dd class="text-right font-medium text-[#F5F2EB]">30 mins before movie ends</dd>
+            </div>
+            <div class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-[#9E9895]">VIP Valet Drop-Off</dt>
+              <dd class="text-right font-medium text-[#D4AF6A]">Open 24/7</dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+    </section>
+
+    <!-- 6. Filterable FAQ Accordion -->
+    <section id="faq" class="mt-16 border-t border-white/10 pt-14" aria-labelledby="faqHeading">
+      <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <div>
+          <p class="eyebrow">COMMON QUESTIONS</p>
+          <h2 id="faqHeading" class="mt-2.5 font-serif text-2xl font-semibold uppercase tracking-[0.14em] text-[#F5F2EB] sm:text-3xl">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div id="faqFilterTabs" class="flex flex-wrap gap-2" role="tablist" aria-label="FAQ Topic Filters">
+          <button type="button" data-faq-filter="All Topics" class="faq-tab faq-tab-active" role="tab" aria-selected="true">
+            All Topics
+          </button>
+          <button type="button" data-faq-filter="Tickets & Refunds" class="faq-tab" role="tab" aria-selected="false">
+            Tickets &amp; Refunds
+          </button>
+          <button type="button" data-faq-filter="In-Seat Food & Drinks" class="faq-tab" role="tab" aria-selected="false">
+            In-Seat Food &amp; Drinks
+          </button>
+          <button type="button" data-faq-filter="VIP Gold Membership" class="faq-tab" role="tab" aria-selected="false">
+            VIP Gold Membership
+          </button>
+          <button type="button" data-faq-filter="Screen & Sound Tech" class="faq-tab" role="tab" aria-selected="false">
+            Screen &amp; Sound Tech
+          </button>
+        </div>
+      </div>
+
+      <!-- Accordion Container -->
+      <div id="faqAccordionList" class="mt-8 grid grid-cols-1 gap-4">
+        <!-- Rendered & managed dynamically by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. Persistent 4-Column Footer -->
+  <footer class="relative z-10 border-t border-white/10 bg-[#121011]">
+    <div class="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12">
+        <!-- Col 1: Brand & Architectural Badges -->
+        <div class="lg:col-span-4">
+          <a href="#top" class="inline-flex items-center gap-3">
+            <span class="flex h-9 w-9 items-center justify-center rounded-xl border border-[#8A2B3B] bg-[#5A1E28]">
+              <span class="font-serif text-lg font-semibold text-[#D4AF6A]">T</span>
+            </span>
+            <span class="font-serif text-lg font-semibold tracking-[0.24em] text-[#F5F2EB]">
+              THEATRON
+            </span>
+          </a>
+          <p class="mt-4 max-w-sm text-xs leading-relaxed text-[#9E9895]">
+            Luxury movie theaters designed for comfort and unforgettable film nights. Featuring IMAX Laser screens, soundproof maroon velvet rooms, and in-seat food &amp; drink service.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2.5">
+            <span class="rounded-md border border-[rgba(212,175,106,0.28)] bg-[#181516] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF6A]">
+              DOLBY ATMOS
+            </span>
+            <span class="rounded-md border border-[rgba(212,175,106,0.28)] bg-[#181516] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF6A]">
+              IMAX LASER
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 2: EXPLORE CINEMA -->
+        <div class="lg:col-span-2">
+          <h3 class="eyebrow">EXPLORE CINEMA</h3>
+          <ul class="mt-4 space-y-2.5 text-xs">
+            <li><a href="#movies" class="footer-link">Now Playing</a></li>
+            <li><a href="comingsoon.html" class="footer-link">Upcoming Premieres</a></li>
+            <li><a href="aboutus.html#global-flagships" class="footer-link">Cinema Locations</a></li>
+            <li><a href="#showtimes" class="footer-link">Showtimes &amp; Formats</a></li>
+            <li><a href="#faq" class="footer-link">In-Seat Food &amp; Drinks</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: MEMBER SERVICES -->
+        <div class="lg:col-span-3">
+          <h3 class="eyebrow">MEMBER SERVICES</h3>
+          <ul class="mt-4 space-y-2.5 text-xs">
+            <li><button type="button" data-action="profile" class="footer-link text-left">VIP Gold Membership Profile</button></li>
+            <li><button type="button" data-action="tickets" class="footer-link text-left">My Tickets</button></li>
+            <li><button type="button" data-action="signin" class="footer-link text-left">Member Sign In</button></li>
+            <li><button type="button" data-action="apply" class="footer-link text-left">Apply for Membership</button></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: OPERATIONS & SUPPORT -->
+        <div class="lg:col-span-3">
+          <h3 class="eyebrow">OPERATIONS &amp; SUPPORT</h3>
+          <p class="mt-4 text-xs leading-relaxed text-[#9E9895]">
+            24/7 Box Office &amp; Theater Support:
+          </p>
+          <p class="mt-2 font-mono text-sm font-bold tracking-wider text-[#F5F2EB]">
+            +1 (800) 555-THEATRON
+          </p>
+          <button
+            id="adminPanelBtn"
+            type="button"
+            class="mt-5 flex w-full items-center justify-center gap-2 rounded-xl border border-[#8A2B3B] bg-[#3D141B] px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#D4AF6A] transition hover:border-[#D4AF6A] hover:bg-[#5A1E28]"
+          >
+            <span>OPEN ADMIN CONTROL PANEL</span>
+            <span aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center">
+        <p class="text-[#9E9895]">
+          &copy; 2026 THEATRON Luxury Cinemas Group. All Rights Reserved.
+        </p>
+        <div class="flex flex-wrap items-center gap-5">
+          <button type="button" data-action="architecture" class="font-medium text-[#D4AF6A] transition hover:underline">
+            View 18-Page Architecture
+          </button>
+          <button type="button" data-action="privacy" class="text-[#9E9895] transition hover:text-[#F5F2EB]">
+            Privacy Policy
+          </button>
+          <button type="button" data-action="terms" class="text-[#9E9895] transition hover:text-[#F5F2EB]">
+            Terms &amp; Rules
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive My Tickets / Profile Modal -->
+  <div
+    id="conciergeModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+    <div class="luxury-card w-full max-w-lg p-6 sm:p-7">
+      <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
+        <div>
+          <p id="modalEyebrow" class="eyebrow">MY TICKETS</p>
+          <h3 id="modalTitle" class="mt-1.5 font-serif text-lg font-semibold uppercase tracking-[0.12em] text-[#F5F2EB]">
+            THEATRON SUPPORT
+          </h3>
+        </div>
+        <button
+          id="closeModalBtn"
+          type="button"
+          class="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-[#121011] text-[#9E9895] transition hover:border-[#D4AF6A]/60 hover:text-[#F5F2EB]"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+      </div>
+      <div id="modalBody" class="mt-5 text-sm text-[#9E9895]"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div
+    id="toastRegion"
+    aria-live="polite"
+    aria-atomic="true"
+    class="pointer-events-none fixed bottom-6 right-6 z-50 flex max-w-sm flex-col gap-2.5"
+  ></div>
+
+  <!-- Application Script -->
+  <script src="helpandcontact.js"></script>
+</body>
+</html>

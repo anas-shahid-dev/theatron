@@ -1,0 +1,282 @@
+/* ==========================================================================
+   THEATRON CINEMA LOUNGES — Ultra-Luxury Dark Cinema Design System
+   Tokens:
+     Primary Bg:       #121011 (Deep Obsidian Charcoal)
+     Surface Card:     #181516 (Elevated Dark Espresso)
+     Border Accent:    rgba(212, 175, 106, 0.16)
+     Gold Primary:     #D4AF6A / #C5A059
+     Velvet Burgundy:  #5A1E28 (fill) | #8A2B3B (border) | #3D141B (badge)
+   ========================================================================== */
+
+:root {
+  --bg-obsidian: #121011;
+  --bg-espresso: #181516;
+  --gold-primary: #d4af6a;
+  --gold-brushed: #c5a059;
+  --gold-border: rgba(212, 175, 106, 0.16);
+  --burgundy-fill: #5a1e28;
+  --burgundy-border: #8a2b3b;
+  --burgundy-badge: #3d141b;
+  --text-ivory: #f5f2eb;
+  --text-taupe: #9e9895;
+  --nav-pill-active: #2a1f18;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg-obsidian);
+  color: var(--text-taupe);
+}
+
+/* Custom subtle ambient radial glow */
+.ambient-backdrop {
+  background:
+    radial-gradient(60rem 32rem at 15% -5%, rgba(90, 30, 40, 0.22), transparent 65%),
+    radial-gradient(48rem 28rem at 88% 8%, rgba(212, 175, 106, 0.08), transparent 60%);
+}
+
+/* Eyebrow typography token */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--gold-primary);
+}
+
+/* Elevated Espresso Card with 16px rounded corners & thin gold/taupe border */
+.luxury-card {
+  background-color: var(--bg-espresso);
+  border: 1px solid var(--gold-border);
+  border-radius: 16px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.luxury-card:hover {
+  border-color: rgba(212, 175, 106, 0.28);
+}
+
+/* Icon Badge inside channel & lookup cards */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background-color: #121011;
+  border: 1px solid rgba(212, 175, 106, 0.24);
+}
+
+/* Top Navigation Links */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.95rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-taupe);
+  border: 1px solid transparent;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-ivory);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.nav-link-active,
+.nav-link-active:hover {
+  background-color: var(--nav-pill-active);
+  color: var(--gold-primary);
+  border-color: rgba(212, 175, 106, 0.28);
+}
+
+/* Status Pill Pulse */
+@keyframes conciergePing {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  75%,
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+.status-ping {
+  animation: conciergePing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Form Labels & Obsidian Inputs */
+.field-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-ivory);
+}
+
+.luxury-input {
+  width: 100%;
+  border-radius: 12px;
+  background-color: var(--bg-obsidian);
+  border: 1px solid rgba(212, 175, 106, 0.2);
+  padding: 0.75rem 0.95rem;
+  font-size: 0.875rem;
+  color: var(--text-ivory);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.luxury-input::placeholder {
+  color: rgba(158, 152, 149, 0.6);
+}
+
+.luxury-input:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 106, 0.16);
+}
+
+/* Category Selector Pills */
+.category-pill {
+  padding: 0.5rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-taupe);
+  background-color: var(--bg-obsidian);
+  border: 1px solid rgba(212, 175, 106, 0.18);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.category-pill:hover {
+  color: var(--text-ivory);
+  border-color: rgba(212, 175, 106, 0.45);
+}
+
+.category-pill-active {
+  background-color: var(--burgundy-badge);
+  color: var(--gold-primary);
+  border-color: var(--burgundy-border);
+  box-shadow: 0 0 0 1px rgba(212, 175, 106, 0.22);
+}
+
+/* Ticket Vault Quick Chips */
+.vault-chip {
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-taupe);
+  background-color: #121011;
+  border: 1px solid rgba(212, 175, 106, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.vault-chip:hover {
+  color: var(--gold-primary);
+  border-color: rgba(212, 175, 106, 0.5);
+}
+
+.vault-chip-active {
+  background-color: var(--burgundy-badge);
+  color: var(--gold-primary);
+  border-color: var(--burgundy-border);
+}
+
+/* FAQ Filter Tabs */
+.faq-tab {
+  padding: 0.5rem 0.95rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-taupe);
+  background-color: var(--bg-espresso);
+  border: 1px solid rgba(212, 175, 106, 0.16);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.faq-tab:hover {
+  color: var(--text-ivory);
+  border-color: rgba(212, 175, 106, 0.4);
+}
+
+.faq-tab-active {
+  background-color: var(--gold-primary);
+  color: var(--bg-obsidian);
+  border-color: var(--gold-primary);
+  font-weight: 600;
+}
+
+/* Smooth Accordion Transition using CSS Grid Row Trick */
+.faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item[data-open="true"] .faq-answer-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+}
+
+/* Footer Links */
+.footer-link {
+  color: var(--text-taupe);
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--gold-primary);
+}
+
+/* Toast Entrance Animation */
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-item {
+  animation: toastSlideIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Custom Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121011;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d2628;
+  border-radius: 9999px;
+  border: 2px solid #121011;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a1e28;
+}
